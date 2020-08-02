@@ -7,8 +7,10 @@ def wholeChapter(chapter_id):
 
     verses_text = [] 
 
-    for content in db_chapter['content']:
-        for item in content['items']:
-             verses_text.append(item['text'])
+    for record in db_chapter:
+        for content in record['content']:
+            for item in content['items']:
+                verses_text.append(item['text'])
 
     return ''.join(verses_text)
+
