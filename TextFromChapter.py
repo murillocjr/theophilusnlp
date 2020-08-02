@@ -1,10 +1,13 @@
 import json
+import c_a_parameters_bible as pb
+from tinydb import TinyDB, Query
 
-def wholeChapter(chapter_dict):
+def wholeChapter(chapter_id):
+    db_chapter = TinyDB(pb.BIBLE_ID + '/e_c_db_'+pb.BIBLE_ID+'_'+ chapter_id +'.json')
 
     verses_text = [] 
 
-    for content in chapter_dict['data']['content']:
+    for content in db_chapter['content']:
         for item in content['items']:
              verses_text.append(item['text'])
 
