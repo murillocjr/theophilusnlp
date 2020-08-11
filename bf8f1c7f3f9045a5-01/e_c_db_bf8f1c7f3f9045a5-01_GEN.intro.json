@@ -1,0 +1,1 @@
+{"_default": {"1": {"id": "GEN.intro", "bibleId": "bf8f1c7f3f9045a5-01", "number": "intro", "bookId": "GEN", "reference": "Genesis", "copyright": "PUBLIC DOMAIN", "content": [{"name": "para", "type": "tag", "attrs": {"style": "mt1"}, "items": [{"text": "The First Book of Moses, called Genesis", "type": "text"}]}], "next": {"id": "GEN.1", "number": "1", "bookId": "GEN"}}}}
