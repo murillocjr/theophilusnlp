@@ -77,8 +77,7 @@ Tokenizing into words:
 </pre>
 <!-- /wp:syntaxhighlighter/code -->
 
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">[
+```{r, attr.output='style="max-height: 100px;"'}
   'In',
   'the',
   'beginning',
@@ -957,5 +956,4 @@ Tokenizing into words:
   'sixth',
   'day',
   '.'
-]</pre>
-<!-- /wp:syntaxhighlighter/code -->
+```
