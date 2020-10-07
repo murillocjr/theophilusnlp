@@ -77,7 +77,7 @@ Tokenizing into words:
 </pre>
 <!-- /wp:syntaxhighlighter/code -->
 
-```{style="max-height: 100px;"}
+```
   'In',
   'the',
   'beginning',
