@@ -18,3 +18,7 @@ From there, here's a first list of documents that should provide a general idea 
 *   Generalized Probabilistic Topic and Syntax Models for Natural Language Processing - William Michael Darling
 *   Interactive topic modeling - Yuening Hu · Jordan Boyd-Graber · Brianna Satinoff · Alison Smith
 *   Text Mining For Information Systems Researchers: An Annotated Topic Modeling Tutorial Stefan Debortoli University of Liechtenstein, stefan.debortoli@uni.li Oliver Müller IT University of Copenhagen Iris Junglas Florida State University Jan vom Brocke University of Liechtenstein
+
+| Previous        | Home          | Next |
+|:-------------|:------------------|:------|
+| [θεόφιλος Journey](A-θεόφιλος-Journey)           | [θεόφιλος Journey](A-θεόφιλος-Journey) | [Work Environment](B-work-environment)  |
