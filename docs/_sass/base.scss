@@ -158,8 +158,9 @@ pre {
   color: #b5e853;
   border-radius: 2px;
   text-wrap: normal;
+  max-height: 200px;
   overflow: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 code.highlighter-rouge {
