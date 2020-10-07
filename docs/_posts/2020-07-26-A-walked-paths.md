@@ -12,12 +12,12 @@ Wikipedia seems to be a nice starting point:
 
 From there, here's a first list of documents that should provide a general idea about NLP Topic Modeling and what can be accomplished:
 
-*   Applied Text Analysis with Python - Enabling Language-Aware Data Products with Machine Learning - Benjamin Bengfort, Rebecca Bilbro, and Tony Ojeda
-*   Text Analytics with Python A Practical Real-World Approach to Gaining Actionable Insights from Your Data - Dipanjan Sarkar
-*   NATURAL LANGUAGE SUMMARIZATION OF TEXT AND VIDEOS USING TOPIC MODELS - Pradipto Das
-*   Generalized Probabilistic Topic and Syntax Models for Natural Language Processing - William Michael Darling
-*   Interactive topic modeling - Yuening Hu · Jordan Boyd-Graber · Brianna Satinoff · Alison Smith
-*   Text Mining For Information Systems Researchers: An Annotated Topic Modeling Tutorial Stefan Debortoli University of Liechtenstein, stefan.debortoli@uni.li Oliver Müller IT University of Copenhagen Iris Junglas Florida State University Jan vom Brocke University of Liechtenstein
+1.   **Applied Text Analysis with Python - Enabling Language-Aware Data Products with Machine Learning** - Benjamin Bengfort, Rebecca Bilbro, and Tony Ojeda
+1.   **Text Analytics with Python A Practical Real-World Approach to Gaining Actionable Insights from Your Data** - Dipanjan Sarkar
+1.   **NATURAL LANGUAGE SUMMARIZATION OF TEXT AND VIDEOS USING TOPIC MODELS** - Pradipto Das
+1.   **Generalized Probabilistic Topic and Syntax Models for Natural Language Processing** - William Michael Darling
+1.   **Interactive topic modeling** - Yuening Hu · Jordan Boyd-Graber · Brianna Satinoff · Alison Smith
+1.   **Text Mining For Information Systems Researchers: An Annotated Topic Modeling Tutorial** Stefan Debortoli University of Liechtenstein, stefan.debortoli@uni.li Oliver Müller IT University of Copenhagen Iris Junglas Florida State University Jan vom Brocke University of Liechtenstein
 
 | Previous        | Home          | Next |
 |:-------------|:------------------|:------|

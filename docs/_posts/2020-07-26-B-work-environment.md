@@ -16,13 +16,14 @@ Also "my" computer is another cloud instance, also free, but in Amazon (AMI 2 wi
 
 Why this last Amazon VM?... it's a long story, including a chapter where my only available hardware is a very old HP Semptron 32 bits laptop with no hard drive that miraculously works perfectly if you only run a VNC client, it's funny if you consider COVID-19 lockdown, but I guess you had to be there.
  
-# [](#header-4)UPDATE:
+# [](#header-5)UPDATE:
 
 Later I realized that a simple flag on Google VM Instance and a change in the configuration of the virtual service config file allows me to use I Librarian directly pointing to the VM public IP; which is cool because I can now read the PDFs from my phone. Also I librarian seems to have some kind of AI plugin that I need to check later.
 
-# [](#header-4)NOTE: 
+# [](#header-5)NOTE: 
 
 Since English is not my first language (which could be obvious by now), I'm using the help of Grammarly to help me while writing these posts.
+
 | Previous        | Home          | Next |
 |:-------------|:------------------|:------|
 | [Walked Paths](A-walked-paths)          | [θεόφιλος Journey](A-θεόφιλος-Journey) | [Reading the First Document](C-reading-the-first-document)  |
