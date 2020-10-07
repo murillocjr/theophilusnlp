@@ -13,85 +13,40 @@
     
       <item>
         <title>Hebrew</title>
-        <description>&lt;!-- wp:paragraph --&gt;
-
-&lt;p&gt;Let’s see how far can we get using hebrew:&lt;/p&gt;
-
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+        <description>&lt;p&gt;Let’s see how far can we get using hebrew:&lt;/p&gt;
 
 &lt;p&gt;First good sign comes from NLTK, running the command:&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;&amp;gt;&amp;gt;&amp;gt; nltk.corpus.udhr.fileids()&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nltk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;corpus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;udhr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fileids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;returns as part of it’s output:&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt; 'Hebrew_Ivrit-Hebrew', 'Hebrew_Ivrit-UTF8'&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'Hebrew_Ivrit-Hebrew', 'Hebrew_Ivrit-UTF8'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;But sadly, the API chosen at the beginning does not provide a bible in Hebrew.&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
-
 &lt;p&gt;For a site that provides so wide a variety of bible versions in several languages, there must be a very good set of reasons as for why Hebrew is not present; I can only blame myself for not checking that while picking a source.&lt;/p&gt;
-
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
 
 &lt;p&gt;With the purpose of finding a way to make the basic analysis in Hebrew, here’s some interesting findings:&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:list --&gt;
-
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/openscriptures/morphhb&quot;&gt;https://github.com/openscriptures/morphhb&lt;/a&gt;
-&lt;!-- /wp:list --&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/openscriptures/morphhb&quot;&gt;https://github.com/openscriptures/morphhb&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;!-- wp:paragraph --&gt;
 
 &lt;p&gt;Other API produces the following:&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
+&lt;p&gt;&lt;a href=&quot;https://getbible.net/json?passage=GEN1:1&amp;amp;version=wlc&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;https://getbible.net/json?passage=GEN1:1&amp;amp;version=wlc&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
-
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;({&quot;book&quot;:[{&quot;book_ref&quot;:&quot;Ge&quot;,&quot;book_name&quot;:&quot;Genesis&quot;,&quot;book_nr&quot;:&quot;1&quot;,&quot;chapter_nr&quot;:&quot;1&quot;,&quot;chapter&quot;:{&quot;1&quot;:{&quot;verse_nr&quot;:&quot;1&quot;,&quot;verse&quot;:&quot;\u05d1\u05bc\u05b0\u05e8\u05b5\u05d0\u05e9\u05c1\u05b4\u05d9\u05ea \u05d1\u05bc\u05b8\u05e8\u05b8\u05d0 \u05d0\u05b1\u05dc\u05b9\u05d4\u05b4\u05d9\u05dd \u05d0\u05b5\u05ea \u05d4\u05b7\u05e9\u05c1\u05bc\u05b8\u05de\u05b7\u05d9\u05b4\u05dd \u05d5\u05b0\u05d0\u05b5\u05ea \u05d4\u05b8\u05d0\u05b8\u05e8\u05b6\u05e5\u05c3\r\n&quot;}}}],&quot;direction&quot;:&quot;RTL&quot;,&quot;type&quot;:&quot;verse&quot;,&quot;version&quot;:&quot;wlc&quot;});&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;book&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;book_ref&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Ge&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;book_name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Genesis&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;book_nr&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;chapter_nr&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;chapter&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;verse_nr&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;verse&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d1&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05bc&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05e8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b5&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05e9&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05c1&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b4&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d9&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05ea &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d1&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05bc&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05e8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d0 &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b1&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05dc&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b9&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d4&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b4&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d9&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05dd &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b5&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05ea &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d4&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b7&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05e9&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05c1&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05bc&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05de&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b7&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d9&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b4&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05dd &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d5&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b5&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05ea &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d4&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05e8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b6&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05e5&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05c3&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\r\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}}],&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;direction&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RTL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;verse&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;wlc&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Where “\u05d1” is unicode for the Hebrew letter “Bet” , so it would be better to first see whether NLTK can process the text in this format.&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
-
 &lt;p&gt;Bad news, there’s no hebrew tokenizer in my nltk installation :&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;tokenizers/punkt/czech.pickle
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tokenizers/punkt/czech.pickle
 tokenizers/punkt/danish.pickle
 tokenizers/punkt/dutch.pickle
 tokenizers/punkt/english.pickle
@@ -109,33 +64,38 @@ tokenizers/punkt/slovene.pickle
 tokenizers/punkt/spanish.pickle
 tokenizers/punkt/swedish.pickle
 tokenizers/punkt/turkish.pickle
-&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;This seems like an alternative : &lt;a href=&quot;https://github.com/YontiLevin/Hebrew-Tokenizer&quot;&gt;https://github.com/YontiLevin/Hebrew-Tokenizer&lt;/a&gt;&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;pip install hebrew_tokenizer&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;hebrew_tokenizer
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Which sample code works perfectly (), now lets see how it fares with unicode text:&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
+&lt;p&gt;No dice, it doesn’t work with the unicode sample.&lt;/p&gt;
 
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;No dice, it doesn't work with the unicode sample.
+&lt;p&gt;Testing another tokenizer: https://www.cs.bgu.ac.il/~yoavg/software/hebtokenizer/
+Returns an error&lt;/p&gt;
 
-Testing another tokenizer: https://www.cs.bgu.ac.il/~yoavg/software/hebtokenizer/
-Returns an error
+&lt;p&gt;Let’s keep looking…&lt;/p&gt;
 
-Let's keep looking...&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-one-result-several-questions&quot;&gt;One Result, Several Questions&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         <pubDate>Thu, 10 Sep 2020 00:00:00 +0000</pubDate>
         <link>http://0.0.0.0:4000//A-hebrew</link>
@@ -145,48 +105,22 @@ Let's keep looking...&lt;/pre&gt;
     
       <item>
         <title>One result ...several questions</title>
-        <description>&lt;!-- wp:paragraph --&gt;
-
-&lt;p&gt;At this point we have tokenized the whole text of the “World Messianic Bible” and we have the first report of the most used words that are also semantically valuable:” LORD”, “shall” and “said” are the first of 2362 unique token-words found.&lt;/p&gt;
-
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+        <description>&lt;p&gt;At this point we have tokenized the whole text of the “World Messianic Bible” and we have the first report of the most used words that are also semantically valuable:” LORD”, “shall” and “said” are the first of 2362 unique token-words found.&lt;/p&gt;
 
 &lt;p&gt;The API service that provided us with the text has listed 23 English available versions of the bible, and it claims to provide 2500 versions in over 1600 languages.&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
-
 &lt;p&gt;I wonder how the token list will vary depending on the version we use and even other languages, I’m particularly interested in checking whether NLTK provides support for Hebrew or not.&lt;/p&gt;
-
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
 
 &lt;p&gt;Another thing we can get is the most used words by each book, which could give us some insight into the main topic of each one.&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
-
 &lt;p&gt;For the word-token frequency by book, we can run:&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;SELECT book,token, count(*) as 'count' FROM wordtokens GROUP BY book,token ORDER by 1,3 desc;&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'count'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wordtokens&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;desc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Which give us the following results (&lt;strong&gt;f_e_print_word_frequency_by_book.py&lt;/strong&gt;):&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;1CH	sons(303)		David(181)		LORD(172)		
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1CH	sons(303)		David(181)		LORD(172)		
 1CO	things(76)		Messiah(66)		Lord(66)		
 1JN	know(36)		us(35)		love(35)		
 1KI	LORD(252)		said(207)		Israel(194)		
@@ -250,43 +184,24 @@ ROM	law(73)		Messiah(63)		also(60)
 RUT	Naomi(22)		Boaz(20)		LORD(18)		
 SNG	beloved(32)		love(20)		beautiful(13)		
 TIT	things(10)		good(10)		may(9)		
-ZEC	Hosts(51)		says(42)		Jerusalem(35)	&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+ZEC	Hosts(51)		says(42)		Jerusalem(35)	
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Next, lets try with other English translation, for that we just need to change the BIBLE_ID parameter and run all our scripts again:&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
-
 &lt;p&gt;In &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;c_a_parameters_bible.py&lt;/code&gt;&lt;/strong&gt; we put the id for : &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bf8f1c7f3f9045a5-01'JPS TaNaKH 1917&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
 
 &lt;p&gt;And we run the next scripts:&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;python c_b_retrieve_bible_books.py 
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python c_b_retrieve_bible_books.py 
 python d_b_retrieve_books_chapters.py 
 python e_b_retrieve_chapters_text.py
 python f_b_tokenize_documents.py
-&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Which result in the following list of tokens by frequency:&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;('shall', 7404)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;('shall', 7404)
 ('unto', 6820)
 ('LORD', 6535)
 ('thou', 3356)
@@ -300,24 +215,28 @@ python f_b_tokenize_documents.py
 ('ye', 2314)
 ('son', 1897)
 ('land', 1838)
-&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Which shows that NLTK does not have words like “thou” or “thy” in its list of stop-words. It does allow for editing that list though, so is a solvable issue.&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
-
 &lt;p&gt;Next, a tougher test: Hebrew&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
-
-&lt;!-- /wp:paragraph --&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-tokenizing-all-documents&quot;&gt;Tokenizing all Documents&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-hebrew&quot;&gt;Hebrew&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
         <link>http://0.0.0.0:4000//A-one-result-several-questions</link>
@@ -327,26 +246,15 @@ python f_b_tokenize_documents.py
     
       <item>
         <title>Tokenizing all documents</title>
-        <description>&lt;!-- wp:paragraph --&gt;
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/murillocjr/theophilusnlp&quot;&gt;Scripts Source Code&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The purpose is to go chapter by chapter and run the “tokenizing by words” process, then store the results in a database so we can start getting statistics on the words used.&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
-
 &lt;p&gt;All our JSON documents are stored in TinyDB structures, from there we will extract information like token words; since we will need to run SELECT commands with COUNT and GROUP BY options; which is not that straight forward in TinyDB, we will make use of an SQLite auxiliary database for analysis.&lt;/p&gt;
-
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
 
 &lt;p&gt;The first tokenization attempt (run over Genesis only, to speed the process) returns the following results (scripts &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f_b_tokenize_documents.py&lt;/code&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f_d_print_word_tokens.py&lt;/code&gt;&lt;/strong&gt;) :&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;(',', 3802)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(',', 3802)
 ('the', 2226)
 ('and', 1712)
 ('.', 1460)
@@ -378,46 +286,27 @@ python f_b_tokenize_documents.py
 ('The', 254)
 ('be', 217)
 ('God', 214)
-&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The total count of unique tokens/words is 43518, from which we can see some issues :&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:list --&gt;
-
 &lt;ul&gt;
   &lt;li&gt;3802 instances of “,” (comma)&lt;/li&gt;
-  &lt;li&gt;2226 instances of “the”, etc
-&lt;!-- /wp:list --&gt;&lt;/li&gt;
+  &lt;li&gt;2226 instances of “the”, etc&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;!-- wp:paragraph --&gt;
 
 &lt;p&gt;which won’t be useful at this stage of Topic Modeling, so we need to prevent these “stop words” and punctuation symbols to get into the database; NLTK provides help for this task with:&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;stop_words&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stopwords&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'english'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;stop_words = set(stopwords.words('english'))
-
-tokens = word_tokenize(chapter_text)
-    non_punctuation_tokens = [token for token in tokens if token.isalnum()]
-    removed_stop_words = [w for w in non_punctuation_tokens if not w.lower() in stop_words] 
-&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+&lt;span class=&quot;n&quot;&gt;tokens&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chapter_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;non_punctuation_tokens&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tokens&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isalnum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;removed_stop_words&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;non_punctuation_tokens&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stop_words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Which reduces the count to 2362 (~ 5.43% of the first list) remaining token words:&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;('said', 466)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;('said', 466)
 ('father', 260)
 ('God', 214)
 ('land', 190)
@@ -427,23 +316,14 @@ tokens = word_tokenize(chapter_text)
 ('son', 146)
 ('sons', 136)
 ('Abraham', 132)
-...&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;So….: there’s a lot “said” in Genesis    :)&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
-
 &lt;p&gt;Releasing the tokenization for all the chapters in the bible we get:&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;('LORD', 6189)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;('LORD', 6189)
 ('shall', 4318)
 ('said', 3819)
 ('God', 3540)
@@ -458,14 +338,26 @@ tokens = word_tokenize(chapter_text)
 ('came', 1648)
 ('land', 1632)
 ('men', 1444)
-&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;This first result could be interpreted as a very, very rough answer to “What the bible talks about?” and it has a very deep meaning for me personally.&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-milestone-1&quot;&gt;Milestone 1&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-one-result-several-questions&quot;&gt;One Result, Several Questions&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
         <link>http://0.0.0.0:4000//A-tokenizing-all-documents</link>
@@ -475,43 +367,42 @@ tokens = word_tokenize(chapter_text)
     
       <item>
         <title>Milestone 1</title>
-        <description>&lt;!-- wp:paragraph --&gt;
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/murillocjr/theophilusnlp&quot;&gt;Scripts Source Code&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;This is what we have so far:&lt;/p&gt;
-
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:list --&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Data: A whole bible text inside TinyDB documents database entities.&lt;/li&gt;
   &lt;li&gt;Code: A function that returns the raw text of a whole chapter on receiving the ChapterID&lt;/li&gt;
-  &lt;li&gt;NLTK environment up and running.
-&lt;!-- /wp:list --&gt;&lt;/li&gt;
+  &lt;li&gt;NLTK environment up and running.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;!-- wp:paragraph --&gt;
 
 &lt;p&gt;The code used to retrieve this information is inside small python scripts available on the GitHub repo associated with this project. Since the data is stored in a database we can query it any way we want; also the chapter data is in a JSON format that also can give us paragraphs and verses individually&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
-
 &lt;p&gt;Here’s where the fun begins; we can start playing with query and code to start gaining insights in the data we have:&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:syntaxhighlighter/code --&gt;
-&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;python d_d_print_books_chapters.py ' wc -l
-1255&lt;/pre&gt;
-&lt;!-- /wp:syntaxhighlighter/code --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python d_d_print_books_chapters.py &lt;span class=&quot;s1&quot;&gt;' wc -l
+1255
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;We can see that there are 1255 chapters that we will treat as separate documents, so in the end, we could get what is the main topic(s) in any particular chapter/document.&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-database-support&quot;&gt;Database Support&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-tokenizing-all-documents&quot;&gt;Tokenizing all Documents&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
         <link>http://0.0.0.0:4000//A-milestone-1</link>
@@ -521,23 +412,29 @@ tokens = word_tokenize(chapter_text)
     
       <item>
         <title>Database support</title>
-        <description>&lt;!-- wp:paragraph --&gt;
+        <description>&lt;p&gt;Since a lot of the data retrieved from the API comes in JSON format, and NLTK outputs are also in JSON, it stands to reason to use a JSON Documents based database to store the partial results and help to process and analyze the data, something on the line of MongoDB or CouchDB; but these two feels like overkill, so TinyDB looks more appropriate for the task at hand, installing it is as simple as:&lt;/p&gt;
 
-&lt;p&gt;Since a lot of the data retrieved from the API comes in JSON format, and NLTK outputs are also in JSON, it stands to reason to use a JSON Documents based database to store the partial results and help to process and analyze the data, something on the line of MongoDB or CouchDB; but these two feels like overkill, so TinyDB looks more appropriate for the task at hand, installing it is as simple as:&lt;/p&gt;
-
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
-
-&lt;p&gt;pip install tinydb&lt;/p&gt;
-
-&lt;!-- /wp:paragraph --&gt;
-
-&lt;!-- wp:paragraph --&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;tinydb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;At this point, it was necessary to do significant modifications to retrieve the whole text of the selected version of the bible, store the data inside TinyDB, and also retrieve the whole text of a Chapter. All the associated code and the resulting databases are available at the following GitHub repo: &lt;a href=&quot;https://github.com/murillocjr/theophilusnlp&quot;&gt;https://github.com/murillocjr/theophilusnlp&lt;/a&gt;&lt;/p&gt;
 
-&lt;!-- /wp:paragraph --&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;B-tokenizing-with-nltk&quot;&gt;Tokenizing with NLTK&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-milestone-1&quot;&gt;Milestone 1&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
         <link>http://0.0.0.0:4000//A-database-support</link>

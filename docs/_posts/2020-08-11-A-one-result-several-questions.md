@@ -4,48 +4,24 @@ title: One result ...several questions
 date: 2020-08-11
 ---
 
-<!-- wp:paragraph -->
-
 At this point we have tokenized the whole text of the "World Messianic Bible" and we have the first report of the most used words that are also semantically valuable:" LORD", "shall" and "said" are the first of 2362 unique token-words found.
-
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
 
 The API service that provided us with the text has listed 23 English available versions of the bible, and it claims to provide 2500 versions in over 1600 languages.
 
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-
 I wonder how the token list will vary depending on the version we use and even other languages, I'm particularly interested in checking whether NLTK provides support for Hebrew or not.
-
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
 
 Another thing we can get is the most used words by each book, which could give us some insight into the main topic of each one.
 
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-
 For the word-token frequency by book, we can run:
 
-<!-- /wp:paragraph -->
-
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">SELECT book,token, count(*) as 'count' FROM wordtokens GROUP BY book,token ORDER by 1,3 desc;</pre>
-<!-- /wp:syntaxhighlighter/code -->
-
-<!-- wp:paragraph -->
+```sql
+SELECT book,token, count(*) as 'count' FROM wordtokens GROUP BY book,token ORDER by 1,3 desc;
+```
 
 Which give us the following results (**f_e_print_word_frequency_by_book.py**):
 
-<!-- /wp:paragraph -->
-
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">1CH	sons(303)		David(181)		LORD(172)		
+```
+1CH	sons(303)		David(181)		LORD(172)		
 1CO	things(76)		Messiah(66)		Lord(66)		
 1JN	know(36)		us(35)		love(35)		
 1KI	LORD(252)		said(207)		Israel(194)		
@@ -109,43 +85,27 @@ ROM	law(73)		Messiah(63)		also(60)
 RUT	Naomi(22)		Boaz(20)		LORD(18)		
 SNG	beloved(32)		love(20)		beautiful(13)		
 TIT	things(10)		good(10)		may(9)		
-ZEC	Hosts(51)		says(42)		Jerusalem(35)	</pre>
-<!-- /wp:syntaxhighlighter/code -->
-
-<!-- wp:paragraph -->
+ZEC	Hosts(51)		says(42)		Jerusalem(35)	
+```
 
 Next, lets try with other English translation, for that we just need to change the BIBLE_ID parameter and run all our scripts again:
 
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
 
 In **`c_a_parameters_bible.py`** we put the id for : **`bf8f1c7f3f9045a5-01'JPS TaNaKH 1917`**
 
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-
 And we run the next scripts:
 
-<!-- /wp:paragraph -->
-
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">python c_b_retrieve_bible_books.py 
+```bash
+python c_b_retrieve_bible_books.py 
 python d_b_retrieve_books_chapters.py 
 python e_b_retrieve_chapters_text.py
 python f_b_tokenize_documents.py
-</pre>
-<!-- /wp:syntaxhighlighter/code -->
-
-<!-- wp:paragraph -->
+```
 
 Which result in the following list of tokens by frequency:
 
-<!-- /wp:paragraph -->
-
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">('shall', 7404)
+```
+('shall', 7404)
 ('unto', 6820)
 ('LORD', 6535)
 ('thou', 3356)
@@ -159,21 +119,13 @@ Which result in the following list of tokens by frequency:
 ('ye', 2314)
 ('son', 1897)
 ('land', 1838)
-</pre>
-<!-- /wp:syntaxhighlighter/code -->
-
-<!-- wp:paragraph -->
+```
 
 Which shows that NLTK does not have words like "thou" or "thy" in its list of stop-words. It does allow for editing that list though, so is a solvable issue.
 
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-
 Next, a tougher test: Hebrew
 
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
-
-<!-- /wp:paragraph -->
+| Previous        | Home          | Next |
+|:-------------|:------------------|:------|
+| [Tokenizing all Documents](A-tokenizing-all-documents) | [θεόφιλος Journey](A-θεόφιλος-Journey) | [Hebrew](A-hebrew)  |
