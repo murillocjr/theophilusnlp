@@ -23,3 +23,6 @@ Later I realized that a simple flag on Google VM Instance and a change in the co
 # [](#header-4)NOTE: 
 
 Since English is not my first language (which could be obvious by now), I'm using the help of Grammarly to help me while writing these posts.
+| Previous        | Home          | Next |
+|:-------------|:------------------|:------|
+| [Walked Paths](A-walked-paths)          | [θεόφιλος Journey](A-θεόφιλος-Journey) | [Reading the First Document](C-reading-the-first-document)  |
