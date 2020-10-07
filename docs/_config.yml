@@ -1,9 +1,9 @@
-title: Hacker-Blog
-description: "A Jekyll Blog Theme For Hackers"
+title: θεόφιλος Journey
+description: "NLP Books semantic mapping project"
 author:
-  name: "SomeHacker"
-  email: "someone@somewebsite.somedomain"
-  url: "https://ashishchaudhary.in/hacker-blog"
+  name: "Jorge Murillo"
+  email: "murillo.cjr@gmail.com"
+  url: "https://murillocjr.github.io/theophilusnlp"
 
 baseurl: /
 
@@ -28,7 +28,7 @@ plugins:
   - jekyll-sitemap
 
 # Custom variables
-owner : "SomeHacker"
+owner : "Jorge Murillo"
 year : "2020"
 
 # deployment
