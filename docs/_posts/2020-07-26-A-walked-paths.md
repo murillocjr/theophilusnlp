@@ -4,27 +4,13 @@ title: Walked paths
 date: 2020-07-26
 ---
 
-<!-- wp:paragraph -->
-
 Let's see what previous work is available on this idea, the purpose of this project is mainly to learn about NLP through a hands-on approach and gain insight on the theoretical foundations; engineering and scientific curiosity will be pursued alternatively.
-
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
 
 Wikipedia seems to be a nice starting point:   
 [https://en.wikipedia.org/wiki/Topic_model](https://en.wikipedia.org/wiki/Topic_model)  
 - AI to classify AI: [The AI Tree](http://home.cse.ust.hk/~lzhang/topic/ai-tree.pdf). 
 
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-
 From there, here's a first list of documents that should provide a general idea about NLP Topic Modeling and what can be accomplished:
-
-<!-- /wp:paragraph -->
-
-<!-- wp:list -->
 
 *   Applied Text Analysis with Python - Enabling Language-Aware Data Products with Machine Learning - Benjamin Bengfort, Rebecca Bilbro, and Tony Ojeda
 *   Text Analytics with Python A Practical Real-World Approach to Gaining Actionable Insights from Your Data - Dipanjan Sarkar
@@ -32,4 +18,3 @@ From there, here's a first list of documents that should provide a general idea 
 *   Generalized Probabilistic Topic and Syntax Models for Natural Language Processing - William Michael Darling
 *   Interactive topic modeling - Yuening Hu · Jordan Boyd-Graber · Brianna Satinoff · Alison Smith
 *   Text Mining For Information Systems Researchers: An Annotated Topic Modeling Tutorial Stefan Debortoli University of Liechtenstein, stefan.debortoli@uni.li Oliver Müller IT University of Copenhagen Iris Junglas Florida State University Jan vom Brocke University of Liechtenstein
-<!-- /wp:list -->
