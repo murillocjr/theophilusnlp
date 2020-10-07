@@ -7,6 +7,8 @@ author:
 
 baseurl: /
 
+google_analytics: UA-49256786-5
+
 source: .
 destination: ./_site
 permalink: /:title
