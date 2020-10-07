@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="generator" content="Jekyll">
+
+  <title>One result ...several questions</title>
+
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" /> <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>One result …several questions | θεόφιλος Journey</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="One result …several questions" />
+<meta name="author" content="Jorge Murillo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="At this point we have tokenized the whole text of the “World Messianic Bible” and we have the first report of the most used words that are also semantically valuable:” LORD”, “shall” and “said” are the first of 2362 unique token-words found." />
+<meta property="og:description" content="At this point we have tokenized the whole text of the “World Messianic Bible” and we have the first report of the most used words that are also semantically valuable:” LORD”, “shall” and “said” are the first of 2362 unique token-words found." />
+<link rel="canonical" href="http://0.0.0.0:4000/A-one-result-several-questions" />
+<meta property="og:url" content="http://0.0.0.0:4000/A-one-result-several-questions" />
+<meta property="og:site_name" content="θεόφιλος Journey" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-11T00:00:00+00:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/A-one-result-several-questions"},"@type":"BlogPosting","url":"http://0.0.0.0:4000/A-one-result-several-questions","headline":"One result …several questions","dateModified":"2020-08-11T00:00:00+00:00","datePublished":"2020-08-11T00:00:00+00:00","author":{"@type":"Person","name":"Jorge Murillo"},"description":"At this point we have tokenized the whole text of the “World Messianic Bible” and we have the first report of the most used words that are also semantically valuable:” LORD”, “shall” and “said” are the first of 2362 unique token-words found.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <header>
+  <div>
+    <a href="/">
+    
+    <h1>jorge@home:~$</h1>
+    </a>
+    <div class="header-links">
+      <a href="/archive"><h2 class="header-link">Archive</h2></a>
+<a href="/about"><h2 class="header-link">About</h2></a>
+<a href="/atom.xml"><h2 class="header-link">RSS</h2></a>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <section id="main_content">
+        <article>
+  <h2>One result ...several questions</h2>
+  <time datetime="2020-08-11T00:00:00+00:00" class="by-line">11 Aug 2020</time>
+  <p>At this point we have tokenized the whole text of the “World Messianic Bible” and we have the first report of the most used words that are also semantically valuable:” LORD”, “shall” and “said” are the first of 2362 unique token-words found.</p>
+
+<p>The API service that provided us with the text has listed 23 English available versions of the bible, and it claims to provide 2500 versions in over 1600 languages.</p>
+
+<p>I wonder how the token list will vary depending on the version we use and even other languages, I’m particularly interested in checking whether NLTK provides support for Hebrew or not.</p>
+
+<p>Another thing we can get is the most used words by each book, which could give us some insight into the main topic of each one.</p>
+
+<p>For the word-token frequency by book, we can run:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">book</span><span class="p">,</span><span class="n">token</span><span class="p">,</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">as</span> <span class="s1">'count'</span> <span class="k">FROM</span> <span class="n">wordtokens</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">book</span><span class="p">,</span><span class="n">token</span> <span class="k">ORDER</span> <span class="k">by</span> <span class="mi">1</span><span class="p">,</span><span class="mi">3</span> <span class="k">desc</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Which give us the following results (<strong>f_e_print_word_frequency_by_book.py</strong>):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1CH	sons(303)		David(181)		LORD(172)		
+1CO	things(76)		Messiah(66)		Lord(66)		
+1JN	know(36)		us(35)		love(35)		
+1KI	LORD(252)		said(207)		Israel(194)		
+1PE	Messiah(19)		may(14)		also(13)		
+1SA	LORD(309)		Saul(288)		David(281)		
+1TH	Lord(25)		Yeshua(17)		us(16)		
+1TI	good(22)		faith(17)		Messiah(16)		
+2CH	king(248)		house(194)		God(181)		
+2CO	Messiah(47)		also(45)		us(43)		
+2JN	Father(4)		us(3)		teaching(3)		
+2KI	LORD(276)		said(221)		Israel(149)		
+2PE	things(12)		day(10)		Yeshua(9)		
+2SA	David(274)		said(230)		LORD(142)		
+2TH	God(19)		Yeshua(12)		us(9)		
+2TI	Yeshua(14)		Messiah(14)		God(13)		
+3JN	brothers(3)		God(3)		write(2)		
+ACT	said(149)		Paul(126)		Lord(98)		
+AMO	says(46)		Israel(26)		house(25)		
+COL	God(22)		things(20)		also(15)		
+DAN	Daniel(72)		God(48)		kingdom(47)		
+DEU	LORD(545)		God(341)		land(179)		
+ECC	God(39)		time(38)		heart(36)		
+EPH	God(31)		one(24)		Lord(24)		
+EST	Mordecai(56)		Esther(53)		Haman(51)		
+EXO	LORD(385)		Moses(283)		said(199)		
+EZK	Lord(221)		says(209)		LORD(191)		
+EZR	God(95)		king(63)		hundred(60)		
+GAL	law(30)		God(30)		faith(19)		
+GEN	father(260)		God(214)		land(190)		
+HAB	nations(7)		like(7)		violence(5)		
+HAG	says(20)		Hosts(13)		son(10)		
+HEB	things(38)		made(30)		faith(30)		
+HOS	LORD(37)		Israel(37)		Ephraim(24)		
+ISA	shall(192)		like(162)		says(109)		
+JAS	God(17)		faith(16)		brothers(14)		
+JDG	Israel(172)		LORD(169)		children(128)		
+JER	says(337)		king(226)		land(190)		
+JHN	Yeshua(238)		therefore(100)		answered(77)		
+JOB	man(77)		Job(54)		know(53)		
+JOL	children(11)		great(10)		God(10)		
+JON	said(18)		Jonah(18)		God(14)		
+JOS	children(190)		Joshua(155)		Israel(153)		
+JUD	ungodly(5)		Yeshua(5)		God(5)		
+LAM	daughter(20)		like(14)		day(14)		
+LEV	LORD(284)		offering(268)		priest(183)		
+LUK	Yeshua(96)		son(89)		saying(72)		
+MAL	says(27)		Hosts(18)		say(13)		
+MAT	Yeshua(158)		saying(94)		came(93)		
+MIC	like(19)		come(15)		people(12)		
+MRK	Yeshua(84)		came(75)		went(47)		
+NAM	like(12)		away(7)		make(5)		
+NEH	son(112)		God(71)		hundred(49)		
+NUM	LORD(385)		children(258)		offering(242)		
+OBA	possess(6)		LORD(6)		Esau(6)		
+PHM	Messiah(6)		fellow(4)		Paul(4)		
+PHP	things(25)		God(22)		Yeshua(19)		
+PRO	wicked(75)		LORD(74)		shall(61)		
+PSA	God(321)		shall(183)		like(146)		
+REV	earth(76)		great(61)		like(60)		
+ROM	law(73)		Messiah(63)		also(60)		
+RUT	Naomi(22)		Boaz(20)		LORD(18)		
+SNG	beloved(32)		love(20)		beautiful(13)		
+TIT	things(10)		good(10)		may(9)		
+ZEC	Hosts(51)		says(42)		Jerusalem(35)	
+</code></pre></div></div>
+
+<p>Next, lets try with other English translation, for that we just need to change the BIBLE_ID parameter and run all our scripts again:</p>
+
+<p>In <strong><code class="language-plaintext highlighter-rouge">c_a_parameters_bible.py</code></strong> we put the id for : <strong><code class="language-plaintext highlighter-rouge">bf8f1c7f3f9045a5-01'JPS TaNaKH 1917</code></strong></p>
+
+<p>And we run the next scripts:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python c_b_retrieve_bible_books.py 
+python d_b_retrieve_books_chapters.py 
+python e_b_retrieve_chapters_text.py
+python f_b_tokenize_documents.py
+</code></pre></div></div>
+
+<p>Which result in the following list of tokens by frequency:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>('shall', 7404)
+('unto', 6820)
+('LORD', 6535)
+('thou', 3356)
+('thy', 3317)
+('said', 2899)
+('thee', 2879)
+('God', 2654)
+('Israel', 2505)
+('upon', 2451)
+('king', 2410)
+('ye', 2314)
+('son', 1897)
+('land', 1838)
+</code></pre></div></div>
+
+<p>Which shows that NLTK does not have words like “thou” or “thy” in its list of stop-words. It does allow for editing that list though, so is a solvable issue.</p>
+
+<p>Next, a tougher test: Hebrew</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Previous</th>
+      <th style="text-align: left">Home</th>
+      <th style="text-align: left">Next</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="A-tokenizing-all-documents">Tokenizing all Documents</a></td>
+      <td style="text-align: left"><a href="A-θεόφιλος-Journey">θεόφιλος Journey</a></td>
+      <td style="text-align: left"><a href="A-hebrew">Hebrew</a></td>
+    </tr>
+  </tbody>
+</table>
+
+</article>
+      </section>
+    </div>
+  </div>
+
+   <footer>
+    <span>
+        <b>Jorge Murillo</b>
+    </span>
+    
+    <span>© 2020</span>
+</footer>
+
+
+  
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-49256786-5', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+</body>
+
+</html>

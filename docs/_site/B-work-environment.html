@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="generator" content="Jekyll">
+
+  <title>Work environment</title>
+
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" /> <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>[“Work environment”] | θεόφιλος Journey</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="[“Work environment”]" />
+<meta name="author" content="Jorge Murillo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="As with most projects, one of the first steps to take is to set up a working environment, since I want to read and take notes on some books and other PDF documents I’ll try “I Librarian”. Being an open-source software it’s possible to set it up on any Linux server, it doesn’t seem that it takes a lot of resources either, so an f1-micro VM (Free!) on Google Cloud Platform should be enough to host it." />
+<meta property="og:description" content="As with most projects, one of the first steps to take is to set up a working environment, since I want to read and take notes on some books and other PDF documents I’ll try “I Librarian”. Being an open-source software it’s possible to set it up on any Linux server, it doesn’t seem that it takes a lot of resources either, so an f1-micro VM (Free!) on Google Cloud Platform should be enough to host it." />
+<link rel="canonical" href="http://0.0.0.0:4000/B-work-environment" />
+<meta property="og:url" content="http://0.0.0.0:4000/B-work-environment" />
+<meta property="og:site_name" content="θεόφιλος Journey" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-26T00:00:00+00:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/B-work-environment"},"@type":"BlogPosting","url":"http://0.0.0.0:4000/B-work-environment","headline":"[“Work environment”]","dateModified":"2020-07-26T00:00:00+00:00","datePublished":"2020-07-26T00:00:00+00:00","author":{"@type":"Person","name":"Jorge Murillo"},"description":"As with most projects, one of the first steps to take is to set up a working environment, since I want to read and take notes on some books and other PDF documents I’ll try “I Librarian”. Being an open-source software it’s possible to set it up on any Linux server, it doesn’t seem that it takes a lot of resources either, so an f1-micro VM (Free!) on Google Cloud Platform should be enough to host it.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <header>
+  <div>
+    <a href="/">
+    
+    <h1>jorge@home:~$</h1>
+    </a>
+    <div class="header-links">
+      <a href="/archive"><h2 class="header-link">Archive</h2></a>
+<a href="/about"><h2 class="header-link">About</h2></a>
+<a href="/atom.xml"><h2 class="header-link">RSS</h2></a>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <section id="main_content">
+        <article>
+  <h2>Work environment</h2>
+  <time datetime="2020-07-26T00:00:00+00:00" class="by-line">26 Jul 2020</time>
+  <p>As with most projects, one of the first steps to take is to set up a working environment, since I want to read and take notes on some books and other PDF documents I’ll try “I Librarian”. Being an open-source software it’s possible to set it up on any Linux server, it doesn’t seem that it takes a lot of resources either, so an f1-micro VM (Free!) on Google Cloud Platform should be enough to host it.</p>
+
+<p>Using a Debian as the base system, installing I Librarian was pretty straightforward, only thing is that such setup is designed to serve by default at 127.0.0.1, it was necessary accessing it using a tunneling port 80 from my computer:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>ssh <span class="nt">-L</span> 80:localhost:80 <span class="nt">-i</span> ~/.ssh/gcp-lzrdc lzrd@34.72.155.167
+</code></pre></div></div>
+
+<p>Also “my” computer is another cloud instance, also free, but in Amazon (AMI 2 with Mate accessible via VNC)</p>
+
+<p>Why this last Amazon VM?… it’s a long story, including a chapter where my only available hardware is a very old HP Semptron 32 bits laptop with no hard drive that miraculously works perfectly if you only run a VNC client, it’s funny if you consider COVID-19 lockdown, but I guess you had to be there.</p>
+
+<p>Since yet another VM on AWS is serving as my “processing” unit to run python NLP and text-processing code, the need arises to connect to this headless server, ssh from my “Desktop UI” instance works great with MidnightCommander (mc) along with Micro (text editor) giving me a very easy and confortable way to browse folders and edit files using only the terminal end even with mouse integration.</p>
+
+<h1 id="update"><a href="#header-5"></a>UPDATE:</h1>
+
+<p>Later I realized that a simple flag on Google VM Instance and a change in the configuration of the virtual service config file allows me to use I Librarian directly pointing to the VM public IP; which is cool because I can now read the PDFs from my phone. Also I librarian seems to have some kind of AI plugin that I need to check later.</p>
+
+<h1 id="note"><a href="#header-5"></a>NOTE:</h1>
+
+<p>Since English is not my first language (which could be obvious by now), I’m using the help of Grammarly to help me while writing these posts.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Previous</th>
+      <th style="text-align: left">Home</th>
+      <th style="text-align: left">Next</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="A-walked-paths">Walked Paths</a></td>
+      <td style="text-align: left"><a href="A-θεόφιλος-Journey">θεόφιλος Journey</a></td>
+      <td style="text-align: left"><a href="C-reading-the-first-document">Reading the First Document</a></td>
+    </tr>
+  </tbody>
+</table>
+
+</article>
+      </section>
+    </div>
+  </div>
+
+   <footer>
+    <span>
+        <b>Jorge Murillo</b>
+    </span>
+    
+    <span>© 2020</span>
+</footer>
+
+
+  
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-49256786-5', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+</body>
+
+</html>

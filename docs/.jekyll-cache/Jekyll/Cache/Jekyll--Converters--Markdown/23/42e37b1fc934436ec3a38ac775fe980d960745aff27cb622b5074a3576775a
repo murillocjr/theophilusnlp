@@ -1,0 +1,53 @@
+I"8<p>Started reading</p>
+
+<p>Debortoli, Stefan; Müller, Oliver; Junglas, Iris; and vom Brocke, Jan (2016) <code class="language-plaintext highlighter-rouge">"Text Mining For Information Systems Researchers: An Annotated Topic Modeling Tutorial,"</code> Communications of the Association for Information Systems: Vol. 39, Article 7. DOI: 10.17705/1CAIS.03907 Available at <a href="http://aisel.aisnet.org/cais/vol39/iss1/7">http://aisel.aisnet.org/cais/vol39/iss1/7</a></p>
+
+<p>Looks promising, it goes along with my idea of a practical application and example with theoretical support, good references, and example cases; cool!</p>
+
+<p>Based on computer science and linguistics is particularly focused on probabilistic topic modeling</p>
+
+<p>Leximancer seems to implement a similar idea, might check it more later to see how they do it</p>
+
+<p>A sufficiently large data set (n &gt; 1,000) will be needed.</p>
+
+<p>Note that an extensive preprocessing phase is necessary before one can statistically analyze data through topic models.</p>
+
+<p>Low-level natural language processing (NLP) steps will be implemented, such as:</p>
+
+<h6 id="tokenization"><a href="#header-6"></a>tokenization</h6>
+<p>Splitting up documents into sentences and sentences into words; n-gram creation: creating n consecutive words: 1-grams include, for example, “fast”, “food”, or “chain”; 2-grams concatenate two 1-grams, such as “fast food”; and 3-grams comprise three 1-grams, such as “fast food chain”</p>
+
+<h6 id="stopping"><a href="#header-6"></a>stopping</h6>
+<p>Removing common or uninformative words), partof-speech filtering (i.e., identifying and filtering words by their part of speech</p>
+
+<h6 id="lemmatizing"><a href="#header-6"></a>lemmatizing</h6>
+<p>Reducing a word into its dictionary form; for example, plural to singular for nouns, verbs to the simple present tense</p>
+
+<h6 id="stemming"><a href="#header-6"></a>stemming</h6>
+<p>Reducing a word to its stem</p>
+
+<p>Ok, halfway through the document and the practical part starts, so hands on!</p>
+
+<p>Minemytext was the tool used on this publication, this online tool seems pretty neat. Since I want a more hands-on code kind of approach I’ll try some toolkits:</p>
+
+<p>https://opensource.com/article/19/3/natural-language-processing-tools</p>
+
+<p>http://www.nltk.org/</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Previous</th>
+      <th style="text-align: left">Home</th>
+      <th style="text-align: left">Next</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="A-walked-paths">Walked Paths</a></td>
+      <td style="text-align: left"><a href="A-θεόφιλος-Journey">θεόφιλος Journey</a></td>
+      <td style="text-align: left"><a href="C-reading-the-first-document">Reading the First Document</a></td>
+    </tr>
+  </tbody>
+</table>
+:ET

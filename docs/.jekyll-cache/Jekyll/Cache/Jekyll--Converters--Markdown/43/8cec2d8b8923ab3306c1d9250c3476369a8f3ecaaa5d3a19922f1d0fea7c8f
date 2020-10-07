@@ -1,0 +1,54 @@
+I"L<!-- wp:paragraph -->
+
+<p>This toolkit has a lot of implementations of code and resources that promise to make a lot easier the construction of NLP projects.</p>
+
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+
+<p>Again, an independent Linux server seems ideal to handle all the NLP processes related to the implementation of the code of “Theophilus” (that’s the code-name for this little project of mine). An AMI 2 instance in AWS (again, Free!), this time without GUI, will serve as a starting point to handle:</p>
+
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+
+<ul>
+  <li>Python</li>
+  <li>Anaconda</li>
+  <li>NLTK</li>
+  <li>Nano (because editing code in the terminal makes you feel like a real badass)
+<!-- /wp:list --></li>
+</ul>
+
+<!-- wp:paragraph -->
+
+<p>Once more, all installation goes without a cinch, amazon VM internet connection speed is better than my local one.</p>
+
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+
+<p>The first thing to try is Tokenizing; according to the documentation, NLTK implements WordNet which will help us with:</p>
+
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+
+<ul>
+  <li>Looking up the definition of a word</li>
+  <li>Finding synonyms and antonyms</li>
+  <li>Exploring word relations and similarity</li>
+  <li>Word sense disambiguation for words that have multiple uses and definitions
+<!-- /wp:list --></li>
+</ul>
+
+<!-- wp:paragraph -->
+
+<p>Installing NLTK’s “all data” as suggested:</p>
+
+<!-- /wp:paragraph -->
+
+<!-- wp:syntaxhighlighter/code -->
+<pre class="wp-block-syntaxhighlighter-code">python -m nltk.downloader all</pre>
+<!-- /wp:syntaxhighlighter/code -->
+:ET

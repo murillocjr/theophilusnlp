@@ -1,0 +1,210 @@
+I"TJ<p>We need data:</p>
+
+<ul>
+  <li>Text in proper English</li>
+  <li>Available programmatically from python</li>
+  <li>Lots of “articles” that can be processed later, more than 1000 according to the recommendations.</li>
+</ul>
+
+<p>Instead of going directly to books, let’s start testing with the Bible text because additionally to more or less fit the above requirements, it goes with the theology theme I’m going for, and I guess it will not be so difficult to get all chapters into a database later for massive processing.</p>
+
+<p>I wonder how the tokenizer will react to the paragraph-long sentences Paul uses a lot on his letters.</p>
+
+<p>For sandbox test processes lets try Genesis 1, fortunately, there’s a service that provides bible portions via an API, allows for free registration to get an api-key, and returns data in text/HTML/JSON, also provides a small set of versions of the bible.</p>
+
+<p><a href="https://scripture.api.bible">https://scripture.api.bible</a></p>
+
+<p>[Message from the future: this API does not provide a bible in Hebrew, so it might have been a good idea to check that first]</p>
+
+<p>Export the api-key</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">KEY</span><span class="o">=</span>8...your-key...a
+</code></pre></div></div>
+
+<p>List of available bibles</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://api.scripture.api.bible/v1/bibles?language=eng"</span> <span class="nt">-H</span> <span class="s2">"api-key:</span><span class="nv">$KEY</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>Which return a long JSON string, in order to have a better look at which versions are available, a small python script will help:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'available-bibles.json'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">bibles_dict</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">bible</span> <span class="ow">in</span> <span class="n">bibles_dict</span><span class="p">[</span><span class="s">'data'</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">bible</span><span class="p">[</span><span class="s">'id'</span><span class="p">]</span> <span class="o">+</span> <span class="s">''' + bible['name'])
+</span></code></pre></div></div>
+
+<p>which prints:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>55212e3cf5d04d49-01'Cambridge Paragraph Bible of the KJV
+179568874c45066f-01'Douay-Rheims American 1899
+55ec700d9e0d77ea-01'English Majority Text Version
+65eec8e0b60e656b-01'Free Bible Version
+c315fa9f71d4af3a-01'Geneva Bible
+bf8f1c7f3f9045a5-01'JPS TaNaKH 1917
+de4e12af7f28f599-01'King James (Authorised) Version
+de4e12af7f28f599-02'King James (Authorised) Version
+40072c4a5aba4022-01'Revised Version 1885
+ec290b5045ff54a5-01'Targum Onkelos Etheridge
+2f0fd81d7b85b923-01'The English New Testament According to Family 35
+06125adad2d5898a-01'The Holy Bible, American Standard Version
+66c22495370cdfc0-01'Translation for Translators
+9879dbb7cfe39e4d-01'World English Bible
+9879dbb7cfe39e4d-02'World English Bible
+9879dbb7cfe39e4d-03'World English Bible
+9879dbb7cfe39e4d-04'World English Bible
+7142879509583d59-01'World English Bible British Edition
+7142879509583d59-02'World English Bible British Edition
+7142879509583d59-03'World English Bible British Edition
+7142879509583d59-04'World English Bible British Edition
+f72b840c855f362c-04'World Messianic Bible
+04da588535d2f823-04'World Messianic Bible British Edition
+</code></pre></div></div>
+
+<p>After picking</p>
+
+<p><strong>f72b840c855f362c-04’World Messianic Bible</strong></p>
+
+<p>let’s get the books listing:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://api.scripture.api.bible/v1/bibles/f72b840c855f362c-04/books"</span> <span class="nt">-H</span> <span class="s2">"api-key:</span><span class="nv">$KEY</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>which returns</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GEN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bibleId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f72b840c855f362c-04"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Genesis"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Genesis"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"nameLong"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The First Book of Moses, Commonly Called Genesis"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EXO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bibleId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f72b840c855f362c-04"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Exodus"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Exodus"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"nameLong"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Second Book of Mosis, Commonly Called Exodus"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LEV"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bibleId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f72b840c855f362c-04"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leviticus"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leviticus"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"nameLong"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Third Book of Mosis, Commonly Called Leviticus"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span></code></pre></div></div>
+
+<p>With the obtained book-id we can fetch the chapters:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://api.scripture.api.bible/v1/bibles/f72b840c855f362c-04/books/GEN/chapters"</span> <span class="nt">-H</span> <span class="s2">"api-key:</span><span class="nv">$KEY</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>returning</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GEN.intro"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bibleId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f72b840c855f362c-04"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bookId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GEN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intro"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Genesis"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GEN.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bibleId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f72b840c855f362c-04"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bookId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GEN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Genesis 1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GEN.2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bibleId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f72b840c855f362c-04"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bookId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GEN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Genesis 2"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Now we have enough information to fetch the text of a whole chapter, for our purposes we will retrieve the chapter divided in verses inside a JSON structure</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://api.scripture.api.bible/v1/bibles/f72b840c855f362c-04/chapters/GEN.1?content-type=json&amp;include-notes=false&amp;include-titles=false&amp;include-chapter-numbers=false&amp;include-verse-numbers=false&amp;include-verse-spans=false"</span> <span class="nt">-H</span> <span class="s2">"api-key:</span><span class="nv">$KEY</span><span class="s2">"</span> <span class="o">&gt;</span> GEN.1.json
+</code></pre></div></div>
+
+<p>which returns:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GEN.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bibleId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f72b840c855f362c-04"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bookId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GEN"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Genesis 1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"copyright"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\n</span><span class="s2">          </span><span class="se">\n</span><span class="s2">            PUBLIC DOMAIN</span><span class="se">\n</span><span class="s2">          </span><span class="se">\n</span><span class="s2">        "</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"para"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tag"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"style"</span><span class="p">:</span><span class="w"> </span><span class="s2">"p"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In the beginning, God"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"verseId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GEN.1.1"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"verseOrgIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"GEN.1.1"</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">" created the heavens and the earth. "</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"verseId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GEN.1.1"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"verseOrgIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"GEN.1.1"</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The earth was formless and empty. Darkness was on the surface of the deep and God's Spirit was hovering over the surface of the waters."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"verseId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GEN.1.2"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"verseOrgIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"GEN.1.2"</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+</span></code></pre></div></div>
+
+<p>this is the basic information we will be retrieving from the API service.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Previous</th>
+      <th style="text-align: left">Home</th>
+      <th style="text-align: left">Next</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="D-nltk">NLTK</a></td>
+      <td style="text-align: left"><a href="A-θεόφιλος-Journey">θεόφιλος Journey</a></td>
+      <td style="text-align: left"><a href="A-getting-raw-text-from-json-data">Getting Text from JSON</a></td>
+    </tr>
+  </tbody>
+</table>
+:ET

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="generator" content="Jekyll">
+
+  <title>Tokenizing all documents</title>
+
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" /> <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Tokenizing all documents | θεόφιλος Journey</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Tokenizing all documents" />
+<meta name="author" content="Jorge Murillo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Scripts Source Code" />
+<meta property="og:description" content="Scripts Source Code" />
+<link rel="canonical" href="http://0.0.0.0:4000/A-tokenizing-all-documents" />
+<meta property="og:url" content="http://0.0.0.0:4000/A-tokenizing-all-documents" />
+<meta property="og:site_name" content="θεόφιλος Journey" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-06T00:00:00+00:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/A-tokenizing-all-documents"},"@type":"BlogPosting","url":"http://0.0.0.0:4000/A-tokenizing-all-documents","headline":"Tokenizing all documents","dateModified":"2020-08-06T00:00:00+00:00","datePublished":"2020-08-06T00:00:00+00:00","author":{"@type":"Person","name":"Jorge Murillo"},"description":"Scripts Source Code","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <header>
+  <div>
+    <a href="/">
+    
+    <h1>jorge@home:~$</h1>
+    </a>
+    <div class="header-links">
+      <a href="/archive"><h2 class="header-link">Archive</h2></a>
+<a href="/about"><h2 class="header-link">About</h2></a>
+<a href="/atom.xml"><h2 class="header-link">RSS</h2></a>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <section id="main_content">
+        <article>
+  <h2>Tokenizing all documents</h2>
+  <time datetime="2020-08-06T00:00:00+00:00" class="by-line">06 Aug 2020</time>
+  <p><a href="https://github.com/murillocjr/theophilusnlp">Scripts Source Code</a></p>
+
+<p>The purpose is to go chapter by chapter and run the “tokenizing by words” process, then store the results in a database so we can start getting statistics on the words used.</p>
+
+<p>All our JSON documents are stored in TinyDB structures, from there we will extract information like token words; since we will need to run SELECT commands with COUNT and GROUP BY options; which is not that straight forward in TinyDB, we will make use of an SQLite auxiliary database for analysis.</p>
+
+<p>The first tokenization attempt (run over Genesis only, to speed the process) returns the following results (scripts <strong><code class="language-plaintext highlighter-rouge">f_b_tokenize_documents.py</code></strong> and <strong><code class="language-plaintext highlighter-rouge">f_d_print_word_tokens.py</code></strong>) :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(',', 3802)
+('the', 2226)
+('and', 1712)
+('.', 1460)
+('of', 1315)
+('to', 1076)
+('his', 580)
+(''', 567)
+('you', 559)
+('in', 542)
+('"', 537)
+('"', 524)
+('said', 466)
+('I', 439)
+('will', 412)
+('that', 392)
+('him', 386)
+('your', 357)
+('a', 355)
+('he', 348)
+('my', 334)
+('s', 330)
+('was', 316)
+('with', 310)
+('for', 303)
+('is', 278)
+('He', 273)
+('me', 271)
+('father', 260)
+('The', 254)
+('be', 217)
+('God', 214)
+</code></pre></div></div>
+
+<p>The total count of unique tokens/words is 43518, from which we can see some issues :</p>
+
+<ul>
+  <li>3802 instances of “,” (comma)</li>
+  <li>2226 instances of “the”, etc</li>
+</ul>
+
+<p>which won’t be useful at this stage of Topic Modeling, so we need to prevent these “stop words” and punctuation symbols to get into the database; NLTK provides help for this task with:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="p">.</span><span class="n">words</span><span class="p">(</span><span class="s">'english'</span><span class="p">))</span>
+
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">chapter_text</span><span class="p">)</span>
+    <span class="n">non_punctuation_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">token</span><span class="p">.</span><span class="n">isalnum</span><span class="p">()]</span>
+    <span class="n">removed_stop_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">non_punctuation_tokens</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">w</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span> 
+</code></pre></div></div>
+
+<p>Which reduces the count to 2362 (~ 5.43% of the first list) remaining token words:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>('said', 466)
+('father', 260)
+('God', 214)
+('land', 190)
+('Jacob', 175)
+('LORD', 162)
+('Joseph', 152)
+('son', 146)
+('sons', 136)
+('Abraham', 132)
+...
+</code></pre></div></div>
+
+<p>So….: there’s a lot “said” in Genesis    :)</p>
+
+<p>Releasing the tokenization for all the chapters in the bible we get:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>('LORD', 6189)
+('shall', 4318)
+('said', 3819)
+('God', 3540)
+('Israel', 2352)
+('king', 2346)
+('one', 2129)
+('man', 2035)
+('son', 2031)
+('people', 1793)
+('house', 1746)
+('children', 1722)
+('came', 1648)
+('land', 1632)
+('men', 1444)
+</code></pre></div></div>
+
+<p>This first result could be interpreted as a very, very rough answer to “What the bible talks about?” and it has a very deep meaning for me personally.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Previous</th>
+      <th style="text-align: left">Home</th>
+      <th style="text-align: left">Next</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="A-milestone-1">Milestone 1</a></td>
+      <td style="text-align: left"><a href="A-θεόφιλος-Journey">θεόφιλος Journey</a></td>
+      <td style="text-align: left"><a href="A-one-result-several-questions">One Result, Several Questions</a></td>
+    </tr>
+  </tbody>
+</table>
+
+</article>
+      </section>
+    </div>
+  </div>
+
+   <footer>
+    <span>
+        <b>Jorge Murillo</b>
+    </span>
+    
+    <span>© 2020</span>
+</footer>
+
+
+  
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-49256786-5', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+</body>
+
+</html>

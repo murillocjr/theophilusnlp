@@ -1,0 +1,35 @@
+I"�<p>I have lots of <code class="language-plaintext highlighter-rouge">PDF</code> documents: books, articles, papers, etc.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Calibre</code> is helping me to keep them organized locally on my Linux machine; storing them on the cloud is still a work in progress, it would give me progress sync and the possibility to read anywhere, <code class="language-plaintext highlighter-rouge">I Librarian</code> would be my first choice for this purpose.</p>
+
+<p>From time to time I open one of them, read a little and then add a tag or a label as a guide to find it later or to improve filtering and classification.</p>
+
+<p>The main topics in my library are Theology, Machine Learning, Maths, and Origami.
+To read ALL of them and tag/label each one seems to be an unattainable goal, as much as I would like to do it.</p>
+
+<p>So…what about letting an <code class="language-plaintext highlighter-rouge">AI</code> do it</p>
+
+<p>When it gets something wrong, just get in and tighten some parametrical bolts so it keeps improving.</p>
+
+<p>So I would get some kind of recommendation system based on each document “fingerprint” according to the model. A new model a new fingerprint.</p>
+
+<p>Right now it seems like a different model will be necessary for each General Topic: Theology for example would have its specialized model.</p>
+
+<p>Each time a new document arrives, I could get a fingerprint and a general idea of what it is about, what other books are topically close, and with some extra work, sentiment analysis could be part of the fingerprint.</p>
+
+<p>Sounds like a job for <code class="language-plaintext highlighter-rouge">Natural Language Processing</code>, <code class="language-plaintext highlighter-rouge">Topic Modeling</code> as a starting point.
+So this blog is about this little project, later on, maybe I could use the experience to build something similar processing movies/series subtitles and/or public comments.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Next</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="A-walked-paths">Walked Paths</a></td>
+    </tr>
+  </tbody>
+</table>
+:ET

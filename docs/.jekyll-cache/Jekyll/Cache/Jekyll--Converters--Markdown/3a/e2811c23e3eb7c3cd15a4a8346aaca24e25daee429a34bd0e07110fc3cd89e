@@ -1,0 +1,2 @@
+I"—<p>Since a lot of the data retrieved from the API comes in JSON format, and NLTK outputs are also in JSON, it stands to reason to use a JSON Documents based database to store the partial results and help to process and analyze the data, something on the line of MongoDB or CouchDB; but these two feels like overkill, so TinyDB looks more appropriate for the task at hand, installing it is as simple as:</p>
+:ET
