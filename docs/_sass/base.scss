@@ -159,7 +159,8 @@ pre {
   border-radius: 2px;
   text-wrap: normal;
   overflow: auto;
-  overflow-y: hidden;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 code.highlighter-rouge {
@@ -169,7 +170,6 @@ code.highlighter-rouge {
   margin: 0px -3px;
   color: #aa759f;
   border-radius: 2px;
-  max-height: 200px;
   overflow-y: hidden;
 }
 

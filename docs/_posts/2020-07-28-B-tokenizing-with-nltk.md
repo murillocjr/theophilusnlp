@@ -4,20 +4,12 @@ title: Tokenizing with NLTK
 date: 2020-07-28
 ---
 
-<!-- wp:paragraph -->
-
 Using our function to get the whole chapter text we can start trying some of the NLTK tokenizers :
-
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
 
 Tokenizing text into sentences:
 
-<!-- /wp:paragraph -->
-
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">>>> import sys
+```python
+>>> import sys
 >>> import json
 >>> from nltk.tokenize import sent_tokenize
 >>> from TextFromChapter import wholeChapter
@@ -26,11 +18,12 @@ Tokenizing text into sentences:
 ... 
 >>> text = wholeChapter(chapter_dict)
 >>> sent_tokenize(text)
-</pre>
-<!-- /wp:syntaxhighlighter/code -->
+```
 
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">[
+which outputs:
+
+```
+[
   'In the beginning, God created the heavens and the earth.',
   'The earth was formless and empty.',
   'Darkness was on the surface of the deep and God's Spirit was hovering over the surface of the waters.God said, "Let there be light," and there was light.',
@@ -62,20 +55,17 @@ Tokenizing text into sentences:
   'It will be your food.',
   'To every animal of the earth, and to every bird of the sky, and to everything that creeps on the earth, in which there is life, I have given every green herb for food;" and it was so.God saw everything that he had made, and, behold, it was very good.',
   'There was evening and there was morning, a sixth day.'
-]</pre>
-<!-- /wp:syntaxhighlighter/code -->
-
-<!-- wp:paragraph -->
+]
+```
 
 Tokenizing into words:
 
-<!-- /wp:paragraph -->
-
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">>>> from nltk.tokenize import word_tokenize
+```python
+>>> from nltk.tokenize import word_tokenize
 >>> word_tokenize(text)
-</pre>
-<!-- /wp:syntaxhighlighter/code -->
+```
+
+which outputs:
 
 ```
   'In',
@@ -957,3 +947,7 @@ Tokenizing into words:
   'day',
   '.'
 ```
+
+| Previous        | Home          | Next |
+|:-------------|:------------------|:------|
+| [Getting Text from JSON](A-getting-raw-text-from-json-data)  | [θεόφιλος Journey](A-θεόφιλος-Journey) | [Database Support](A-database-support)  |

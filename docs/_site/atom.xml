@@ -1,702 +1,1916 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hacker-Blog</title>
-    <description>A Jekyll Blog Theme For Hackers</description>
+    <title>θεόφιλος Journey</title>
+    <description>NLP Books semantic mapping project</description>
     <link>http://0.0.0.0:4000</link>
     <atom:link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/rss+xml" />
     <author>
-      <name>SomeHacker</name>
-      <email>someone@somewebsite.somedomain</email>
-      <uri>https://ashishchaudhary.in/hacker-blog</uri>
+      <name>Jorge Murillo</name>
+      <email>murillo.cjr@gmail.com</email>
+      <uri>https://murillocjr.github.io/theophilusnlp</uri>
     </author>
     
       <item>
-        <title>Yet Another Sample Page</title>
-        <description>&lt;p&gt;Text can be &lt;strong&gt;bold&lt;/strong&gt;, &lt;em&gt;italic&lt;/em&gt;, &lt;del&gt;strikethrough&lt;/del&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;keyword&lt;/code&gt;.&lt;/p&gt;
+        <title>Hebrew</title>
+        <description>&lt;!-- wp:paragraph --&gt;
 
-&lt;p&gt;&lt;a href=&quot;another-page&quot;&gt;Link to another page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Let’s see how far can we get using hebrew:&lt;/p&gt;
 
-&lt;p&gt;There should be whitespace between paragraphs.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;p&gt;There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.&lt;/p&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;h1 id=&quot;header-1&quot;&gt;&lt;a href=&quot;#header-1&quot;&gt;&lt;/a&gt;Header 1&lt;/h1&gt;
+&lt;p&gt;First good sign comes from NLTK, running the command:&lt;/p&gt;
 
-&lt;p&gt;This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;h2 id=&quot;header-2&quot;&gt;&lt;a href=&quot;#header-2&quot;&gt;&lt;/a&gt;Header 2&lt;/h2&gt;
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;&amp;gt;&amp;gt;&amp;gt; nltk.corpus.udhr.fileids()&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;This is a blockquote following a header.&lt;/p&gt;
+&lt;!-- wp:paragraph --&gt;
 
-  &lt;p&gt;When something is important enough, you do it even if the odds are not in your favor.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;returns as part of it’s output:&lt;/p&gt;
 
-&lt;h3 id=&quot;header-3&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt;Header 3&lt;/h3&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Javascript code with syntax highlighting.&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;dateformat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i18n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./lang/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt; 'Hebrew_Ivrit-Hebrew', 'Hebrew_Ivrit-UTF8'&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
 
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Ruby code with syntax highlighting&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;GitHubPages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Dependencies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add_dependency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;= &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;h4 id=&quot;header-4&quot;&gt;&lt;a href=&quot;#header-4&quot;&gt;&lt;/a&gt;Header 4&lt;/h4&gt;
+&lt;p&gt;But sadly, the API chosen at the beginning does not provide a bible in Hebrew.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;h5 id=&quot;header-5&quot;&gt;&lt;a href=&quot;#header-5&quot;&gt;&lt;/a&gt;Header 5&lt;/h5&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;For a site that provides so wide a variety of bible versions in several languages, there must be a very good set of reasons as for why Hebrew is not present; I can only blame myself for not checking that while picking a source.&lt;/p&gt;
 
-&lt;h6 id=&quot;header-6&quot;&gt;&lt;a href=&quot;#header-6&quot;&gt;&lt;/a&gt;Header 6&lt;/h6&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;head1&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;head two&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;three&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ok&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good swedish fish&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;nice&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;out of stock&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good and plenty&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;nice&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ok&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;oreos&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;hmm&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ok&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zoute&lt;/code&gt; drop&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;yumm&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;h3 id=&quot;theres-a-horizontal-rule-below-this&quot;&gt;There’s a horizontal rule below this.&lt;/h3&gt;
+&lt;p&gt;With the purpose of finding a way to make the basic analysis in Hebrew, here’s some interesting findings:&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;h3 id=&quot;here-is-an-unordered-list&quot;&gt;Here is an unordered list:&lt;/h3&gt;
+&lt;!-- wp:list --&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Item foo&lt;/li&gt;
-  &lt;li&gt;Item bar&lt;/li&gt;
-  &lt;li&gt;Item baz&lt;/li&gt;
-  &lt;li&gt;Item zip&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/openscriptures/morphhb&quot;&gt;https://github.com/openscriptures/morphhb&lt;/a&gt;
+&lt;!-- /wp:list --&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;and-an-ordered-list&quot;&gt;And an ordered list:&lt;/h3&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Item one&lt;/li&gt;
-  &lt;li&gt;Item two&lt;/li&gt;
-  &lt;li&gt;Item three&lt;/li&gt;
-  &lt;li&gt;Item four&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Other API produces the following:&lt;/p&gt;
 
-&lt;h3 id=&quot;and-a-nested-list&quot;&gt;And a nested list:&lt;/h3&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;level 1 item
-    &lt;ul&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item
-        &lt;ul&gt;
-          &lt;li&gt;level 3 item&lt;/li&gt;
-          &lt;li&gt;level 3 item&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;level 1 item
-    &lt;ul&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;level 1 item
-    &lt;ul&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;level 1 item&lt;/li&gt;
-&lt;/ul&gt;
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;https://getbible.net/json?passage=GEN1:1&amp;amp;version=wlc&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
 
-&lt;h3 id=&quot;small-image&quot;&gt;Small image&lt;/h3&gt;
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;({&quot;book&quot;:[{&quot;book_ref&quot;:&quot;Ge&quot;,&quot;book_name&quot;:&quot;Genesis&quot;,&quot;book_nr&quot;:&quot;1&quot;,&quot;chapter_nr&quot;:&quot;1&quot;,&quot;chapter&quot;:{&quot;1&quot;:{&quot;verse_nr&quot;:&quot;1&quot;,&quot;verse&quot;:&quot;\u05d1\u05bc\u05b0\u05e8\u05b5\u05d0\u05e9\u05c1\u05b4\u05d9\u05ea \u05d1\u05bc\u05b8\u05e8\u05b8\u05d0 \u05d0\u05b1\u05dc\u05b9\u05d4\u05b4\u05d9\u05dd \u05d0\u05b5\u05ea \u05d4\u05b7\u05e9\u05c1\u05bc\u05b8\u05de\u05b7\u05d9\u05b4\u05dd \u05d5\u05b0\u05d0\u05b5\u05ea \u05d4\u05b8\u05d0\u05b8\u05e8\u05b6\u05e5\u05c3\r\n&quot;}}}],&quot;direction&quot;:&quot;RTL&quot;,&quot;type&quot;:&quot;verse&quot;,&quot;version&quot;:&quot;wlc&quot;});&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://assets-cdn.github.com/images/icons/emoji/octocat.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;h3 id=&quot;large-image&quot;&gt;Large image&lt;/h3&gt;
+&lt;p&gt;Where “\u05d1” is unicode for the Hebrew letter “Bet” , so it would be better to first see whether NLTK can process the text in this format.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://guides.github.com/activities/hello-world/branching.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;h3 id=&quot;definition-lists-can-be-used-with-html-syntax&quot;&gt;Definition lists can be used with HTML syntax.&lt;/h3&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;dl&gt;
-&lt;dt&gt;Name&lt;/dt&gt;
-&lt;dd&gt;Godzilla&lt;/dd&gt;
-&lt;dt&gt;Born&lt;/dt&gt;
-&lt;dd&gt;1952&lt;/dd&gt;
-&lt;dt&gt;Birthplace&lt;/dt&gt;
-&lt;dd&gt;Japan&lt;/dd&gt;
-&lt;dt&gt;Color&lt;/dt&gt;
-&lt;dd&gt;Green&lt;/dd&gt;
-&lt;/dl&gt;
+&lt;p&gt;Bad news, there’s no hebrew tokenizer in my nltk installation :&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;The final element.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;tokenizers/punkt/czech.pickle
+tokenizers/punkt/danish.pickle
+tokenizers/punkt/dutch.pickle
+tokenizers/punkt/english.pickle
+tokenizers/punkt/estonian.pickle
+tokenizers/punkt/finnish.pickle
+tokenizers/punkt/french.pickle
+tokenizers/punkt/german.pickle
+tokenizers/punkt/greek.pickle
+tokenizers/punkt/italian.pickle
+tokenizers/punkt/norwegian.pickle
+tokenizers/punkt/polish.pickle
+tokenizers/punkt/portuguese.pickle
+tokenizers/punkt/russian.pickle
+tokenizers/punkt/slovene.pickle
+tokenizers/punkt/spanish.pickle
+tokenizers/punkt/swedish.pickle
+tokenizers/punkt/turkish.pickle
+&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
+
+&lt;!-- wp:paragraph --&gt;
+
+&lt;p&gt;This seems like an alternative : &lt;a href=&quot;https://github.com/YontiLevin/Hebrew-Tokenizer&quot;&gt;https://github.com/YontiLevin/Hebrew-Tokenizer&lt;/a&gt;&lt;/p&gt;
+
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;pip install hebrew_tokenizer&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
+
+&lt;!-- wp:paragraph --&gt;
+
+&lt;p&gt;Which sample code works perfectly (), now lets see how it fares with unicode text:&lt;/p&gt;
+
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;No dice, it doesn't work with the unicode sample.
+
+Testing another tokenizer: https://www.cs.bgu.ac.il/~yoavg/software/hebtokenizer/
+Returns an error
+
+Let's keep looking...&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
 </description>
-        <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:4000//Yet-Another-Sample-Page</link>
-        <link href="http://0.0.0.0:4000/Yet-Another-Sample-Page"/>
-        <guid isPermaLink="true">http://0.0.0.0:4000/Yet-Another-Sample-Page</guid>
+        <pubDate>Thu, 10 Sep 2020 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000//A-hebrew</link>
+        <link href="http://0.0.0.0:4000/A-hebrew"/>
+        <guid isPermaLink="true">http://0.0.0.0:4000/A-hebrew</guid>
       </item>
     
       <item>
-        <title>Sample Page</title>
-        <description>&lt;p&gt;Text can be &lt;strong&gt;bold&lt;/strong&gt;, &lt;em&gt;italic&lt;/em&gt;, &lt;del&gt;strikethrough&lt;/del&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;keyword&lt;/code&gt;.&lt;/p&gt;
+        <title>One result ...several questions</title>
+        <description>&lt;!-- wp:paragraph --&gt;
 
-&lt;p&gt;&lt;a href=&quot;another-page&quot;&gt;Link to another page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;At this point we have tokenized the whole text of the “World Messianic Bible” and we have the first report of the most used words that are also semantically valuable:” LORD”, “shall” and “said” are the first of 2362 unique token-words found.&lt;/p&gt;
 
-&lt;p&gt;There should be whitespace between paragraphs.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;p&gt;There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.&lt;/p&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;h1 id=&quot;header-1&quot;&gt;&lt;a href=&quot;#header-1&quot;&gt;&lt;/a&gt;Header 1&lt;/h1&gt;
+&lt;p&gt;The API service that provided us with the text has listed 23 English available versions of the bible, and it claims to provide 2500 versions in over 1600 languages.&lt;/p&gt;
 
-&lt;p&gt;This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;h2 id=&quot;header-2&quot;&gt;&lt;a href=&quot;#header-2&quot;&gt;&lt;/a&gt;Header 2&lt;/h2&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;This is a blockquote following a header.&lt;/p&gt;
+&lt;p&gt;I wonder how the token list will vary depending on the version we use and even other languages, I’m particularly interested in checking whether NLTK provides support for Hebrew or not.&lt;/p&gt;
 
-  &lt;p&gt;When something is important enough, you do it even if the odds are not in your favor.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;h3 id=&quot;header-3&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt;Header 3&lt;/h3&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Javascript code with syntax highlighting.&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;dateformat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i18n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./lang/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Another thing we can get is the most used words by each book, which could give us some insight into the main topic of each one.&lt;/p&gt;
 
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Ruby code with syntax highlighting&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;GitHubPages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Dependencies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add_dependency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;= &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;h4 id=&quot;header-4&quot;&gt;&lt;a href=&quot;#header-4&quot;&gt;&lt;/a&gt;Header 4&lt;/h4&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;For the word-token frequency by book, we can run:&lt;/p&gt;
 
-&lt;h5 id=&quot;header-5&quot;&gt;&lt;a href=&quot;#header-5&quot;&gt;&lt;/a&gt;Header 5&lt;/h5&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;SELECT book,token, count(*) as 'count' FROM wordtokens GROUP BY book,token ORDER by 1,3 desc;&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
 
-&lt;h6 id=&quot;header-6&quot;&gt;&lt;a href=&quot;#header-6&quot;&gt;&lt;/a&gt;Header 6&lt;/h6&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;head1&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;head two&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;three&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ok&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good swedish fish&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;nice&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;out of stock&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good and plenty&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;nice&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ok&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;oreos&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;hmm&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ok&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zoute&lt;/code&gt; drop&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;yumm&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;Which give us the following results (&lt;strong&gt;f_e_print_word_frequency_by_book.py&lt;/strong&gt;):&lt;/p&gt;
 
-&lt;h3 id=&quot;theres-a-horizontal-rule-below-this&quot;&gt;There’s a horizontal rule below this.&lt;/h3&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;hr /&gt;
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;1CH	sons(303)		David(181)		LORD(172)		
+1CO	things(76)		Messiah(66)		Lord(66)		
+1JN	know(36)		us(35)		love(35)		
+1KI	LORD(252)		said(207)		Israel(194)		
+1PE	Messiah(19)		may(14)		also(13)		
+1SA	LORD(309)		Saul(288)		David(281)		
+1TH	Lord(25)		Yeshua(17)		us(16)		
+1TI	good(22)		faith(17)		Messiah(16)		
+2CH	king(248)		house(194)		God(181)		
+2CO	Messiah(47)		also(45)		us(43)		
+2JN	Father(4)		us(3)		teaching(3)		
+2KI	LORD(276)		said(221)		Israel(149)		
+2PE	things(12)		day(10)		Yeshua(9)		
+2SA	David(274)		said(230)		LORD(142)		
+2TH	God(19)		Yeshua(12)		us(9)		
+2TI	Yeshua(14)		Messiah(14)		God(13)		
+3JN	brothers(3)		God(3)		write(2)		
+ACT	said(149)		Paul(126)		Lord(98)		
+AMO	says(46)		Israel(26)		house(25)		
+COL	God(22)		things(20)		also(15)		
+DAN	Daniel(72)		God(48)		kingdom(47)		
+DEU	LORD(545)		God(341)		land(179)		
+ECC	God(39)		time(38)		heart(36)		
+EPH	God(31)		one(24)		Lord(24)		
+EST	Mordecai(56)		Esther(53)		Haman(51)		
+EXO	LORD(385)		Moses(283)		said(199)		
+EZK	Lord(221)		says(209)		LORD(191)		
+EZR	God(95)		king(63)		hundred(60)		
+GAL	law(30)		God(30)		faith(19)		
+GEN	father(260)		God(214)		land(190)		
+HAB	nations(7)		like(7)		violence(5)		
+HAG	says(20)		Hosts(13)		son(10)		
+HEB	things(38)		made(30)		faith(30)		
+HOS	LORD(37)		Israel(37)		Ephraim(24)		
+ISA	shall(192)		like(162)		says(109)		
+JAS	God(17)		faith(16)		brothers(14)		
+JDG	Israel(172)		LORD(169)		children(128)		
+JER	says(337)		king(226)		land(190)		
+JHN	Yeshua(238)		therefore(100)		answered(77)		
+JOB	man(77)		Job(54)		know(53)		
+JOL	children(11)		great(10)		God(10)		
+JON	said(18)		Jonah(18)		God(14)		
+JOS	children(190)		Joshua(155)		Israel(153)		
+JUD	ungodly(5)		Yeshua(5)		God(5)		
+LAM	daughter(20)		like(14)		day(14)		
+LEV	LORD(284)		offering(268)		priest(183)		
+LUK	Yeshua(96)		son(89)		saying(72)		
+MAL	says(27)		Hosts(18)		say(13)		
+MAT	Yeshua(158)		saying(94)		came(93)		
+MIC	like(19)		come(15)		people(12)		
+MRK	Yeshua(84)		came(75)		went(47)		
+NAM	like(12)		away(7)		make(5)		
+NEH	son(112)		God(71)		hundred(49)		
+NUM	LORD(385)		children(258)		offering(242)		
+OBA	possess(6)		LORD(6)		Esau(6)		
+PHM	Messiah(6)		fellow(4)		Paul(4)		
+PHP	things(25)		God(22)		Yeshua(19)		
+PRO	wicked(75)		LORD(74)		shall(61)		
+PSA	God(321)		shall(183)		like(146)		
+REV	earth(76)		great(61)		like(60)		
+ROM	law(73)		Messiah(63)		also(60)		
+RUT	Naomi(22)		Boaz(20)		LORD(18)		
+SNG	beloved(32)		love(20)		beautiful(13)		
+TIT	things(10)		good(10)		may(9)		
+ZEC	Hosts(51)		says(42)		Jerusalem(35)	&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
 
-&lt;h3 id=&quot;here-is-an-unordered-list&quot;&gt;Here is an unordered list:&lt;/h3&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Item foo&lt;/li&gt;
-  &lt;li&gt;Item bar&lt;/li&gt;
-  &lt;li&gt;Item baz&lt;/li&gt;
-  &lt;li&gt;Item zip&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Next, lets try with other English translation, for that we just need to change the BIBLE_ID parameter and run all our scripts again:&lt;/p&gt;
 
-&lt;h3 id=&quot;and-an-ordered-list&quot;&gt;And an ordered list:&lt;/h3&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Item one&lt;/li&gt;
-  &lt;li&gt;Item two&lt;/li&gt;
-  &lt;li&gt;Item three&lt;/li&gt;
-  &lt;li&gt;Item four&lt;/li&gt;
-&lt;/ol&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;h3 id=&quot;and-a-nested-list&quot;&gt;And a nested list:&lt;/h3&gt;
+&lt;p&gt;In &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;c_a_parameters_bible.py&lt;/code&gt;&lt;/strong&gt; we put the id for : &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bf8f1c7f3f9045a5-01'JPS TaNaKH 1917&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;level 1 item
-    &lt;ul&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item
-        &lt;ul&gt;
-          &lt;li&gt;level 3 item&lt;/li&gt;
-          &lt;li&gt;level 3 item&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;level 1 item
-    &lt;ul&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;level 1 item
-    &lt;ul&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;level 1 item&lt;/li&gt;
-&lt;/ul&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;h3 id=&quot;small-image&quot;&gt;Small image&lt;/h3&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://assets-cdn.github.com/images/icons/emoji/octocat.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;And we run the next scripts:&lt;/p&gt;
 
-&lt;h3 id=&quot;large-image&quot;&gt;Large image&lt;/h3&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://guides.github.com/activities/hello-world/branching.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;python c_b_retrieve_bible_books.py 
+python d_b_retrieve_books_chapters.py 
+python e_b_retrieve_chapters_text.py
+python f_b_tokenize_documents.py
+&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
 
-&lt;h3 id=&quot;definition-lists-can-be-used-with-html-syntax&quot;&gt;Definition lists can be used with HTML syntax.&lt;/h3&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;dl&gt;
-&lt;dt&gt;Name&lt;/dt&gt;
-&lt;dd&gt;Godzilla&lt;/dd&gt;
-&lt;dt&gt;Born&lt;/dt&gt;
-&lt;dd&gt;1952&lt;/dd&gt;
-&lt;dt&gt;Birthplace&lt;/dt&gt;
-&lt;dd&gt;Japan&lt;/dd&gt;
-&lt;dt&gt;Color&lt;/dt&gt;
-&lt;dd&gt;Green&lt;/dd&gt;
-&lt;/dl&gt;
+&lt;p&gt;Which result in the following list of tokens by frequency:&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;The final element.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;('shall', 7404)
+('unto', 6820)
+('LORD', 6535)
+('thou', 3356)
+('thy', 3317)
+('said', 2899)
+('thee', 2879)
+('God', 2654)
+('Israel', 2505)
+('upon', 2451)
+('king', 2410)
+('ye', 2314)
+('son', 1897)
+('land', 1838)
+&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
+
+&lt;!-- wp:paragraph --&gt;
+
+&lt;p&gt;Which shows that NLTK does not have words like “thou” or “thy” in its list of stop-words. It does allow for editing that list though, so is a solvable issue.&lt;/p&gt;
+
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph --&gt;
+
+&lt;p&gt;Next, a tougher test: Hebrew&lt;/p&gt;
+
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph --&gt;
+
+&lt;!-- /wp:paragraph --&gt;
 </description>
-        <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:4000//Sample-Page</link>
-        <link href="http://0.0.0.0:4000/Sample-Page"/>
-        <guid isPermaLink="true">http://0.0.0.0:4000/Sample-Page</guid>
+        <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000//A-one-result-several-questions</link>
+        <link href="http://0.0.0.0:4000/A-one-result-several-questions"/>
+        <guid isPermaLink="true">http://0.0.0.0:4000/A-one-result-several-questions</guid>
       </item>
     
       <item>
-        <title>One More Sample Page</title>
-        <description>&lt;p&gt;Text can be &lt;strong&gt;bold&lt;/strong&gt;, &lt;em&gt;italic&lt;/em&gt;, &lt;del&gt;strikethrough&lt;/del&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;keyword&lt;/code&gt;.&lt;/p&gt;
+        <title>Tokenizing all documents</title>
+        <description>&lt;!-- wp:paragraph --&gt;
 
-&lt;p&gt;&lt;a href=&quot;another-page&quot;&gt;Link to another page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The purpose is to go chapter by chapter and run the “tokenizing by words” process, then store the results in a database so we can start getting statistics on the words used.&lt;/p&gt;
 
-&lt;p&gt;There should be whitespace between paragraphs.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;p&gt;There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.&lt;/p&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;h1 id=&quot;header-1&quot;&gt;&lt;a href=&quot;#header-1&quot;&gt;&lt;/a&gt;Header 1&lt;/h1&gt;
+&lt;p&gt;All our JSON documents are stored in TinyDB structures, from there we will extract information like token words; since we will need to run SELECT commands with COUNT and GROUP BY options; which is not that straight forward in TinyDB, we will make use of an SQLite auxiliary database for analysis.&lt;/p&gt;
 
-&lt;p&gt;This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;h2 id=&quot;header-2&quot;&gt;&lt;a href=&quot;#header-2&quot;&gt;&lt;/a&gt;Header 2&lt;/h2&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;This is a blockquote following a header.&lt;/p&gt;
+&lt;p&gt;The first tokenization attempt (run over Genesis only, to speed the process) returns the following results (scripts &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f_b_tokenize_documents.py&lt;/code&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f_d_print_word_tokens.py&lt;/code&gt;&lt;/strong&gt;) :&lt;/p&gt;
 
-  &lt;p&gt;When something is important enough, you do it even if the odds are not in your favor.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;h3 id=&quot;header-3&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt;Header 3&lt;/h3&gt;
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;(',', 3802)
+('the', 2226)
+('and', 1712)
+('.', 1460)
+('of', 1315)
+('to', 1076)
+('his', 580)
+(''', 567)
+('you', 559)
+('in', 542)
+('&quot;', 537)
+('&quot;', 524)
+('said', 466)
+('I', 439)
+('will', 412)
+('that', 392)
+('him', 386)
+('your', 357)
+('a', 355)
+('he', 348)
+('my', 334)
+('s', 330)
+('was', 316)
+('with', 310)
+('for', 303)
+('is', 278)
+('He', 273)
+('me', 271)
+('father', 260)
+('The', 254)
+('be', 217)
+('God', 214)
+&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
 
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Javascript code with syntax highlighting.&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;dateformat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i18n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./lang/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Ruby code with syntax highlighting&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;GitHubPages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Dependencies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add_dependency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;= &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The total count of unique tokens/words is 43518, from which we can see some issues :&lt;/p&gt;
 
-&lt;h4 id=&quot;header-4&quot;&gt;&lt;a href=&quot;#header-4&quot;&gt;&lt;/a&gt;Header 4&lt;/h4&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&quot;header-5&quot;&gt;&lt;a href=&quot;#header-5&quot;&gt;&lt;/a&gt;Header 5&lt;/h5&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h6 id=&quot;header-6&quot;&gt;&lt;a href=&quot;#header-6&quot;&gt;&lt;/a&gt;Header 6&lt;/h6&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;head1&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;head two&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;three&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ok&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good swedish fish&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;nice&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;out of stock&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good and plenty&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;nice&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ok&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;oreos&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;hmm&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ok&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zoute&lt;/code&gt; drop&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;yumm&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;theres-a-horizontal-rule-below-this&quot;&gt;There’s a horizontal rule below this.&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;here-is-an-unordered-list&quot;&gt;Here is an unordered list:&lt;/h3&gt;
+&lt;!-- wp:list --&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Item foo&lt;/li&gt;
-  &lt;li&gt;Item bar&lt;/li&gt;
-  &lt;li&gt;Item baz&lt;/li&gt;
-  &lt;li&gt;Item zip&lt;/li&gt;
+  &lt;li&gt;3802 instances of “,” (comma)&lt;/li&gt;
+  &lt;li&gt;2226 instances of “the”, etc
+&lt;!-- /wp:list --&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;and-an-ordered-list&quot;&gt;And an ordered list:&lt;/h3&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Item one&lt;/li&gt;
-  &lt;li&gt;Item two&lt;/li&gt;
-  &lt;li&gt;Item three&lt;/li&gt;
-  &lt;li&gt;Item four&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;which won’t be useful at this stage of Topic Modeling, so we need to prevent these “stop words” and punctuation symbols to get into the database; NLTK provides help for this task with:&lt;/p&gt;
 
-&lt;h3 id=&quot;and-a-nested-list&quot;&gt;And a nested list:&lt;/h3&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;level 1 item
-    &lt;ul&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item
-        &lt;ul&gt;
-          &lt;li&gt;level 3 item&lt;/li&gt;
-          &lt;li&gt;level 3 item&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;level 1 item
-    &lt;ul&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;level 1 item
-    &lt;ul&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;level 1 item&lt;/li&gt;
-&lt;/ul&gt;
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;stop_words = set(stopwords.words('english'))
 
-&lt;h3 id=&quot;small-image&quot;&gt;Small image&lt;/h3&gt;
+tokens = word_tokenize(chapter_text)
+    non_punctuation_tokens = [token for token in tokens if token.isalnum()]
+    removed_stop_words = [w for w in non_punctuation_tokens if not w.lower() in stop_words] 
+&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://assets-cdn.github.com/images/icons/emoji/octocat.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;h3 id=&quot;large-image&quot;&gt;Large image&lt;/h3&gt;
+&lt;p&gt;Which reduces the count to 2362 (~ 5.43% of the first list) remaining token words:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://guides.github.com/activities/hello-world/branching.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;h3 id=&quot;definition-lists-can-be-used-with-html-syntax&quot;&gt;Definition lists can be used with HTML syntax.&lt;/h3&gt;
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;('said', 466)
+('father', 260)
+('God', 214)
+('land', 190)
+('Jacob', 175)
+('LORD', 162)
+('Joseph', 152)
+('son', 146)
+('sons', 136)
+('Abraham', 132)
+...&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
 
-&lt;dl&gt;
-&lt;dt&gt;Name&lt;/dt&gt;
-&lt;dd&gt;Godzilla&lt;/dd&gt;
-&lt;dt&gt;Born&lt;/dt&gt;
-&lt;dd&gt;1952&lt;/dd&gt;
-&lt;dt&gt;Birthplace&lt;/dt&gt;
-&lt;dd&gt;Japan&lt;/dd&gt;
-&lt;dt&gt;Color&lt;/dt&gt;
-&lt;dd&gt;Green&lt;/dd&gt;
-&lt;/dl&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;So….: there’s a lot “said” in Genesis    :)&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;The final element.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph --&gt;
+
+&lt;p&gt;Releasing the tokenization for all the chapters in the bible we get:&lt;/p&gt;
+
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;('LORD', 6189)
+('shall', 4318)
+('said', 3819)
+('God', 3540)
+('Israel', 2352)
+('king', 2346)
+('one', 2129)
+('man', 2035)
+('son', 2031)
+('people', 1793)
+('house', 1746)
+('children', 1722)
+('came', 1648)
+('land', 1632)
+('men', 1444)
+&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
+
+&lt;!-- wp:paragraph --&gt;
+
+&lt;p&gt;This first result could be interpreted as a very, very rough answer to “What the bible talks about?” and it has a very deep meaning for me personally.&lt;/p&gt;
+
+&lt;!-- /wp:paragraph --&gt;
 </description>
-        <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:4000//One-More-Sample-Page</link>
-        <link href="http://0.0.0.0:4000/One-More-Sample-Page"/>
-        <guid isPermaLink="true">http://0.0.0.0:4000/One-More-Sample-Page</guid>
+        <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000//A-tokenizing-all-documents</link>
+        <link href="http://0.0.0.0:4000/A-tokenizing-all-documents"/>
+        <guid isPermaLink="true">http://0.0.0.0:4000/A-tokenizing-all-documents</guid>
       </item>
     
       <item>
-        <title>Another Sample Page</title>
-        <description>&lt;p&gt;Text can be &lt;strong&gt;bold&lt;/strong&gt;, &lt;em&gt;italic&lt;/em&gt;, &lt;del&gt;strikethrough&lt;/del&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;keyword&lt;/code&gt;.&lt;/p&gt;
+        <title>Milestone 1</title>
+        <description>&lt;!-- wp:paragraph --&gt;
 
-&lt;p&gt;&lt;a href=&quot;another-page&quot;&gt;Link to another page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This is what we have so far:&lt;/p&gt;
 
-&lt;p&gt;There should be whitespace between paragraphs.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
 
-&lt;p&gt;There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.&lt;/p&gt;
-
-&lt;h1 id=&quot;header-1&quot;&gt;&lt;a href=&quot;#header-1&quot;&gt;&lt;/a&gt;Header 1&lt;/h1&gt;
-
-&lt;p&gt;This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.&lt;/p&gt;
-
-&lt;h2 id=&quot;header-2&quot;&gt;&lt;a href=&quot;#header-2&quot;&gt;&lt;/a&gt;Header 2&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;This is a blockquote following a header.&lt;/p&gt;
-
-  &lt;p&gt;When something is important enough, you do it even if the odds are not in your favor.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;header-3&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt;Header 3&lt;/h3&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Javascript code with syntax highlighting.&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;dateformat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i18n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./lang/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Ruby code with syntax highlighting&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;GitHubPages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Dependencies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add_dependency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;= &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;header-4&quot;&gt;&lt;a href=&quot;#header-4&quot;&gt;&lt;/a&gt;Header 4&lt;/h4&gt;
+&lt;!-- wp:list --&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
+  &lt;li&gt;Data: A whole bible text inside TinyDB documents database entities.&lt;/li&gt;
+  &lt;li&gt;Code: A function that returns the raw text of a whole chapter on receiving the ChapterID&lt;/li&gt;
+  &lt;li&gt;NLTK environment up and running.
+&lt;!-- /wp:list --&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&quot;header-5&quot;&gt;&lt;a href=&quot;#header-5&quot;&gt;&lt;/a&gt;Header 5&lt;/h5&gt;
+&lt;!-- wp:paragraph --&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
-  &lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;The code used to retrieve this information is inside small python scripts available on the GitHub repo associated with this project. Since the data is stored in a database we can query it any way we want; also the chapter data is in a JSON format that also can give us paragraphs and verses individually&lt;/p&gt;
 
-&lt;h6 id=&quot;header-6&quot;&gt;&lt;a href=&quot;#header-6&quot;&gt;&lt;/a&gt;Header 6&lt;/h6&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph --&gt;
+
+&lt;p&gt;Here’s where the fun begins; we can start playing with query and code to start gaining insights in the data we have:&lt;/p&gt;
+
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:syntaxhighlighter/code --&gt;
+&lt;pre class=&quot;wp-block-syntaxhighlighter-code&quot;&gt;python d_d_print_books_chapters.py ' wc -l
+1255&lt;/pre&gt;
+&lt;!-- /wp:syntaxhighlighter/code --&gt;
+
+&lt;!-- wp:paragraph --&gt;
+
+&lt;p&gt;We can see that there are 1255 chapters that we will treat as separate documents, so in the end, we could get what is the main topic(s) in any particular chapter/document.&lt;/p&gt;
+
+&lt;!-- /wp:paragraph --&gt;
+</description>
+        <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000//A-milestone-1</link>
+        <link href="http://0.0.0.0:4000/A-milestone-1"/>
+        <guid isPermaLink="true">http://0.0.0.0:4000/A-milestone-1</guid>
+      </item>
+    
+      <item>
+        <title>Database support</title>
+        <description>&lt;!-- wp:paragraph --&gt;
+
+&lt;p&gt;Since a lot of the data retrieved from the API comes in JSON format, and NLTK outputs are also in JSON, it stands to reason to use a JSON Documents based database to store the partial results and help to process and analyze the data, something on the line of MongoDB or CouchDB; but these two feels like overkill, so TinyDB looks more appropriate for the task at hand, installing it is as simple as:&lt;/p&gt;
+
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph --&gt;
+
+&lt;p&gt;pip install tinydb&lt;/p&gt;
+
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph --&gt;
+
+&lt;p&gt;At this point, it was necessary to do significant modifications to retrieve the whole text of the selected version of the bible, store the data inside TinyDB, and also retrieve the whole text of a Chapter. All the associated code and the resulting databases are available at the following GitHub repo: &lt;a href=&quot;https://github.com/murillocjr/theophilusnlp&quot;&gt;https://github.com/murillocjr/theophilusnlp&lt;/a&gt;&lt;/p&gt;
+
+&lt;!-- /wp:paragraph --&gt;
+</description>
+        <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000//A-database-support</link>
+        <link href="http://0.0.0.0:4000/A-database-support"/>
+        <guid isPermaLink="true">http://0.0.0.0:4000/A-database-support</guid>
+      </item>
+    
+      <item>
+        <title>Tokenizing with NLTK</title>
+        <description>&lt;p&gt;Using our function to get the whole chapter text we can start trying some of the NLTK tokenizers :&lt;/p&gt;
+
+&lt;p&gt;Tokenizing text into sentences:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;json&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk.tokenize&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sent_tokenize&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;TextFromChapter&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wholeChapter&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'GEN.1.json'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'r'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;     &lt;span class=&quot;n&quot;&gt;chapter_dict&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wholeChapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chapter_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sent_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;which outputs:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[
+  'In the beginning, God created the heavens and the earth.',
+  'The earth was formless and empty.',
+  'Darkness was on the surface of the deep and God's Spirit was hovering over the surface of the waters.God said, &quot;Let there be light,&quot; and there was light.',
+  'God saw the light, and saw that it was good.',
+  'God divided the light from the darkness.',
+  'God called the light &quot;day&quot;, and the darkness he called &quot;night&quot;.',
+  'There was evening and there was morning, the first day.God said, &quot;Let there be an expanse in the middle of the waters, and let it divide the waters from the waters.&quot; God made the expanse, and divided the waters which were under the expanse from the waters which were above the expanse; and it was so.',
+  'God called the expanse &quot;sky&quot;.',
+  'There was evening and there was morning, a second day.God said, &quot;Let the waters under the sky be gathered together to one place, and let the dry land appear;&quot; and it was so.',
+  'God called the dry land &quot;earth&quot;, and the gathering together of the waters he called &quot;seas&quot;.',
+  'God saw that it was good.',
+  'God said, &quot;Let the earth yield grass, herbs yielding seeds, and fruit trees bearing fruit after their kind, with their seeds in it, on the earth;&quot; and it was so.',
+  'The earth yielded grass, herbs yielding seed after their kind, and trees bearing fruit, with their seeds in it, after their kind; and God saw that it was good.',
+  'There was evening and there was morning, a third day.God said, &quot;Let there be lights in the expanse of the sky to divide the day from the night; and let them be for signs to mark seasons, days, and years; and let them be for lights in the expanse of the sky to give light on the earth;&quot; and it was so.',
+  'God made the two great lights: the greater light to rule the day, and the lesser light to rule the night.',
+  'He also made the stars.',
+  'God set them in the expanse of the sky to give light to the earth, and to rule over the day and over the night, and to divide the light from the darkness.',
+  'God saw that it was good.',
+  'There was evening and there was morning, a fourth day.God said, &quot;Let the waters abound with living creatures, and let birds fly above the earth in the open expanse of the sky.&quot; God created the large sea creatures and every living creature that moves, with which the waters swarmed, after their kind, and every winged bird after its kind.',
+  'God saw that it was good.',
+  'God blessed them, saying, &quot;Be fruitful, and multiply, and fill the waters in the seas, and let birds multiply on the earth.&quot; There was evening and there was morning, a fifth day.God said, &quot;Let the earth produce living creatures after their kind, livestock, creeping things, and animals of the earth after their kind;&quot; and it was so.',
+  'God made the animals of the earth after their kind, and the livestock after their kind, and everything that creeps on the ground after its kind.',
+  'God saw that it was good.God said, &quot;Let's make man in our image, after our likeness.',
+  'Let them have dominion over the fish of the sea, and over the birds of the sky, and over the livestock, and over all the earth, and over every creeping thing that creeps on the earth.&quot; God created man in his own image.',
+  'In God's image he created him; male and female he created them.',
+  'God blessed them.',
+  'God said to them, &quot;Be fruitful, multiply, fill the earth, and subdue it.',
+  'Have dominion over the fish of the sea, over the birds of the sky, and over every living thing that moves on the earth.&quot; God said, &quot;Behold, I have given you every herb yielding seed, which is on the surface of all the earth, and every tree, which bears fruit yielding seed.',
+  'It will be your food.',
+  'To every animal of the earth, and to every bird of the sky, and to everything that creeps on the earth, in which there is life, I have given every green herb for food;&quot; and it was so.God saw everything that he had made, and, behold, it was very good.',
+  'There was evening and there was morning, a sixth day.'
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tokenizing into words:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk.tokenize&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;which outputs:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  'In',
+  'the',
+  'beginning',
+  ',',
+  'God',
+  'created',
+  'the',
+  'heavens',
+  'and',
+  'the',
+  'earth',
+  '.',
+  'The',
+  'earth',
+  'was',
+  'formless',
+  'and',
+  'empty',
+  '.',
+  'Darkness',
+  'was',
+  'on',
+  'the',
+  'surface',
+  'of',
+  'the',
+  'deep',
+  'and',
+  'God',
+  ''',
+  's',
+  'Spirit',
+  'was',
+  'hovering',
+  'over',
+  'the',
+  'surface',
+  'of',
+  'the',
+  'waters.God',
+  'said',
+  ',',
+  '&quot;',
+  'Let',
+  'there',
+  'be',
+  'light',
+  ',',
+  '&quot;',
+  'and',
+  'there',
+  'was',
+  'light',
+  '.',
+  'God',
+  'saw',
+  'the',
+  'light',
+  ',',
+  'and',
+  'saw',
+  'that',
+  'it',
+  'was',
+  'good',
+  '.',
+  'God',
+  'divided',
+  'the',
+  'light',
+  'from',
+  'the',
+  'darkness',
+  '.',
+  'God',
+  'called',
+  'the',
+  'light',
+  '&quot;',
+  'day',
+  '&quot;',
+  ',',
+  'and',
+  'the',
+  'darkness',
+  'he',
+  'called',
+  '&quot;',
+  'night',
+  '&quot;',
+  '.',
+  'There',
+  'was',
+  'evening',
+  'and',
+  'there',
+  'was',
+  'morning',
+  ',',
+  'the',
+  'first',
+  'day.God',
+  'said',
+  ',',
+  '&quot;',
+  'Let',
+  'there',
+  'be',
+  'an',
+  'expanse',
+  'in',
+  'the',
+  'middle',
+  'of',
+  'the',
+  'waters',
+  ',',
+  'and',
+  'let',
+  'it',
+  'divide',
+  'the',
+  'waters',
+  'from',
+  'the',
+  'waters.',
+  '&quot;',
+  'God',
+  'made',
+  'the',
+  'expanse',
+  ',',
+  'and',
+  'divided',
+  'the',
+  'waters',
+  'which',
+  'were',
+  'under',
+  'the',
+  'expanse',
+  'from',
+  'the',
+  'waters',
+  'which',
+  'were',
+  'above',
+  'the',
+  'expanse',
+  ';',
+  'and',
+  'it',
+  'was',
+  'so',
+  '.',
+  'God',
+  'called',
+  'the',
+  'expanse',
+  '&quot;',
+  'sky',
+  '&quot;',
+  '.',
+  'There',
+  'was',
+  'evening',
+  'and',
+  'there',
+  'was',
+  'morning',
+  ',',
+  'a',
+  'second',
+  'day.God',
+  'said',
+  ',',
+  '&quot;',
+  'Let',
+  'the',
+  'waters',
+  'under',
+  'the',
+  'sky',
+  'be',
+  'gathered',
+  'together',
+  'to',
+  'one',
+  'place',
+  ',',
+  'and',
+  'let',
+  'the',
+  'dry',
+  'land',
+  'appear',
+  ';',
+  '&quot;',
+  'and',
+  'it',
+  'was',
+  'so',
+  '.',
+  'God',
+  'called',
+  'the',
+  'dry',
+  'land',
+  '&quot;',
+  'earth',
+  '&quot;',
+  ',',
+  'and',
+  'the',
+  'gathering',
+  'together',
+  'of',
+  'the',
+  'waters',
+  'he',
+  'called',
+  '&quot;',
+  'seas',
+  '&quot;',
+  '.',
+  'God',
+  'saw',
+  'that',
+  'it',
+  'was',
+  'good',
+  '.',
+  'God',
+  'said',
+  ',',
+  '&quot;',
+  'Let',
+  'the',
+  'earth',
+  'yield',
+  'grass',
+  ',',
+  'herbs',
+  'yielding',
+  'seeds',
+  ',',
+  'and',
+  'fruit',
+  'trees',
+  'bearing',
+  'fruit',
+  'after',
+  'their',
+  'kind',
+  ',',
+  'with',
+  'their',
+  'seeds',
+  'in',
+  'it',
+  ',',
+  'on',
+  'the',
+  'earth',
+  ';',
+  '&quot;',
+  'and',
+  'it',
+  'was',
+  'so',
+  '.',
+  'The',
+  'earth',
+  'yielded',
+  'grass',
+  ',',
+  'herbs',
+  'yielding',
+  'seed',
+  'after',
+  'their',
+  'kind',
+  ',',
+  'and',
+  'trees',
+  'bearing',
+  'fruit',
+  ',',
+  'with',
+  'their',
+  'seeds',
+  'in',
+  'it',
+  ',',
+  'after',
+  'their',
+  'kind',
+  ';',
+  'and',
+  'God',
+  'saw',
+  'that',
+  'it',
+  'was',
+  'good',
+  '.',
+  'There',
+  'was',
+  'evening',
+  'and',
+  'there',
+  'was',
+  'morning',
+  ',',
+  'a',
+  'third',
+  'day.God',
+  'said',
+  ',',
+  '&quot;',
+  'Let',
+  'there',
+  'be',
+  'lights',
+  'in',
+  'the',
+  'expanse',
+  'of',
+  'the',
+  'sky',
+  'to',
+  'divide',
+  'the',
+  'day',
+  'from',
+  'the',
+  'night',
+  ';',
+  'and',
+  'let',
+  'them',
+  'be',
+  'for',
+  'signs',
+  'to',
+  'mark',
+  'seasons',
+  ',',
+  'days',
+  ',',
+  'and',
+  'years',
+  ';',
+  'and',
+  'let',
+  'them',
+  'be',
+  'for',
+  'lights',
+  'in',
+  'the',
+  'expanse',
+  'of',
+  'the',
+  'sky',
+  'to',
+  'give',
+  'light',
+  'on',
+  'the',
+  'earth',
+  ';',
+  '&quot;',
+  'and',
+  'it',
+  'was',
+  'so',
+  '.',
+  'God',
+  'made',
+  'the',
+  'two',
+  'great',
+  'lights',
+  ':',
+  'the',
+  'greater',
+  'light',
+  'to',
+  'rule',
+  'the',
+  'day',
+  ',',
+  'and',
+  'the',
+  'lesser',
+  'light',
+  'to',
+  'rule',
+  'the',
+  'night',
+  '.',
+  'He',
+  'also',
+  'made',
+  'the',
+  'stars',
+  '.',
+  'God',
+  'set',
+  'them',
+  'in',
+  'the',
+  'expanse',
+  'of',
+  'the',
+  'sky',
+  'to',
+  'give',
+  'light',
+  'to',
+  'the',
+  'earth',
+  ',',
+  'and',
+  'to',
+  'rule',
+  'over',
+  'the',
+  'day',
+  'and',
+  'over',
+  'the',
+  'night',
+  ',',
+  'and',
+  'to',
+  'divide',
+  'the',
+  'light',
+  'from',
+  'the',
+  'darkness',
+  '.',
+  'God',
+  'saw',
+  'that',
+  'it',
+  'was',
+  'good',
+  '.',
+  'There',
+  'was',
+  'evening',
+  'and',
+  'there',
+  'was',
+  'morning',
+  ',',
+  'a',
+  'fourth',
+  'day.God',
+  'said',
+  ',',
+  '&quot;',
+  'Let',
+  'the',
+  'waters',
+  'abound',
+  'with',
+  'living',
+  'creatures',
+  ',',
+  'and',
+  'let',
+  'birds',
+  'fly',
+  'above',
+  'the',
+  'earth',
+  'in',
+  'the',
+  'open',
+  'expanse',
+  'of',
+  'the',
+  'sky.',
+  '&quot;',
+  'God',
+  'created',
+  'the',
+  'large',
+  'sea',
+  'creatures',
+  'and',
+  'every',
+  'living',
+  'creature',
+  'that',
+  'moves',
+  ',',
+  'with',
+  'which',
+  'the',
+  'waters',
+  'swarmed',
+  ',',
+  'after',
+  'their',
+  'kind',
+  ',',
+  'and',
+  'every',
+  'winged',
+  'bird',
+  'after',
+  'its',
+  'kind',
+  '.',
+  'God',
+  'saw',
+  'that',
+  'it',
+  'was',
+  'good',
+  '.',
+  'God',
+  'blessed',
+  'them',
+  ',',
+  'saying',
+  ',',
+  '&quot;',
+  'Be',
+  'fruitful',
+  ',',
+  'and',
+  'multiply',
+  ',',
+  'and',
+  'fill',
+  'the',
+  'waters',
+  'in',
+  'the',
+  'seas',
+  ',',
+  'and',
+  'let',
+  'birds',
+  'multiply',
+  'on',
+  'the',
+  'earth.',
+  '&quot;',
+  'There',
+  'was',
+  'evening',
+  'and',
+  'there',
+  'was',
+  'morning',
+  ',',
+  'a',
+  'fifth',
+  'day.God',
+  'said',
+  ',',
+  '&quot;',
+  'Let',
+  'the',
+  'earth',
+  'produce',
+  'living',
+  'creatures',
+  'after',
+  'their',
+  'kind',
+  ',',
+  'livestock',
+  ',',
+  'creeping',
+  'things',
+  ',',
+  'and',
+  'animals',
+  'of',
+  'the',
+  'earth',
+  'after',
+  'their',
+  'kind',
+  ';',
+  '&quot;',
+  'and',
+  'it',
+  'was',
+  'so',
+  '.',
+  'God',
+  'made',
+  'the',
+  'animals',
+  'of',
+  'the',
+  'earth',
+  'after',
+  'their',
+  'kind',
+  ',',
+  'and',
+  'the',
+  'livestock',
+  'after',
+  'their',
+  'kind',
+  ',',
+  'and',
+  'everything',
+  'that',
+  'creeps',
+  'on',
+  'the',
+  'ground',
+  'after',
+  'its',
+  'kind',
+  '.',
+  'God',
+  'saw',
+  'that',
+  'it',
+  'was',
+  'good.God',
+  'said',
+  ',',
+  '&quot;',
+  'Let',
+  ''',
+  's',
+  'make',
+  'man',
+  'in',
+  'our',
+  'image',
+  ',',
+  'after',
+  'our',
+  'likeness',
+  '.',
+  'Let',
+  'them',
+  'have',
+  'dominion',
+  'over',
+  'the',
+  'fish',
+  'of',
+  'the',
+  'sea',
+  ',',
+  'and',
+  'over',
+  'the',
+  'birds',
+  'of',
+  'the',
+  'sky',
+  ',',
+  'and',
+  'over',
+  'the',
+  'livestock',
+  ',',
+  'and',
+  'over',
+  'all',
+  'the',
+  'earth',
+  ',',
+  'and',
+  'over',
+  'every',
+  'creeping',
+  'thing',
+  'that',
+  'creeps',
+  'on',
+  'the',
+  'earth.',
+  '&quot;',
+  'God',
+  'created',
+  'man',
+  'in',
+  'his',
+  'own',
+  'image',
+  '.',
+  'In',
+  'God',
+  ''',
+  's',
+  'image',
+  'he',
+  'created',
+  'him',
+  ';',
+  'male',
+  'and',
+  'female',
+  'he',
+  'created',
+  'them',
+  '.',
+  'God',
+  'blessed',
+  'them',
+  '.',
+  'God',
+  'said',
+  'to',
+  'them',
+  ',',
+  '&quot;',
+  'Be',
+  'fruitful',
+  ',',
+  'multiply',
+  ',',
+  'fill',
+  'the',
+  'earth',
+  ',',
+  'and',
+  'subdue',
+  'it',
+  '.',
+  'Have',
+  'dominion',
+  'over',
+  'the',
+  'fish',
+  'of',
+  'the',
+  'sea',
+  ',',
+  'over',
+  'the',
+  'birds',
+  'of',
+  'the',
+  'sky',
+  ',',
+  'and',
+  'over',
+  'every',
+  'living',
+  'thing',
+  'that',
+  'moves',
+  'on',
+  'the',
+  'earth.',
+  '&quot;',
+  'God',
+  'said',
+  ',',
+  '&quot;',
+  'Behold',
+  ',',
+  'I',
+  'have',
+  'given',
+  'you',
+  'every',
+  'herb',
+  'yielding',
+  'seed',
+  ',',
+  'which',
+  'is',
+  'on',
+  'the',
+  'surface',
+  'of',
+  'all',
+  'the',
+  'earth',
+  ',',
+  'and',
+  'every',
+  'tree',
+  ',',
+  'which',
+  'bears',
+  'fruit',
+  'yielding',
+  'seed',
+  '.',
+  'It',
+  'will',
+  'be',
+  'your',
+  'food',
+  '.',
+  'To',
+  'every',
+  'animal',
+  'of',
+  'the',
+  'earth',
+  ',',
+  'and',
+  'to',
+  'every',
+  'bird',
+  'of',
+  'the',
+  'sky',
+  ',',
+  'and',
+  'to',
+  'everything',
+  'that',
+  'creeps',
+  'on',
+  'the',
+  'earth',
+  ',',
+  'in',
+  'which',
+  'there',
+  'is',
+  'life',
+  ',',
+  'I',
+  'have',
+  'given',
+  'every',
+  'green',
+  'herb',
+  'for',
+  'food',
+  ';',
+  '&quot;',
+  'and',
+  'it',
+  'was',
+  'so.God',
+  'saw',
+  'everything',
+  'that',
+  'he',
+  'had',
+  'made',
+  ',',
+  'and',
+  ',',
+  'behold',
+  ',',
+  'it',
+  'was',
+  'very',
+  'good',
+  '.',
+  'There',
+  'was',
+  'evening',
+  'and',
+  'there',
+  'was',
+  'morning',
+  ',',
+  'a',
+  'sixth',
+  'day',
+  '.'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;head1&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;head two&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;three&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ok&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good swedish fish&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;nice&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-getting-raw-text-from-json-data&quot;&gt;Getting Text from JSON&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-database-support&quot;&gt;Database Support&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        <pubDate>Tue, 28 Jul 2020 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000//B-tokenizing-with-nltk</link>
+        <link href="http://0.0.0.0:4000/B-tokenizing-with-nltk"/>
+        <guid isPermaLink="true">http://0.0.0.0:4000/B-tokenizing-with-nltk</guid>
+      </item>
+    
+      <item>
+        <title>Getting raw text from JSON data</title>
+        <description>&lt;p&gt;At this point we have the data of a whole chapter in a file containing a JSON structure divided by verses along with additional data.&lt;/p&gt;
+
+&lt;p&gt;Now we will create some python  functions to obtain the data in raw text that we can give to NLTK.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;json&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;wholeChapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chapter_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;verses_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; 
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chapter_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'data'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'content'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'items'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+             &lt;span class=&quot;n&quot;&gt;verses_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'text'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;verses_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;which would be used as:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;json&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;TextFromChapter&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wholeChapter&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'GEN.1.json'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'r'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;     &lt;span class=&quot;n&quot;&gt;chapter_dict&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wholeChapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chapter_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;printing:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;In the beginning, God created the heavens and the earth. The earth was formless and empty. Darkness was on the surface of the deep and God's Spirit was hovering over the surface of the waters.God said, &quot;Let there be light,&quot; and there was light. God saw the light, and saw that it was good. God divided the light from the darkness. God called the light &quot;day&quot;, and the darkness he called &quot;night&quot;. There was evening and there was morning, the first day.God said, &quot;Let there be an expanse in the middle of the waters, and let it divide the waters from the waters.&quot; God made the expanse, and divided the waters which were under the expanse from the waters which were above the expanse; and it was so. God called the expanse &quot;sky&quot;. There was evening and there was morning, a second day.God said, &quot;Let the waters under the sky be gathered together to one place, and let the dry land appear;&quot; and it was so. God called the dry land &quot;earth&quot;, and the gathering together of the waters he called &quot;seas&quot;. God saw that it was good. God said, &quot;Let the earth yield grass, herbs yielding seeds, and fruit trees bearing fruit after their kind, with their seeds in it, on the earth;&quot; and it was so. The earth yielded grass, herbs yielding seed after their kind, and trees bearing fruit, with their seeds in it, after their kind; and God saw that it was good. There was evening and there was morning, a third day.God said, &quot;Let there be lights in the expanse of the sky to divide the day from the night; and let them be for signs to mark seasons, days, and years; and let them be for lights in the expanse of the sky to give light on the earth;&quot; and it was so. God made the two great lights: the greater light to rule the day, and the lesser light to rule the night. He also made the stars. God set them in the expanse of the sky to give light to the earth, and to rule over the day and over the night, and to divide the light from the darkness. God saw that it was good. There was evening and there was morning, a fourth day.God said, &quot;Let the waters abound with living creatures, and let birds fly above the earth in the open expanse of the sky.&quot; God created the large sea creatures and every living creature that moves, with which the waters swarmed, after their kind, and every winged bird after its kind. God saw that it was good. God blessed them, saying, &quot;Be fruitful, and multiply, and fill the waters in the seas, and let birds multiply on the earth.&quot; There was evening and there was morning, a fifth day.God said, &quot;Let the earth produce living creatures after their kind, livestock, creeping things, and animals of the earth after their kind;&quot; and it was so. God made the animals of the earth after their kind, and the livestock after their kind, and everything that creeps on the ground after its kind. God saw that it was good.God said, &quot;Let's make man in our image, after our likeness. Let them have dominion over the fish of the sea, and over the birds of the sky, and over the livestock, and over all the earth, and over every creeping thing that creeps on the earth.&quot; God created man in his own image. In God's image he created him; male and female he created them. God blessed them. God said to them, &quot;Be fruitful, multiply, fill the earth, and subdue it. Have dominion over the fish of the sea, over the birds of the sky, and over every living thing that moves on the earth.&quot; God said, &quot;Behold, I have given you every herb yielding seed, which is on the surface of all the earth, and every tree, which bears fruit yielding seed. It will be your food. To every animal of the earth, and to every bird of the sky, and to everything that creeps on the earth, in which there is life, I have given every green herb for food;&quot; and it was so.God saw everything that he had made, and, behold, it was very good. There was evening and there was morning, a sixth day.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;out of stock&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good and plenty&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;nice&lt;/td&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
     &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ok&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;oreos&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;hmm&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-getting-data-not-a-small-task&quot;&gt;Getting Data&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;B-tokenizing-with-nltk&quot;&gt;Tokenizing with NLTK&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        <pubDate>Tue, 28 Jul 2020 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000//A-getting-raw-text-from-json-data</link>
+        <link href="http://0.0.0.0:4000/A-getting-raw-text-from-json-data"/>
+        <guid isPermaLink="true">http://0.0.0.0:4000/A-getting-raw-text-from-json-data</guid>
+      </item>
+    
+      <item>
+        <title>Getting data...not a small task</title>
+        <description>&lt;p&gt;We need data:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Text in proper English&lt;/li&gt;
+  &lt;li&gt;Available programmatically from python&lt;/li&gt;
+  &lt;li&gt;Lots of “articles” that can be processed later, more than 1000 according to the recommendations.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Instead of going directly to books, let’s start testing with the Bible text because additionally to more or less fit the above requirements, it goes with the theology theme I’m going for, and I guess it will not be so difficult to get all chapters into a database later for massive processing.&lt;/p&gt;
+
+&lt;p&gt;I wonder how the tokenizer will react to the paragraph-long sentences Paul uses a lot on his letters.&lt;/p&gt;
+
+&lt;p&gt;For sandbox test processes lets try Genesis 1, fortunately, there’s a service that provides bible portions via an API, allows for free registration to get an api-key, and returns data in text/HTML/JSON, also provides a small set of versions of the bible.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://scripture.api.bible&quot;&gt;https://scripture.api.bible&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[Message from the future: this API does not provide a bible in Hebrew, so it might have been a good idea to check that first]&lt;/p&gt;
+
+&lt;p&gt;Export the api-key&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;KEY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;8...your-key...a
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;List of available bibles&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;https://api.scripture.api.bible/v1/bibles?language=eng&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;api-key:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$KEY&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Which return a long JSON string, in order to have a better look at which versions are available, a small python script will help:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;json&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'available-bibles.json'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'r'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;bibles_dict&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bible&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bibles_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'data'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''' + bible['name'])
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;which prints:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;55212e3cf5d04d49-01'Cambridge Paragraph Bible of the KJV
+179568874c45066f-01'Douay-Rheims American 1899
+55ec700d9e0d77ea-01'English Majority Text Version
+65eec8e0b60e656b-01'Free Bible Version
+c315fa9f71d4af3a-01'Geneva Bible
+bf8f1c7f3f9045a5-01'JPS TaNaKH 1917
+de4e12af7f28f599-01'King James (Authorised) Version
+de4e12af7f28f599-02'King James (Authorised) Version
+40072c4a5aba4022-01'Revised Version 1885
+ec290b5045ff54a5-01'Targum Onkelos Etheridge
+2f0fd81d7b85b923-01'The English New Testament According to Family 35
+06125adad2d5898a-01'The Holy Bible, American Standard Version
+66c22495370cdfc0-01'Translation for Translators
+9879dbb7cfe39e4d-01'World English Bible
+9879dbb7cfe39e4d-02'World English Bible
+9879dbb7cfe39e4d-03'World English Bible
+9879dbb7cfe39e4d-04'World English Bible
+7142879509583d59-01'World English Bible British Edition
+7142879509583d59-02'World English Bible British Edition
+7142879509583d59-03'World English Bible British Edition
+7142879509583d59-04'World English Bible British Edition
+f72b840c855f362c-04'World Messianic Bible
+04da588535d2f823-04'World Messianic Bible British Edition
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After picking&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;f72b840c855f362c-04’World Messianic Bible&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;let’s get the books listing:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;https://api.scripture.api.bible/v1/bibles/f72b840c855f362c-04/books&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;api-key:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$KEY&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;which returns&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GEN&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;bibleId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;f72b840c855f362c-04&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;abbreviation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Genesis&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Genesis&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;nameLong&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;The First Book of Moses, Commonly Called Genesis&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;EXO&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;bibleId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;f72b840c855f362c-04&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;abbreviation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Exodus&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Exodus&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;nameLong&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;The Second Book of Mosis, Commonly Called Exodus&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;LEV&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;bibleId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;f72b840c855f362c-04&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;abbreviation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Leviticus&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Leviticus&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;nameLong&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;The Third Book of Mosis, Commonly Called Leviticus&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;With the obtained book-id we can fetch the chapters:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;https://api.scripture.api.bible/v1/bibles/f72b840c855f362c-04/books/GEN/chapters&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;api-key:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$KEY&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;returning&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GEN.intro&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;bibleId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;f72b840c855f362c-04&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;bookId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GEN&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;number&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;intro&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;reference&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Genesis&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GEN.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;bibleId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;f72b840c855f362c-04&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;bookId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GEN&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;number&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;reference&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Genesis 1&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GEN.2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;bibleId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;f72b840c855f362c-04&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;bookId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GEN&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;number&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;reference&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Genesis 2&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we have enough information to fetch the text of a whole chapter, for our purposes we will retrieve the chapter divided in verses inside a JSON structure&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;https://api.scripture.api.bible/v1/bibles/f72b840c855f362c-04/chapters/GEN.1?content-type=json&amp;amp;include-notes=false&amp;amp;include-titles=false&amp;amp;include-chapter-numbers=false&amp;amp;include-verse-numbers=false&amp;amp;include-verse-spans=false&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;api-key:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$KEY&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; GEN.1.json
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;which returns:&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GEN.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;bibleId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;f72b840c855f362c-04&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;number&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;bookId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GEN&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;reference&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Genesis 1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;copyright&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;            PUBLIC DOMAIN&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;        &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;para&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;tag&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;attrs&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;style&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;p&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;items&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;In the beginning, God&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;attrs&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;verseId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GEN.1.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;verseOrgIds&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GEN.1.1&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; created the heavens and the earth. &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;attrs&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;verseId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GEN.1.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;verseOrgIds&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GEN.1.1&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;The earth was formless and empty. Darkness was on the surface of the deep and God's Spirit was hovering over the surface of the waters.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;attrs&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;verseId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GEN.1.2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;verseOrgIds&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GEN.1.2&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;this is the basic information we will be retrieving from the API service.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ok&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;good &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zoute&lt;/code&gt; drop&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;yumm&lt;/td&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;D-nltk&quot;&gt;NLTK&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-getting-raw-text-from-json-data&quot;&gt;Getting Text from JSON&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000//A-getting-data-not-a-small-task</link>
+        <link href="http://0.0.0.0:4000/A-getting-data-not-a-small-task"/>
+        <guid isPermaLink="true">http://0.0.0.0:4000/A-getting-data-not-a-small-task</guid>
+      </item>
+    
+      <item>
+        <title>NLTK</title>
+        <description>&lt;p&gt;This toolkit has a lot of implementations of code and resources that promise to make a lot easier the construction of NLP projects.&lt;/p&gt;
+
+&lt;p&gt;Again, an independent Linux server seems ideal to handle all the NLP processes related to the implementation of the code of “Theophilus” (that’s the code-name for this little project of mine). An AMI 2 instance in AWS (again, Free!), this time without GUI, will serve as a starting point to handle:&lt;/p&gt;
+
+&lt;h3 id=&quot;nlp&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt;NLP&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Python&lt;/li&gt;
+  &lt;li&gt;Anaconda&lt;/li&gt;
+  &lt;li&gt;NLTK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;coding-tools&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt;Coding Tools&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Nano (because editing code in the terminal makes you feel like a real badass)&lt;/li&gt;
+  &lt;li&gt;mc : Midnight Commander, Terminal File Browser&lt;/li&gt;
+  &lt;li&gt;micro : Terminal Text Editor with mouse integration&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;other-tools&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt;Other Tools&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Jekyll : Static page Generator, to maintain this blog. Includes a server for preview&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Once more, all installation goes without a cinch, amazon VM internet connection speed is better than my local one.&lt;/p&gt;
+
+&lt;p&gt;The first thing to try is Tokenizing; according to the documentation, NLTK implements WordNet which will help us with:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Looking up the definition of a word&lt;/li&gt;
+  &lt;li&gt;Finding synonyms and antonyms&lt;/li&gt;
+  &lt;li&gt;Exploring word relations and similarity&lt;/li&gt;
+  &lt;li&gt;Word sense disambiguation for words that have multiple uses and definitions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Installing NLTK’s “all data” as suggested:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; nltk.downloader all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;C-reading-the-first-document&quot;&gt;Reading the First Document&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-getting-data-not-a-small-task&quot;&gt;Getting Data&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;theres-a-horizontal-rule-below-this&quot;&gt;There’s a horizontal rule below this.&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;here-is-an-unordered-list&quot;&gt;Here is an unordered list:&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Item foo&lt;/li&gt;
-  &lt;li&gt;Item bar&lt;/li&gt;
-  &lt;li&gt;Item baz&lt;/li&gt;
-  &lt;li&gt;Item zip&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;and-an-ordered-list&quot;&gt;And an ordered list:&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Item one&lt;/li&gt;
-  &lt;li&gt;Item two&lt;/li&gt;
-  &lt;li&gt;Item three&lt;/li&gt;
-  &lt;li&gt;Item four&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;and-a-nested-list&quot;&gt;And a nested list:&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;level 1 item
-    &lt;ul&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item
-        &lt;ul&gt;
-          &lt;li&gt;level 3 item&lt;/li&gt;
-          &lt;li&gt;level 3 item&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;level 1 item
-    &lt;ul&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;level 1 item
-    &lt;ul&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-      &lt;li&gt;level 2 item&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;level 1 item&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;small-image&quot;&gt;Small image&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://assets-cdn.github.com/images/icons/emoji/octocat.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;large-image&quot;&gt;Large image&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://guides.github.com/activities/hello-world/branching.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;definition-lists-can-be-used-with-html-syntax&quot;&gt;Definition lists can be used with HTML syntax.&lt;/h3&gt;
-
-&lt;dl&gt;
-&lt;dt&gt;Name&lt;/dt&gt;
-&lt;dd&gt;Godzilla&lt;/dd&gt;
-&lt;dt&gt;Born&lt;/dt&gt;
-&lt;dd&gt;1952&lt;/dd&gt;
-&lt;dt&gt;Birthplace&lt;/dt&gt;
-&lt;dd&gt;Japan&lt;/dd&gt;
-&lt;dt&gt;Color&lt;/dt&gt;
-&lt;dd&gt;Green&lt;/dd&gt;
-&lt;/dl&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;The final element.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
-        <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:4000//Another-Sample-Page</link>
-        <link href="http://0.0.0.0:4000/Another-Sample-Page"/>
-        <guid isPermaLink="true">http://0.0.0.0:4000/Another-Sample-Page</guid>
+        <pubDate>Sun, 26 Jul 2020 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000//D-nltk</link>
+        <link href="http://0.0.0.0:4000/D-nltk"/>
+        <guid isPermaLink="true">http://0.0.0.0:4000/D-nltk</guid>
+      </item>
+    
+      <item>
+        <title>Reading the first document</title>
+        <description>&lt;p&gt;Started reading&lt;/p&gt;
+
+&lt;p&gt;Debortoli, Stefan; Müller, Oliver; Junglas, Iris; and vom Brocke, Jan (2016) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;Text Mining For Information Systems Researchers: An Annotated Topic Modeling Tutorial,&quot;&lt;/code&gt; Communications of the Association for Information Systems: Vol. 39, Article 7. DOI: 10.17705/1CAIS.03907 Available at &lt;a href=&quot;http://aisel.aisnet.org/cais/vol39/iss1/7&quot;&gt;http://aisel.aisnet.org/cais/vol39/iss1/7&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Looks promising, it goes along with my idea of a practical application and example with theoretical support, good references, and example cases; cool!&lt;/p&gt;
+
+&lt;p&gt;Based on computer science and linguistics is particularly focused on probabilistic topic modeling&lt;/p&gt;
+
+&lt;p&gt;Leximancer seems to implement a similar idea, might check it more later to see how they do it&lt;/p&gt;
+
+&lt;p&gt;A sufficiently large data set (n &amp;gt; 1,000) will be needed.&lt;/p&gt;
+
+&lt;p&gt;Note that an extensive preprocessing phase is necessary before one can statistically analyze data through topic models.&lt;/p&gt;
+
+&lt;p&gt;Low-level natural language processing (NLP) steps will be implemented, such as:&lt;/p&gt;
+
+&lt;h6 id=&quot;tokenization&quot;&gt;&lt;a href=&quot;#header-5&quot;&gt;&lt;/a&gt;tokenization&lt;/h6&gt;
+&lt;p&gt;Splitting up documents into sentences and sentences into words; n-gram creation: creating n consecutive words: 1-grams include, for example, “fast”, “food”, or “chain”; 2-grams concatenate two 1-grams, such as “fast food”; and 3-grams comprise three 1-grams, such as “fast food chain”&lt;/p&gt;
+
+&lt;h6 id=&quot;stopping&quot;&gt;&lt;a href=&quot;#header-5&quot;&gt;&lt;/a&gt;stopping&lt;/h6&gt;
+&lt;p&gt;Removing common or uninformative words), partof-speech filtering (i.e., identifying and filtering words by their part of speech&lt;/p&gt;
+
+&lt;h6 id=&quot;lemmatizing&quot;&gt;&lt;a href=&quot;#header-5&quot;&gt;&lt;/a&gt;lemmatizing&lt;/h6&gt;
+&lt;p&gt;Reducing a word into its dictionary form; for example, plural to singular for nouns, verbs to the simple present tense&lt;/p&gt;
+
+&lt;h6 id=&quot;stemming&quot;&gt;&lt;a href=&quot;#header-5&quot;&gt;&lt;/a&gt;stemming&lt;/h6&gt;
+&lt;p&gt;Reducing a word to its stem&lt;/p&gt;
+
+&lt;p&gt;Ok, halfway through the document and the practical part starts, so hands on!&lt;/p&gt;
+
+&lt;p&gt;Minemytext was the tool used on this publication, this online tool seems pretty neat. Since I want a more hands-on code kind of approach I’ll try some toolkits:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://opensource.com/article/19/3/natural-language-processing-tools&quot;&gt;NLP Tools&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.nltk.org/&quot;&gt;NLTK&lt;/a&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;B-work-environment&quot;&gt;Work Environment&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;D-nltk&quot;&gt;NLTK&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        <pubDate>Sun, 26 Jul 2020 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000//C-reading-the-first-document</link>
+        <link href="http://0.0.0.0:4000/C-reading-the-first-document"/>
+        <guid isPermaLink="true">http://0.0.0.0:4000/C-reading-the-first-document</guid>
       </item>
     
   </channel>

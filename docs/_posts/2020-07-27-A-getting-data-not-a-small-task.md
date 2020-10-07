@@ -4,94 +4,53 @@ title: Getting data...not a small task
 date: 2020-07-27
 ---
 
-<!-- wp:paragraph -->
-
 We need data:
-
-<!-- /wp:paragraph -->
-
-<!-- wp:list -->
 
 *   Text in proper English
 *   Available programmatically from python
 *   Lots of "articles" that can be processed later, more than 1000 according to the recommendations.
-<!-- /wp:list -->
-
-<!-- wp:paragraph -->
 
 Instead of going directly to books, let's start testing with the Bible text because additionally to more or less fit the above requirements, it goes with the theology theme I'm going for, and I guess it will not be so difficult to get all chapters into a database later for massive processing.
 
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-
 I wonder how the tokenizer will react to the paragraph-long sentences Paul uses a lot on his letters.
-
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
 
 For sandbox test processes lets try Genesis 1, fortunately, there's a service that provides bible portions via an API, allows for free registration to get an api-key, and returns data in text/HTML/JSON, also provides a small set of versions of the bible.
 
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
 
 [https://scripture.api.bible](https://scripture.api.bible)
 
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
 
 [Message from the future: this API does not provide a bible in Hebrew, so it might have been a good idea to check that first]
 
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
 
 Export the api-key
 
-<!-- /wp:paragraph -->
-
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">export KEY=8...your-key...a</pre>
-<!-- /wp:syntaxhighlighter/code -->
-
-<!-- wp:paragraph -->
+```bash
+export KEY=8...your-key...a
+```
 
 List of available bibles
 
-<!-- /wp:paragraph -->
-
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">curl -X GET "https://api.scripture.api.bible/v1/bibles?language=eng" -H "api-key:$KEY"</pre>
-<!-- /wp:syntaxhighlighter/code -->
-
-<!-- wp:paragraph -->
+```bash
+curl -X GET "https://api.scripture.api.bible/v1/bibles?language=eng" -H "api-key:$KEY"
+```
 
 Which return a long JSON string, in order to have a better look at which versions are available, a small python script will help:
 
-<!-- /wp:paragraph -->
-
-<!-- wp:syntaxhighlighter/code {"language":"python"} -->
-<pre class="wp-block-syntaxhighlighter-code">import json
+```python
+import json
 
 with open('available-bibles.json', 'r') as f:
     bibles_dict = json.load(f)
 
 for bible in bibles_dict['data']:
     print(bible['id'] + ''' + bible['name'])
-</pre>
-<!-- /wp:syntaxhighlighter/code -->
-
-<!-- wp:paragraph -->
+```
 
 which prints:
 
-<!-- /wp:paragraph -->
-
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">55212e3cf5d04d49-01'Cambridge Paragraph Bible of the KJV
+```
+55212e3cf5d04d49-01'Cambridge Paragraph Bible of the KJV
 179568874c45066f-01'Douay-Rheims American 1899
 55ec700d9e0d77ea-01'English Majority Text Version
 65eec8e0b60e656b-01'Free Bible Version
@@ -114,23 +73,22 @@ ec290b5045ff54a5-01'Targum Onkelos Etheridge
 7142879509583d59-04'World English Bible British Edition
 f72b840c855f362c-04'World Messianic Bible
 04da588535d2f823-04'World Messianic Bible British Edition
-</pre>
-<!-- /wp:syntaxhighlighter/code -->
-
-<!-- wp:paragraph -->
+```
 
 After picking   
-f72b840c855f362c-04'World Messianic Bible  
+
+**f72b840c855f362c-04'World Messianic Bible**
+
 let's get the books listing:
 
-<!-- /wp:paragraph -->
+```bash
+curl -X GET "https://api.scripture.api.bible/v1/bibles/f72b840c855f362c-04/books" -H "api-key:$KEY"
+```
 
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">curl -X GET "https://api.scripture.api.bible/v1/bibles/f72b840c855f362c-04/books" -H "api-key:$KEY"</pre>
-<!-- /wp:syntaxhighlighter/code -->
+which returns
 
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">{
+```json
+{
   "data": [
     {
       "id": "GEN",
@@ -152,21 +110,19 @@ let's get the books listing:
       "abbreviation": "Leviticus",
       "name": "Leviticus",
       "nameLong": "The Third Book of Mosis, Commonly Called Leviticus"
-    },</pre>
-<!-- /wp:syntaxhighlighter/code -->
-
-<!-- wp:paragraph -->
+    },
+```
 
 With the obtained book-id we can fetch the chapters:
 
-<!-- /wp:paragraph -->
+```bash
+curl -X GET "https://api.scripture.api.bible/v1/bibles/f72b840c855f362c-04/books/GEN/chapters" -H "api-key:$KEY"
+```
 
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">curl -X GET "https://api.scripture.api.bible/v1/bibles/f72b840c855f362c-04/books/GEN/chapters" -H "api-key:$KEY"</pre>
-<!-- /wp:syntaxhighlighter/code -->
+returning
 
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">{
+```json
+{
   "data": [
     {
       "id": "GEN.intro",
@@ -188,22 +144,19 @@ With the obtained book-id we can fetch the chapters:
       "bookId": "GEN",
       "number": "2",
       "reference": "Genesis 2"
-    },</pre>
-<!-- /wp:syntaxhighlighter/code -->
-
-<!-- wp:paragraph -->
+    },
+```
 
 Now we have enough information to fetch the text of a whole chapter, for our purposes we will retrieve the chapter divided in verses inside a JSON structure
 
-<!-- /wp:paragraph -->
+```bash
+curl -X GET "https://api.scripture.api.bible/v1/bibles/f72b840c855f362c-04/chapters/GEN.1?content-type=json&include-notes=false&include-titles=false&include-chapter-numbers=false&include-verse-numbers=false&include-verse-spans=false" -H "api-key:$KEY" > GEN.1.json
+```
 
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">curl -X GET "https://api.scripture.api.bible/v1/bibles/f72b840c855f362c-04/chapters/GEN.1?content-type=json&include-notes=false&include-titles=false&include-chapter-numbers=false&include-verse-numbers=false&include-verse-spans=false" -H "api-key:$KEY" > GEN.1.json
-</pre>
-<!-- /wp:syntaxhighlighter/code -->
+which returns:
 
-<!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">{
+```json
+{
   "data": {
     "id": "GEN.1",
     "bibleId": "f72b840c855f362c-04",
@@ -250,15 +203,11 @@ Now we have enough information to fetch the text of a whole chapter, for our pur
             }
           }
         ]
-      },</pre>
-<!-- /wp:syntaxhighlighter/code -->
-
-<!-- wp:paragraph -->
+      },
+```
 
 this is the basic information we will be retrieving from the API service.
 
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-
-<!-- /wp:paragraph -->
+| Previous        | Home          | Next |
+|:-------------|:------------------|:------|
+| [NLTK](D-nltk) | [θεόφιλος Journey](A-θεόφιλος-Journey) | [Getting Text from JSON](A-getting-raw-text-from-json-data)  |
