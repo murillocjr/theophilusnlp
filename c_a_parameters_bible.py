@@ -1,2 +1,0 @@
-BIBLE_ID = 'f72b840c855f362c-04'
-#BIBLE_ID = 'bf8f1c7f3f9045a5-01'
