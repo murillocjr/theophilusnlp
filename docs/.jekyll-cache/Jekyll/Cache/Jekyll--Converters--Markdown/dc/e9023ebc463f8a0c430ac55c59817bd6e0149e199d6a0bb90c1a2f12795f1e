@@ -1,0 +1,472 @@
+I"
+p<p>Let’s see how far can we get using hebrew:</p>
+
+<h3 id="-nltk"><a href="#header-3"></a> NLTK</h3>
+
+<p>First good sign comes from NLTK, running the command:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">nltk</span><span class="p">.</span><span class="n">corpus</span><span class="p">.</span><span class="n">udhr</span><span class="p">.</span><span class="n">fileids</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>returns as part of it’s output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'Hebrew_Ivrit-Hebrew', 'Hebrew_Ivrit-UTF8'
+</code></pre></div></div>
+
+<h3 id="-getting-the-text"><a href="#header-3"></a> Getting the Text</h3>
+
+<p>But sadly, the API chosen at the beginning does not provide a bible in Hebrew.</p>
+
+<p>For a site that provides so wide a variety of bible versions in several languages, there must be a very good set of reasons as for why Hebrew is not present; I can only blame myself for not checking that while picking a source.</p>
+
+<p>With the purpose of finding a way to make the basic analysis in Hebrew, here’s some interesting findings:</p>
+
+<ul>
+  <li><a href="https://github.com/openscriptures/morphhb">https://github.com/openscriptures/morphhb</a></li>
+</ul>
+
+<p>Other API produces the following:</p>
+
+<p><a href="https://getbible.net/json?passage=GEN1:1&amp;version=wlc"></a></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">(</span><span class="p">{</span><span class="nl">"book"</span><span class="p">:[{</span><span class="nl">"book_ref"</span><span class="p">:</span><span class="s2">"Ge"</span><span class="p">,</span><span class="nl">"book_name"</span><span class="p">:</span><span class="s2">"Genesis"</span><span class="p">,</span><span class="nl">"book_nr"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="nl">"chapter_nr"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="nl">"chapter"</span><span class="p">:{</span><span class="nl">"1"</span><span class="p">:{</span><span class="nl">"verse_nr"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="nl">"verse"</span><span class="p">:</span><span class="s2">"</span><span class="se">\u</span><span class="s2">05d1</span><span class="se">\u</span><span class="s2">05bc</span><span class="se">\u</span><span class="s2">05b0</span><span class="se">\u</span><span class="s2">05e8</span><span class="se">\u</span><span class="s2">05b5</span><span class="se">\u</span><span class="s2">05d0</span><span class="se">\u</span><span class="s2">05e9</span><span class="se">\u</span><span class="s2">05c1</span><span class="se">\u</span><span class="s2">05b4</span><span class="se">\u</span><span class="s2">05d9</span><span class="se">\u</span><span class="s2">05ea </span><span class="se">\u</span><span class="s2">05d1</span><span class="se">\u</span><span class="s2">05bc</span><span class="se">\u</span><span class="s2">05b8</span><span class="se">\u</span><span class="s2">05e8</span><span class="se">\u</span><span class="s2">05b8</span><span class="se">\u</span><span class="s2">05d0 </span><span class="se">\u</span><span class="s2">05d0</span><span class="se">\u</span><span class="s2">05b1</span><span class="se">\u</span><span class="s2">05dc</span><span class="se">\u</span><span class="s2">05b9</span><span class="se">\u</span><span class="s2">05d4</span><span class="se">\u</span><span class="s2">05b4</span><span class="se">\u</span><span class="s2">05d9</span><span class="se">\u</span><span class="s2">05dd </span><span class="se">\u</span><span class="s2">05d0</span><span class="se">\u</span><span class="s2">05b5</span><span class="se">\u</span><span class="s2">05ea </span><span class="se">\u</span><span class="s2">05d4</span><span class="se">\u</span><span class="s2">05b7</span><span class="se">\u</span><span class="s2">05e9</span><span class="se">\u</span><span class="s2">05c1</span><span class="se">\u</span><span class="s2">05bc</span><span class="se">\u</span><span class="s2">05b8</span><span class="se">\u</span><span class="s2">05de</span><span class="se">\u</span><span class="s2">05b7</span><span class="se">\u</span><span class="s2">05d9</span><span class="se">\u</span><span class="s2">05b4</span><span class="se">\u</span><span class="s2">05dd </span><span class="se">\u</span><span class="s2">05d5</span><span class="se">\u</span><span class="s2">05b0</span><span class="se">\u</span><span class="s2">05d0</span><span class="se">\u</span><span class="s2">05b5</span><span class="se">\u</span><span class="s2">05ea </span><span class="se">\u</span><span class="s2">05d4</span><span class="se">\u</span><span class="s2">05b8</span><span class="se">\u</span><span class="s2">05d0</span><span class="se">\u</span><span class="s2">05b8</span><span class="se">\u</span><span class="s2">05e8</span><span class="se">\u</span><span class="s2">05b6</span><span class="se">\u</span><span class="s2">05e5</span><span class="se">\u</span><span class="s2">05c3</span><span class="se">\r\n</span><span class="s2">"</span><span class="p">}}}],</span><span class="nl">"direction"</span><span class="p">:</span><span class="s2">"RTL"</span><span class="p">,</span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"verse"</span><span class="p">,</span><span class="nl">"version"</span><span class="p">:</span><span class="s2">"wlc"</span><span class="p">}</span><span class="err">);</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Where “\u05d1” is unicode for the Hebrew letter “Bet” , so it would be better to first see whether NLTK can process the text in this format.</p>
+
+<p>With this we could follow the same path than with the english analysis: Build some scripts and retrieve all the text to local storage for processing.</p>
+
+<h3 id="-stricking-gold--sefaria"><a href="#header-3"></a> Stricking Gold : <strong>Sefaria</strong></h3>
+
+<p>In the search of an API Service from where to retrieve the text of the Scriptures in Hebrew I found <a href="https://www.sefaria.org">Sefaria</a> a project which aside of providing an API, allows you to download a dump of <code class="language-plaintext highlighter-rouge">all their content as a mongo database !!!</code>. We are talking at least 2GB of text content including</p>
+
+<ul>
+  <li>Articles in English and Hebrew</li>
+  <li>The scriptures in hebrew: 3 versions : “Tanach with Ta’amei Hamikra”, “Tanach with Text Only”, “Tanach with Nikkud”</li>
+  <li>Web pages</li>
+  <li>Linking between content, including translations.</li>
+  <li>A lot more …</li>
+</ul>
+
+<p>So this looks to me as a Gold Mine in terms of Semantic Information.</p>
+
+<p>So let’s start mining, this is going to involve some good amount of work but i think it’s worth it.</p>
+
+<h3 id="-step-1--loading-the-database"><a href="#header-5"></a> Step 1 : Loading the Database</h3>
+
+<p>Installing mongo was not a problem. After that at trying the databse restoring command is where the problems began: it seems like my 1GB-RAM-20GB-disk-free-tier humble instance of EC2-AWS didn’t have the memory to handle the restoring process.
+Instead of paying for more memory, creating a swap file to be used by the system as additional memory allowed the restoring to start running:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>fallocate <span class="nt">-l</span> 4G /swapfile
+<span class="nb">sudo chmod </span>600 /swapfile
+<span class="nb">sudo </span>mkswap /swapfile
+<span class="nb">sudo </span>swapon /swapfile
+<span class="nb">sudo </span>swapon <span class="nt">-s</span>
+</code></pre></div></div>
+
+<p>But each time the process would just get stuck at some point, processing power? memory still not enought? space in disk?</p>
+
+<p>So as an alternative lets just try and load what we need right now : the texts</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mongorestore <span class="nt">--drop</span> <span class="nt">-d</span> sefaria <span class="nt">-c</span> texts ./texts.bson
+</code></pre></div></div>
+
+<p>Again. the process stops adding data at around 50% before dying out.</p>
+
+<p>Even with this error, the data restored is accesible, so I will start the analysis on the books I have available, with any luck all the books of the Bible might be there.</p>
+
+<p>Decision time: Should I use the Text-only version or the one with nikkud ?</p>
+
+<p>Since nikkud is, as far as i know, mostly a pronunciation help, and right now i’m more interested in meaning than in pronunciation, lets go for the plain-text version.</p>
+
+<p>This is how it looks like to retrieve the text for a whole book:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> use sefaria
+switched to db sefaria
+<span class="o">&gt;</span> db.texts.find<span class="o">({</span> language: <span class="s2">"he"</span>, title: /^Obadiah/  <span class="o">}</span>, <span class="o">{</span> title: 1, versionTitle: 1<span class="o">})</span>
+<span class="o">{</span> <span class="s2">"_id"</span> : ObjectId<span class="o">(</span><span class="s2">"5497bfb2fbfba238003bd223"</span><span class="o">)</span>, <span class="s2">"versionTitle"</span> : <span class="s2">"Tanach with Ta'amei Hamikra"</span>, <span class="s2">"title"</span> : <span class="s2">"Obadiah"</span> <span class="o">}</span>
+<span class="o">{</span> <span class="s2">"_id"</span> : ObjectId<span class="o">(</span><span class="s2">"5497c115fbfba238003c2d01"</span><span class="o">)</span>, <span class="s2">"versionTitle"</span> : <span class="s2">"Tanach with Text Only"</span>, <span class="s2">"title"</span> : <span class="s2">"Obadiah"</span> <span class="o">}</span>
+<span class="o">{</span> <span class="s2">"_id"</span> : ObjectId<span class="o">(</span><span class="s2">"5497c2b7fbfba238003c87de"</span><span class="o">)</span>, <span class="s2">"versionTitle"</span> : <span class="s2">"Tanach with Nikkud"</span>, <span class="s2">"title"</span> : <span class="s2">"Obadiah"</span> <span class="o">}</span>
+<span class="o">&gt;</span> db.texts.find<span class="o">({</span> _id: ObjectId<span class="o">(</span><span class="s2">"5497c115fbfba238003c2d01"</span><span class="o">)</span>  <span class="o">})</span>
+<span class="o">&gt;</span> 
+</code></pre></div></div>
+<p>which returns the following json:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="err">ObjectId(</span><span class="s2">"5497c115fbfba238003c2d01"</span><span class="err">)</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"chapter"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"חזון עבדיה כה־אמר אדני יהוה לאדום שמועה שמענו מאת יהוה וציר בגוים שלח קומו ונקומה עליה למלחמה"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"הנה קטן נתתיך בגוים בזוי אתה מאד"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"זדון לבך השיאך שכני בחגוי־סלע מרום שבתו אמר בלבו מי יורדני ארץ"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"אם־תגביה כנשר ואם־בין כוכבים שים קנך משם אורידך נאם־יהוה"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"אם־גנבים באו־לך אם־שודדי לילה איך נדמיתה הלוא יגנבו דים אם־בצרים באו לך הלוא ישאירו עללות"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"איך נחפשו עשו נבעו מצפניו"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"עד־הגבול שלחוך כל אנשי בריתך השיאוך יכלו לך אנשי שלמך לחמך ישימו מזור תחתיך אין תבונה בו"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"הלוא ביום ההוא נאם־יהוה והאבדתי חכמים מאדום ותבונה מהר עשו"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"וחתו גבוריך תימן למען יכרת־איש מהר עשו מקטל"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"מחמס אחיך יעקב תכסך בושה ונכרת לעולם"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ביום עמדך מנגד ביום שבות זרים חילו ונכרים באו שערו [שעריו] ועל־ירושלם ידו גורל גם־אתה כאחד מהם"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ואל־תרא ביום־אחיך ביום נכרו ואל־תשמח לבני־יהודה ביום אבדם ואל־תגדל פיך ביום צרה"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"אל־תבוא בשער־עמי ביום אידם אל־תרא גם־אתה ברעתו ביום אידו ואל־תשלחנה בחילו ביום אידו"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ואל־תעמד על־הפרק להכרית את־פליטיו ואל־תסגר שרידיו ביום צרה"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"כי־קרוב יום־יהוה על־כל־הגוים כאשר עשית יעשה לך גמלך ישוב בראשך"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"כי כאשר שתיתם על־הר קדשי ישתו כל־הגוים תמיד ושתו ולעו והיו כלוא היו"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ובהר ציון תהיה פליטה והיה קדש וירשו בית יעקב את מורשיהם"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"והיה בית־יעקב אש ובית יוסף להבה ובית עשו לקש ודלקו בהם ואכלום ולא־יהיה שריד לבית עשו כי יהוה דבר"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"וירשו הנגב את־הר עשו והשפלה את־פלשתים וירשו את־שדה אפרים ואת שדה שמרון ובנימן את־הגלעד"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"וגלת החל־הזה לבני ישראל אשר־כנענים עד־צרפת וגלת ירושלם אשר בספרד ירשו את ערי הנגב"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ועלו מושעים בהר ציון לשפט את־הר עשו והיתה ליהוה המלוכה"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"locked"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"versionTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tanach with Text Only"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Public Domain"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"he"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Obadiah"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"licenseVetted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"versionSource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.tanach.us/Tanach.xml"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"versionTitleInHebrew"</span><span class="p">:</span><span class="w"> </span><span class="s2">"תנ״ך - טקסט בלבד"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Just realized that Original Scripture doesn’t have Chapter-Verse divisions.</p>
+
+<h3 id="-tokenizing"><a href="#header-3"></a> Tokenizing</h3>
+
+<p>Well, there’s no hebrew tokenizer in my nltk installation :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tokenizers/punkt/czech.pickle
+tokenizers/punkt/danish.pickle
+tokenizers/punkt/dutch.pickle
+tokenizers/punkt/english.pickle
+tokenizers/punkt/estonian.pickle
+tokenizers/punkt/finnish.pickle
+tokenizers/punkt/french.pickle
+tokenizers/punkt/german.pickle
+tokenizers/punkt/greek.pickle
+tokenizers/punkt/italian.pickle
+tokenizers/punkt/norwegian.pickle
+tokenizers/punkt/polish.pickle
+tokenizers/punkt/portuguese.pickle
+tokenizers/punkt/russian.pickle
+tokenizers/punkt/slovene.pickle
+tokenizers/punkt/spanish.pickle
+tokenizers/punkt/swedish.pickle
+tokenizers/punkt/turkish.pickle
+</code></pre></div></div>
+<p>Nevertheless, the general tokenizer seems to works just fine, it takes just the spaces I guess. And with that we can just use practically the same code used before.</p>
+
+<p>these scripts are available inside the “hebrew” folder of the <a href="https://github.com/murillocjr/theophilusnlp">Scripts Source Code</a></p>
+
+<p>running <strong>f_b_tokenize_documents.py</strong> all the books of the Tanach are processed and reports the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Exodus 41
+Joshua 25
+II Kings 26
+Hosea 15
+Micah 8
+Nahum 4
+Habakkuk 4
+Zephaniah 4
+Haggai 3
+Zechariah 15
+Malachi 4
+I Chronicles 30
+Proverbs 32
+Daniel 13
+Leviticus 28
+Judges 22
+I Kings 23
+Ezekiel 49
+Jonah 5
+Job 43
+Song of Songs 9
+Nehemiah 14
+Numbers 37
+I Samuel 32
+Isaiah 67
+Joel 5
+Obadiah 2
+Psalms 151
+Ecclesiastes 13
+Lamentations 6
+Esther 11
+Genesis 51
+Deuteronomy 35
+II Samuel 25
+Jeremiah 53
+Amos 10
+II Chronicles 37
+Ruth 5
+Ezra 11
+</code></pre></div></div>
+
+<p>After that we can run <strong>f_e_print_word_frequency_by_book.py</strong></p>
+
+<p>and we get the following report</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Book</th>
+      <th style="text-align: left">Word(freq)</th>
+      <th style="text-align: left">Word(freq)</th>
+      <th style="text-align: left">Word(freq)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Amos</td>
+      <td style="text-align: left">לא(196)</td>
+      <td style="text-align: left">אמר(151)</td>
+      <td style="text-align: left">אדני(89)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Daniel</td>
+      <td style="text-align: left">](935)</td>
+      <td style="text-align: left">[(935)</td>
+      <td style="text-align: left">מלכא(760)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Deuteronomy</td>
+      <td style="text-align: left">אשר(7333)</td>
+      <td style="text-align: left">אלהיך(3954)</td>
+      <td style="text-align: left">לא(1920)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ecclesiastes</td>
+      <td style="text-align: left">כי(255)</td>
+      <td style="text-align: left">תחת(247)</td>
+      <td style="text-align: left">אני(222)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Esther</td>
+      <td style="text-align: left">אשר(320)</td>
+      <td style="text-align: left">אסתר(192)</td>
+      <td style="text-align: left">המן(156)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Exodus</td>
+      <td style="text-align: left">משה(3506)</td>
+      <td style="text-align: left">אשר(3254)</td>
+      <td style="text-align: left">מצרים(2526)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ezekiel</td>
+      <td style="text-align: left">אדני(5143)</td>
+      <td style="text-align: left">אשר(5058)</td>
+      <td style="text-align: left">לא(3874)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ezra</td>
+      <td style="text-align: left">בני(237)</td>
+      <td style="text-align: left">מאות(230)</td>
+      <td style="text-align: left">](189)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Genesis</td>
+      <td style="text-align: left">אלהים(5110)</td>
+      <td style="text-align: left">יהוה(3949)</td>
+      <td style="text-align: left">שנה(3685)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Habakkuk</td>
+      <td style="text-align: left">לא(14)</td>
+      <td style="text-align: left">כי(14)</td>
+      <td style="text-align: left">ולא(12)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Haggai</td>
+      <td style="text-align: left">צבאות(15)</td>
+      <td style="text-align: left">הזה(12)</td>
+      <td style="text-align: left">אמר(12)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hosea</td>
+      <td style="text-align: left">לא(237)</td>
+      <td style="text-align: left">ישראל(203)</td>
+      <td style="text-align: left">אפרים(157)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">I Chronicles</td>
+      <td style="text-align: left">בנו(1550)</td>
+      <td style="text-align: left">דויד(1444)</td>
+      <td style="text-align: left">בני(1304)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">I Kings</td>
+      <td style="text-align: left">המלך(1703)</td>
+      <td style="text-align: left">יהוה(1697)</td>
+      <td style="text-align: left">שלמה(1554)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">I Samuel</td>
+      <td style="text-align: left">שאול(2473)</td>
+      <td style="text-align: left">כי(2151)</td>
+      <td style="text-align: left">אשר(1923)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">II Chronicles</td>
+      <td style="text-align: left">יהוה(3046)</td>
+      <td style="text-align: left">כי(2064)</td>
+      <td style="text-align: left">שלמה(1831)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">II Kings</td>
+      <td style="text-align: left">ויאמר(1935)</td>
+      <td style="text-align: left">אשר(1600)</td>
+      <td style="text-align: left">מלך(1349)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">II Samuel</td>
+      <td style="text-align: left">אשר(1440)</td>
+      <td style="text-align: left">המלך(1382)</td>
+      <td style="text-align: left">ויאמר(1269)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Isaiah</td>
+      <td style="text-align: left">לא(4597)</td>
+      <td style="text-align: left">כי(4018)</td>
+      <td style="text-align: left">אשר(3239)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Jeremiah</td>
+      <td style="text-align: left">אשר(6407)</td>
+      <td style="text-align: left">כי(5093)</td>
+      <td style="text-align: left">לא(4496)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Job</td>
+      <td style="text-align: left">ולא(1313)</td>
+      <td style="text-align: left">](1048)</td>
+      <td style="text-align: left">[(1048)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Joel</td>
+      <td style="text-align: left">יהוה(50)</td>
+      <td style="text-align: left">אלהיכם(21)</td>
+      <td style="text-align: left">אכל(19)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Jonah</td>
+      <td style="text-align: left">כי(23)</td>
+      <td style="text-align: left">הים(20)</td>
+      <td style="text-align: left">יונה(17)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Joshua</td>
+      <td style="text-align: left">יהושע(1639)</td>
+      <td style="text-align: left">אשר(1576)</td>
+      <td style="text-align: left">ישראל(1117)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Judges</td>
+      <td style="text-align: left">אשר(1135)</td>
+      <td style="text-align: left">איש(699)</td>
+      <td style="text-align: left">ישראל(687)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Lamentations</td>
+      <td style="text-align: left">](58)</td>
+      <td style="text-align: left">[(58)</td>
+      <td style="text-align: left">כי(57)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Leviticus</td>
+      <td style="text-align: left">הכהן(2240)</td>
+      <td style="text-align: left">יהוה(2075)</td>
+      <td style="text-align: left">לא(1355)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Malachi</td>
+      <td style="text-align: left">אמר(50)</td>
+      <td style="text-align: left">צבאות(23)</td>
+      <td style="text-align: left">ואמרתם(14)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Micah</td>
+      <td style="text-align: left">כי(52)</td>
+      <td style="text-align: left">יעקב(40)</td>
+      <td style="text-align: left">יושבת(35)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Nahum</td>
+      <td style="text-align: left">לא(9)</td>
+      <td style="text-align: left">כלה(9)</td>
+      <td style="text-align: left">ואין(9)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Nehemiah</td>
+      <td style="text-align: left">החזיק(286)</td>
+      <td style="text-align: left">להם(217)</td>
+      <td style="text-align: left">בני(200)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Numbers</td>
+      <td style="text-align: left">אשר(2951)</td>
+      <td style="text-align: left">ישראל(2443)</td>
+      <td style="text-align: left">בני(2216)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Obadiah</td>
+      <td style="text-align: left">עשו(6)</td>
+      <td style="text-align: left">לך(3)</td>
+      <td style="text-align: left">יהוה(3)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Proverbs</td>
+      <td style="text-align: left">[(926)</td>
+      <td style="text-align: left">יהוה(889)</td>
+      <td style="text-align: left">לא(744)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Psalms</td>
+      <td style="text-align: left">אלהים(11063)</td>
+      <td style="text-align: left">לא(7843)</td>
+      <td style="text-align: left">כי(6934)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ruth</td>
+      <td style="text-align: left">נעמי(42)</td>
+      <td style="text-align: left">אשר(38)</td>
+      <td style="text-align: left">יהוה(33)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Song of Songs</td>
+      <td style="text-align: left">לי(47)</td>
+      <td style="text-align: left">רעיתי(46)</td>
+      <td style="text-align: left">יפה(42)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Zechariah</td>
+      <td style="text-align: left">צבאות(392)</td>
+      <td style="text-align: left">אלי(230)</td>
+      <td style="text-align: left">אשר(220)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Zephaniah</td>
+      <td style="text-align: left">יום(22)</td>
+      <td style="text-align: left">כי(19)</td>
+      <td style="text-align: left">ביום(14)</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Previous</th>
+      <th style="text-align: left">Home</th>
+      <th style="text-align: left">Next</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="A-one-result-several-questions">One Result, Several Questions</a></td>
+      <td style="text-align: left"><a href="A-θεόφιλος-Journey">θεόφιλος Journey</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+:ET

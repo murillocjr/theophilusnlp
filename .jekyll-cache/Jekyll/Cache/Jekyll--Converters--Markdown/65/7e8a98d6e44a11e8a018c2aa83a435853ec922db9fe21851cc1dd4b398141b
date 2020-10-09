@@ -1,0 +1,36 @@
+I"�<p>Let’s see what previous work is available on this idea, the purpose of this project is mainly to learn about NLP through a hands-on approach and gain insight on the theoretical foundations; engineering and scientific curiosity will be pursued alternatively.</p>
+
+<p>Wikipedia seems to be a nice starting point: <br />
+<a href="https://en.wikipedia.org/wiki/Topic_model">https://en.wikipedia.org/wiki/Topic_model</a></p>
+<ul>
+  <li>AI to classify AI: <a href="http://home.cse.ust.hk/~lzhang/topic/ai-tree.pdf">The AI Tree</a>.</li>
+</ul>
+
+<p>From there, here’s a first list of documents that should provide a general idea about NLP Topic Modeling and what can be accomplished:</p>
+
+<ol>
+  <li><strong>Applied Text Analysis with Python - Enabling Language-Aware Data Products with Machine Learning</strong> - Benjamin Bengfort, Rebecca Bilbro, and Tony Ojeda</li>
+  <li><strong>Text Analytics with Python A Practical Real-World Approach to Gaining Actionable Insights from Your Data</strong> - Dipanjan Sarkar</li>
+  <li><strong>NATURAL LANGUAGE SUMMARIZATION OF TEXT AND VIDEOS USING TOPIC MODELS</strong> - Pradipto Das</li>
+  <li><strong>Generalized Probabilistic Topic and Syntax Models for Natural Language Processing</strong> - William Michael Darling</li>
+  <li><strong>Interactive topic modeling</strong> - Yuening Hu · Jordan Boyd-Graber · Brianna Satinoff · Alison Smith</li>
+  <li><strong>Text Mining For Information Systems Researchers: An Annotated Topic Modeling Tutorial</strong> Stefan Debortoli University of Liechtenstein, stefan.debortoli@uni.li Oliver Müller IT University of Copenhagen Iris Junglas Florida State University Jan vom Brocke University of Liechtenstein</li>
+</ol>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Previous</th>
+      <th style="text-align: left">Home</th>
+      <th style="text-align: left">Next</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="A-θεόφιλος-Journey">θεόφιλος Journey</a></td>
+      <td style="text-align: left"><a href="A-θεόφιλος-Journey">θεόφιλος Journey</a></td>
+      <td style="text-align: left"><a href="B-work-environment">Work Environment</a></td>
+    </tr>
+  </tbody>
+</table>
+:ET

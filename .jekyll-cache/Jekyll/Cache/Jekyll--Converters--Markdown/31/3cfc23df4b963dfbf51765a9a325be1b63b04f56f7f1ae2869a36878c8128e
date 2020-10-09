@@ -1,0 +1,24 @@
+I"�<p>Since a lot of the data retrieved from the API comes in JSON format, and NLTK outputs are also in JSON, it stands to reason to use a JSON Documents based database to store the partial results and help to process and analyze the data, something on the line of MongoDB or CouchDB; but these two feels like overkill, so TinyDB looks more appropriate for the task at hand, installing it is as simple as:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>tinydb
+</code></pre></div></div>
+
+<p>At this point, it was necessary to do significant modifications to retrieve the whole text of the selected version of the bible, store the data inside TinyDB, and also retrieve the whole text of a Chapter. All the associated code and the resulting databases are available at the following GitHub repo: <a href="https://github.com/murillocjr/theophilusnlp">https://github.com/murillocjr/theophilusnlp</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Previous</th>
+      <th style="text-align: left">Home</th>
+      <th style="text-align: left">Next</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="B-tokenizing-with-nltk">Tokenizing with NLTK</a></td>
+      <td style="text-align: left"><a href="A-θεόφιλος-Journey">θεόφιλος Journey</a></td>
+      <td style="text-align: left"><a href="A-milestone-1">Milestone 1</a></td>
+    </tr>
+  </tbody>
+</table>
+:ET
