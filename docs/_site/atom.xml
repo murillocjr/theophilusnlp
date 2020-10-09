@@ -15,6 +15,8 @@
         <title>Hebrew</title>
         <description>&lt;p&gt;Let’s see how far can we get using hebrew:&lt;/p&gt;
 
+&lt;h3 id=&quot;-nltk&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt; NLTK&lt;/h3&gt;
+
 &lt;p&gt;First good sign comes from NLTK, running the command:&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nltk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;corpus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;udhr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fileids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
@@ -24,6 +26,8 @@
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'Hebrew_Ivrit-Hebrew', 'Hebrew_Ivrit-UTF8'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;-getting-the-text&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt; Getting the Text&lt;/h3&gt;
 
 &lt;p&gt;But sadly, the API chosen at the beginning does not provide a bible in Hebrew.&lt;/p&gt;
 
@@ -44,7 +48,107 @@
 
 &lt;p&gt;Where “\u05d1” is unicode for the Hebrew letter “Bet” , so it would be better to first see whether NLTK can process the text in this format.&lt;/p&gt;
 
-&lt;p&gt;Bad news, there’s no hebrew tokenizer in my nltk installation :&lt;/p&gt;
+&lt;p&gt;With this we could follow the same path than with the english analysis: Build some scripts and retrieve all the text to local storage for processing.&lt;/p&gt;
+
+&lt;h3 id=&quot;-stricking-gold--sefaria&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt; Stricking Gold : &lt;strong&gt;Sefaria&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;In the search of an API Service from where to retrieve the text of the Scriptures in Hebrew I found &lt;a href=&quot;https://www.sefaria.org&quot;&gt;Sefaria&lt;/a&gt; a project which aside of providing an API, allows you to download a dump of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;all their content as a mongo database !!!&lt;/code&gt;. We are talking at least 2GB of text content including&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Articles in English and Hebrew&lt;/li&gt;
+  &lt;li&gt;The scriptures in hebrew: 3 versions : “Tanach with Ta’amei Hamikra”, “Tanach with Text Only”, “Tanach with Nikkud”&lt;/li&gt;
+  &lt;li&gt;Web pages&lt;/li&gt;
+  &lt;li&gt;Linking between content, including translations.&lt;/li&gt;
+  &lt;li&gt;A lot more …&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So this looks to me as a Gold Mine in terms of Semantic Information.&lt;/p&gt;
+
+&lt;p&gt;So let’s start mining, this is going to involve some good amount of work but i think it’s worth it.&lt;/p&gt;
+
+&lt;h3 id=&quot;-step-1--loading-the-database&quot;&gt;&lt;a href=&quot;#header-5&quot;&gt;&lt;/a&gt; Step 1 : Loading the Database&lt;/h3&gt;
+
+&lt;p&gt;Installing mongo was not a problem. After that at trying the databse restoring command is where the problems began: it seems like my 1GB-RAM-20GB-disk-free-tier humble instance of EC2-AWS didn’t have the memory to handle the restoring process.
+Instead of paying for more memory, creating a swap file to be used by the system as additional memory allowed the restoring to start running:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;fallocate &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; 4G /swapfile
+&lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;600 /swapfile
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mkswap /swapfile
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;swapon /swapfile
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;swapon &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;But each time the process would just get stuck at some point, processing power? memory still not enought? space in disk?&lt;/p&gt;
+
+&lt;p&gt;So as an alternative lets just try and load what we need right now : the texts&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mongorestore &lt;span class=&quot;nt&quot;&gt;--drop&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; sefaria &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; texts ./texts.bson
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Again. the process stops adding data at around 50% before dying out.&lt;/p&gt;
+
+&lt;p&gt;Even with this error, the data restored is accesible, so I will start the analysis on the books I have available, with any luck all the books of the Bible might be there.&lt;/p&gt;
+
+&lt;p&gt;Decision time: Should I use the Text-only version or the one with nikkud ?&lt;/p&gt;
+
+&lt;p&gt;Since nikkud is, as far as i know, mostly a pronunciation help, and right now i’m more interested in meaning than in pronunciation, lets go for the plain-text version.&lt;/p&gt;
+
+&lt;p&gt;This is how it looks like to retrieve the text for a whole book:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; use sefaria
+switched to db sefaria
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; db.texts.find&lt;span class=&quot;o&quot;&gt;({&lt;/span&gt; language: &lt;span class=&quot;s2&quot;&gt;&quot;he&quot;&lt;/span&gt;, title: /^Obadiah/  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;, &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; title: 1, versionTitle: 1&lt;span class=&quot;o&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;_id&quot;&lt;/span&gt; : ObjectId&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5497bfb2fbfba238003bd223&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;versionTitle&quot;&lt;/span&gt; : &lt;span class=&quot;s2&quot;&gt;&quot;Tanach with Ta'amei Hamikra&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;title&quot;&lt;/span&gt; : &lt;span class=&quot;s2&quot;&gt;&quot;Obadiah&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;_id&quot;&lt;/span&gt; : ObjectId&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5497c115fbfba238003c2d01&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;versionTitle&quot;&lt;/span&gt; : &lt;span class=&quot;s2&quot;&gt;&quot;Tanach with Text Only&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;title&quot;&lt;/span&gt; : &lt;span class=&quot;s2&quot;&gt;&quot;Obadiah&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;_id&quot;&lt;/span&gt; : ObjectId&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5497c2b7fbfba238003c87de&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;versionTitle&quot;&lt;/span&gt; : &lt;span class=&quot;s2&quot;&gt;&quot;Tanach with Nikkud&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;title&quot;&lt;/span&gt; : &lt;span class=&quot;s2&quot;&gt;&quot;Obadiah&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; db.texts.find&lt;span class=&quot;o&quot;&gt;({&lt;/span&gt; _id: ObjectId&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5497c115fbfba238003c2d01&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;which returns the following json:&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;_id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ObjectId(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5497c115fbfba238003c2d01&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;chapter&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;חזון עבדיה כה־אמר אדני יהוה לאדום שמועה שמענו מאת יהוה וציר בגוים שלח קומו ונקומה עליה למלחמה&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;הנה קטן נתתיך בגוים בזוי אתה מאד&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;זדון לבך השיאך שכני בחגוי־סלע מרום שבתו אמר בלבו מי יורדני ארץ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;אם־תגביה כנשר ואם־בין כוכבים שים קנך משם אורידך נאם־יהוה&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;אם־גנבים באו־לך אם־שודדי לילה איך נדמיתה הלוא יגנבו דים אם־בצרים באו לך הלוא ישאירו עללות&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;איך נחפשו עשו נבעו מצפניו&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;עד־הגבול שלחוך כל אנשי בריתך השיאוך יכלו לך אנשי שלמך לחמך ישימו מזור תחתיך אין תבונה בו&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;הלוא ביום ההוא נאם־יהוה והאבדתי חכמים מאדום ותבונה מהר עשו&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;וחתו גבוריך תימן למען יכרת־איש מהר עשו מקטל&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;מחמס אחיך יעקב תכסך בושה ונכרת לעולם&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ביום עמדך מנגד ביום שבות זרים חילו ונכרים באו שערו [שעריו] ועל־ירושלם ידו גורל גם־אתה כאחד מהם&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ואל־תרא ביום־אחיך ביום נכרו ואל־תשמח לבני־יהודה ביום אבדם ואל־תגדל פיך ביום צרה&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;אל־תבוא בשער־עמי ביום אידם אל־תרא גם־אתה ברעתו ביום אידו ואל־תשלחנה בחילו ביום אידו&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ואל־תעמד על־הפרק להכרית את־פליטיו ואל־תסגר שרידיו ביום צרה&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;כי־קרוב יום־יהוה על־כל־הגוים כאשר עשית יעשה לך גמלך ישוב בראשך&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;כי כאשר שתיתם על־הר קדשי ישתו כל־הגוים תמיד ושתו ולעו והיו כלוא היו&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ובהר ציון תהיה פליטה והיה קדש וירשו בית יעקב את מורשיהם&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;והיה בית־יעקב אש ובית יוסף להבה ובית עשו לקש ודלקו בהם ואכלום ולא־יהיה שריד לבית עשו כי יהוה דבר&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;וירשו הנגב את־הר עשו והשפלה את־פלשתים וירשו את־שדה אפרים ואת שדה שמרון ובנימן את־הגלעד&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;וגלת החל־הזה לבני ישראל אשר־כנענים עד־צרפת וגלת ירושלם אשר בספרד ירשו את ערי הנגב&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ועלו מושעים בהר ציון לשפט את־הר עשו והיתה ליהוה המלוכה&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;locked&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;versionTitle&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Tanach with Text Only&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;license&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Public Domain&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;language&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;he&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Obadiah&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;licenseVetted&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;versionSource&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://www.tanach.us/Tanach.xml&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;versionTitleInHebrew&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;תנ״ך - טקסט בלבד&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Just realized that Original Scripture doesn’t have Chapter-Verse divisions.&lt;/p&gt;
+
+&lt;h3 id=&quot;-tokenizing&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt; Tokenizing&lt;/h3&gt;
+
+&lt;p&gt;Well, there’s no hebrew tokenizer in my nltk installation :&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tokenizers/punkt/czech.pickle
 tokenizers/punkt/danish.pickle
@@ -65,20 +169,495 @@ tokenizers/punkt/spanish.pickle
 tokenizers/punkt/swedish.pickle
 tokenizers/punkt/turkish.pickle
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Nevertheless, the general tokenizer seems to works just fine, it takes just the spaces I guess. And with that we can just use practically the same code used before.&lt;/p&gt;
 
-&lt;p&gt;This seems like an alternative : &lt;a href=&quot;https://github.com/YontiLevin/Hebrew-Tokenizer&quot;&gt;https://github.com/YontiLevin/Hebrew-Tokenizer&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;these scripts are available inside the “hebrew” folder of the &lt;a href=&quot;https://github.com/murillocjr/theophilusnlp&quot;&gt;Scripts Source Code&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;hebrew_tokenizer
+&lt;p&gt;running &lt;strong&gt;f_b_tokenize_documents.py&lt;/strong&gt; all the books of the Tanach are processed and reports the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Exodus 41
+Joshua 25
+II Kings 26
+Hosea 15
+Micah 8
+Nahum 4
+Habakkuk 4
+Zephaniah 4
+Haggai 3
+Zechariah 15
+Malachi 4
+I Chronicles 30
+Proverbs 32
+Daniel 13
+Leviticus 28
+Judges 22
+I Kings 23
+Ezekiel 49
+Jonah 5
+Job 43
+Song of Songs 9
+Nehemiah 14
+Numbers 37
+I Samuel 32
+Isaiah 67
+Joel 5
+Obadiah 2
+Psalms 151
+Ecclesiastes 13
+Lamentations 6
+Esther 11
+Genesis 51
+Deuteronomy 35
+II Samuel 25
+Jeremiah 53
+Amos 10
+II Chronicles 37
+Ruth 5
+Ezra 11
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Which sample code works perfectly (), now lets see how it fares with unicode text:&lt;/p&gt;
+&lt;p&gt;Resulting on 70226 distinct wordTokens, almost 162% of the 43518 we found for the english version. This is the count before removing stop words.&lt;/p&gt;
 
-&lt;p&gt;No dice, it doesn’t work with the unicode sample.&lt;/p&gt;
+&lt;p&gt;After removing the stop words we are left with 69907&lt;/p&gt;
 
-&lt;p&gt;Testing another tokenizer: https://www.cs.bgu.ac.il/~yoavg/software/hebtokenizer/
-Returns an error&lt;/p&gt;
+&lt;p&gt;After that we can run &lt;strong&gt;f_e_print_word_frequency_by_book.py&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Let’s keep looking…&lt;/p&gt;
+&lt;p&gt;and we get the following reports&lt;/p&gt;
+
+&lt;h3 id=&quot;-global&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt; Global&lt;/h3&gt;
+
+&lt;p&gt;In english the top 5 words were : Lord, shall, said, God, Israel&lt;/p&gt;
+
+&lt;p&gt;In hebrew we have (translated) : “I Am”=Yahweh, which, God, man, said&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;('יהוה', 98805)
+('אשר', 57580)
+('אלהים', 20747)
+('איש', 13775)
+('ויאמר', 13555)
+('אדני', 12519)
+('לאמר', 10877)
+('אלהי', 10664)
+('ליהוה', 10548)
+('אלי', 10502)
+('מלך', 8782)
+('המלך', 8339)
+('אתו', 8337)
+('הארץ', 8249)
+('משה', 7395)
+('יהודה', 7216)
+('אליו', 7167)
+('נפשי', 6757)
+('ההוא', 6702)
+('עשה', 6668)
+('מצרים', 6404)
+('צבאות', 6339)
+('הנה', 6220)
+('דוד', 6127)
+('עלי', 5943)
+('אליך', 5808)
+('אלהיך', 5740)
+('אנכי', 5268)
+('והנה', 5030)
+('ואין', 4720)
+('העם', 4654)
+('הכהן', 4621)
+('ארץ', 4620)
+('כה', 4559)
+('נתן', 4482)
+('ימים', 4449)
+('מפני', 4358)
+('יעקב', 4356)
+('שאול', 4250)
+('תחת', 4226)
+('רשעים', 4197)
+('אל־משה', 4005)
+('עליך', 3948)
+('את־יהוה', 3934)
+('אלף', 3836)
+('המה', 3780)
+('האלהים', 3742)
+('לדוד', 3699)
+('שלמה', 3671)
+('דבר־יהוה', 3626)
+('ירושלם', 3598)
+('מארץ', 3590)
+('השמים', 3570)
+('גוים', 3438)
+('בנו', 3381)
+('בך', 3374)
+('נאם־יהוה', 3361)
+('רשע', 3336)
+('עליהם', 3336)
+('מזמור', 3253)
+('עמו', 3245)
+('אל־יהוה', 3220)
+('מאות', 3214)
+('רעה', 3193)
+('אלהינו', 3155)
+('עשו', 3144)
+('אליהם', 3105)
+('אבי', 3094)
+('זהב', 3080)
+('פרעה', 3018)
+('עמך', 2957)
+('ויהי', 2952)
+('רבים', 2930)
+('והיה', 2924)
+('בנים', 2910)
+('הנני', 2877)
+('דברי', 2868)
+('עמי', 2866)
+('ויאמרו', 2838)
+('לבני', 2789)
+('משפט', 2750)
+('אברהם', 2747)
+('כה־אמר', 2742)
+('קול', 2730)
+('ויבא', 2708)
+('רוח', 2693)
+('צדיק', 2674)
+('במדבר', 2674)
+('לבית', 2649)
+('אהרן', 2647)
+('עמים', 2632)
+('דויד', 2613)
+('פני', 2612)
+('בני־ישראל', 2605)
+('לבי', 2580)
+('לחם', 2562)
+('עולם', 2548)
+('נאם', 2535)
+('וישב', 2525)
+('אשה', 2520)
+('עשרים', 2514)
+('שמך', 2509)
+('שמע', 2492)
+('ביהוה', 2489)
+('שמו', 2483)
+('מאת', 2468)
+('נתתי', 2451)
+('פניך', 2445)
+('ביד', 2444)
+('עשר', 2430)
+('יחדו', 2425)
+('סביב', 2416)
+('ישב', 2402)
+('על־כן', 2398)
+('על־פני', 2393)
+('עליה', 2387)
+('צוה', 2382)
+('בי', 2341)
+('ידו', 2334)
+('יצא', 2333)
+('העיר', 2319)
+('שמים', 2317)
+('לאלהים', 2316)
+('ובין', 2286)
+('עיני', 2273)
+('ממני', 2236)
+('אתי', 2211)
+('לפניך', 2204)
+('בעיני', 2196)
+('ידי', 2192)
+('פלשתים', 2183)
+('עלה', 2176)
+('למלך', 2174)
+('אש', 2129)
+('ושם', 2079)
+('את־הארץ', 2067)
+('ויבאו', 2054)
+('וילך', 2041)
+('שבע', 2021)
+('ויקרא', 2020)
+('עשרה', 2006)
+('אלהם', 1995)
+('יהושע', 1985)
+('ואמר', 1975)
+('ואתה', 1972)
+('בהם', 1953)
+('ראשי', 1950)
+('מדבר', 1941)
+('הבית', 1940)
+('אלהיכם', 1926)
+('וישבו', 1923)
+('עשית', 1902)
+('האדם', 1890)
+('מועד', 1882)
+('ואשר', 1880)
+('ואמרת', 1872)
+('השדה', 1868)
+('האיש', 1864)
+('שמה', 1862)
+('בהר', 1854)
+('ידך', 1849)
+('שמואל', 1847)
+('לעם', 1844)
+('הלך', 1842)
+('שלח', 1838)
+('מואב', 1808)
+('בבקר', 1808)
+('הוליד', 1804)
+('יעשה', 1797)
+('כי־אני', 1796)
+('חמשה', 1796)
+('בחרב', 1796)
+('מיד', 1795)
+('שרי', 1792)
+('יתן', 1791)
+('הכהנים', 1788)
+('ראה', 1782)
+('עתה', 1782)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;by-book&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt;By Book&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Book&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Word(freq)&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Word(freq)&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Word(freq)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Amos&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אדני(89)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;על־שלשה(69)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ועל־ארבעה(69)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Daniel&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;דניאל(304)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ואמר(235)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;דנה(191)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Deuteronomy&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(7333)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אלהיך(3954)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;נתן(1037)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Ecclesiastes&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;תחת(247)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;האלהים(185)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;האדם(156)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Esther&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(320)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אסתר(192)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;המן(156)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Exodus&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;משה(3506)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(3254)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;מצרים(2526)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Ezekiel&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אדני(5143)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(5058)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אלי(2707)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Ezra&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(133)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;מלכא(122)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;עשרים(113)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Genesis&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אלהים(5110)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;יהוה(3949)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ויאמר(2824)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Habakkuk&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;רשע(7)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;תביט(6)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;קריה(6)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Haggai&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;צבאות(15)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;העם(9)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;הנביא(8)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Hosea&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;יהוה(108)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;יהודה(73)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;עתה(70)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;I Chronicles&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;בנו(1550)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;דויד(1444)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;יהוה(1049)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;I Kings&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;המלך(1703)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;יהוה(1697)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;שלמה(1554)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;I Samuel&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;שאול(2473)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(1923)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;שמואל(1813)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;II Chronicles&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;יהוה(3046)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;שלמה(1831)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;המלך(1425)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;II Kings&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ויאמר(1935)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(1600)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;מלך(1349)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;II Samuel&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(1440)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;המלך(1382)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ויאמר(1269)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Isaiah&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(3239)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;צבאות(2639)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ההוא(2107)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Jeremiah&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(6407)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;יהודה(3028)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;נאם־יהוה(2787)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Job&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;עלי(649)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אלוה(533)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;יהוה(383)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Joel&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אלהיכם(21)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אכל(19)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;משרתי(15)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Jonah&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;הים(20)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;יונה(17)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אליו(16)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Joshua&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;יהושע(1639)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(1576)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;הירדן(556)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Judges&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(1135)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;איש(699)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ויאמר(595)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Lamentations&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אדני(48)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(30)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;מנחם(25)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Leviticus&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;הכהן(2240)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;יהוה(2075)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אתו(934)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Malachi&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;צבאות(23)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ואמרתם(14)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;שמי(12)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Micah&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;יעקב(40)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;יושבת(35)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;עמי(32)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nahum&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;כלה(9)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ואין(9)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;נקם(6)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nehemiah&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;החזיק(286)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;מאות(177)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;המלך(167)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Numbers&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(2951)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;משה(1978)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אל־משה(1626)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Obadiah&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;יהוה(3)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ציון(2)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;מהר(2)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Proverbs&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;רשעים(591)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;חכמה(473)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;רשע(404)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Psalms&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אלהים(11063)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;נפשי(5750)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אלהי(4601)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Ruth&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(38)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;יהוה(33)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;בעז(25)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Song of Songs&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;רעיתי(46)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;נפשי(39)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;בנות(39)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Zechariah&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;צבאות(392)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אלי(230)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(220)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Zephaniah&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ההוא(11)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;קול(8)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;אשר(8)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
