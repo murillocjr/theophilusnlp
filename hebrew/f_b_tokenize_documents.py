@@ -24,6 +24,16 @@ mycol = mydb["texts"]
 books_query = {"language": "he", "versionTitle": "Tanach with Text Only"}
 books = mycol.find(books_query)
 
+# Stop Words
+with open('heb_stopwords.txt') as f:
+    stop_words = f.readlines()
+# you may also want to remove whitespace characters like `\n` at the end of each line
+stop_words = [x.strip() for x in stop_words] 
+
+print(len(stop_words))
+
+
+
 for book in books:
     book_name = book['title']
     chapters = book['chapter']
@@ -38,7 +48,9 @@ for book in books:
         chapter_text = ''.join(fragments)
         tokens = word_tokenize(chapter_text)
 
-        for token in tokens:
+        removed_stop_words = [w for w in tokens if not w in stop_words] 
+
+        for token in removed_stop_words:
             cur.execute('INSERT INTO wordtokens (token, book, chapter) values(\'' + token + '\',\''+ book_name + '\',\'' + str(chapter_number) +'\');')
                     
         chapter_number += 1
