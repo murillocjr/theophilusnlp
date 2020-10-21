@@ -53,6 +53,18 @@ And altering a Jupyter Notebook I found at [Sample](https://github.com/bmabey/py
 ![](assets/g_b_jupyter_visualization.png)
 
 
+and with a simple filter addition in the code:
+
+```
+    if ( chapter['bookId'] not in ['PSA']):
+        continue
+```
+
+we can get the Topics Model Analysis for the Book of Psalms:
+
+![](assets/g_b_jupyter_visualization_psalms.png)
+
+
 
 | Previous        | Home          | Next |
 |:-------------|:------------------|:------|

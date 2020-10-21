@@ -14625,6 +14625,16 @@ And the results are :&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;assets/g_b_jupyter_visualization.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
+&lt;p&gt;and with a simple filter addition in the code:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    if ( chapter['bookId'] not in ['PSA']):
+        continue
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;we can get the Topics Model Analysis for the Book of Psalms:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/g_b_jupyter_visualization_psalms.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
