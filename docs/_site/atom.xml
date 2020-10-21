@@ -14586,7 +14586,7 @@ if(typeof(LDAvis) !== &quot;undefined&quot;){
   &lt;li&gt;If, in contrast, one seeks the topic model to serve as input for another statistical model (e.g., regression, classification, clustering) and human comprehensibility is not an important factor, the model fit (and not its interpretability) determine the most appropriate number of topics; here, the number of topics might range between 30 and 100 or even more.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The article I was following obtains the topis from the site they use. We will be using a local library following this article:&lt;/p&gt;
+&lt;p&gt;The article I was following obtains the topics from the processing site they use. We will be using a local library instead (Gensim) following this article:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://towardsdatascience.com/topic-modelling-in-python-with-nltk-and-gensim-4ef03213cd21&quot;&gt;Topic Modelling in Python with NLTK and Gensim&lt;/a&gt;
 And the results are :&lt;/p&gt;
@@ -14621,7 +14621,7 @@ And the results are :&lt;/p&gt;
 
 &lt;p&gt;On top of this we can use a neat visualization tool : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pyLDAvis&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;And altering a Jupyter Notebook I found at &lt;a href=&quot;https://github.com/bmabey/pyLDAvis/blob/master/notebooks/Gensim%20Newsgroup.ipynb&quot;&gt;Sample&lt;/a&gt; we can get an amazing interactive view of the topics &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g_b_jupyter_visualization.ipynb&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;And altering a Jupyter Notebook I found &lt;a href=&quot;https://github.com/bmabey/pyLDAvis/blob/master/notebooks/Gensim%20Newsgroup.ipynb&quot;&gt;here&lt;/a&gt;, we can get an amazing interactive view of the topics (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g_b_jupyter_visualization.ipynb&lt;/code&gt;):&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;assets/g_b_jupyter_visualization.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 

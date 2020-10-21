@@ -10,7 +10,7 @@ Some considerations to begin with Topic Modeling learnt from the guide articles:
 * If, in contrast, one seeks the topic model to serve as input for another statistical model (e.g., regression, classification, clustering) and human comprehensibility is not an important factor, the model fit (and not its interpretability) determine the most appropriate number of topics; here, the number of topics might range between 30 and 100 or even more.
 
 
-The article I was following obtains the topis from the site they use. We will be using a local library following this article:
+The article I was following obtains the topics from the processing site they use. We will be using a local library instead (Gensim) following this article:
 
 [Topic Modelling in Python with NLTK and Gensim](https://towardsdatascience.com/topic-modelling-in-python-with-nltk-and-gensim-4ef03213cd21)
 And the results are :
@@ -47,8 +47,8 @@ the script containing the process is `g_a_lda_topics.py`
 
 On top of this we can use a neat visualization tool : `pyLDAvis`
 
-And altering a Jupyter Notebook I found at [Sample](https://github.com/bmabey/pyLDAvis/blob/master/notebooks/Gensim%20Newsgroup.ipynb
-) we can get an amazing interactive view of the topics `g_b_jupyter_visualization.ipynb`
+And altering a Jupyter Notebook I found [here](https://github.com/bmabey/pyLDAvis/blob/master/notebooks/Gensim%20Newsgroup.ipynb
+), we can get an amazing interactive view of the topics (`g_b_jupyter_visualization.ipynb`):
 
 ![](assets/g_b_jupyter_visualization.png)
 
