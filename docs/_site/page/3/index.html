@@ -48,21 +48,21 @@
         <ul>
     
       <li>
+          <h2><a href="/A-database-support">Database support</a></h2>
+          <time datetime="2020-08-03T00:00:00+00:00">03 Aug 2020</time>
+          <p>Since a lot of the data retrieved from the API comes in JSON format, and NLTK outputs are also in JSON, it stands to reason to use a JSON Documents based database to store the partial results and help to process and analyze the data, something on the line of...</p>
+      </li>
+    
+      <li>
+          <h2><a href="/B-tokenizing-with-nltk">Tokenizing with NLTK</a></h2>
+          <time datetime="2020-07-28T00:00:00+00:00">28 Jul 2020</time>
+          <p>Using our function to get the whole chapter text we can start trying some of the NLTK tokenizers : Tokenizing text into sentences: &gt;&gt;&gt; import sys &gt;&gt;&gt; import json &gt;&gt;&gt; from nltk.tokenize import sent_tokenize &gt;&gt;&gt; from TextFromChapter import wholeChapter &gt;&gt;&gt; with open('GEN.1.json', 'r') as f: ... chapter_dict = json.load(f) ......</p>
+      </li>
+    
+      <li>
           <h2><a href="/A-getting-raw-text-from-json-data">Getting raw text from JSON data</a></h2>
           <time datetime="2020-07-28T00:00:00+00:00">28 Jul 2020</time>
           <p>At this point we have the data of a whole chapter in a file containing a JSON structure divided by verses along with additional data. Now we will create some python functions to obtain the data in raw text that we can give to NLTK. import json def wholeChapter(chapter_dict): verses_text...</p>
-      </li>
-    
-      <li>
-          <h2><a href="/A-getting-data-not-a-small-task">Getting data...not a small task</a></h2>
-          <time datetime="2020-07-27T00:00:00+00:00">27 Jul 2020</time>
-          <p>We need data: Text in proper English Available programmatically from python Lots of “articles” that can be processed later, more than 1000 according to the recommendations. Instead of going directly to books, let’s start testing with the Bible text because additionally to more or less fit the above requirements, it...</p>
-      </li>
-    
-      <li>
-          <h2><a href="/D-nltk">NLTK</a></h2>
-          <time datetime="2020-07-26T00:00:00+00:00">26 Jul 2020</time>
-          <p>This toolkit has a lot of implementations of code and resources that promise to make a lot easier the construction of NLP projects. Again, an independent Linux server seems ideal to handle all the NLP processes related to the implementation of the code of “Theophilus” (that’s the code-name for this...</p>
       </li>
     
 </ul>

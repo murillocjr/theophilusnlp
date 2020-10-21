@@ -1,6 +1,7 @@
 ---
 title: Topic Modeling
-published: false
+published: true
+date: 2020-10-21
 ---
 
 Some considerations to begin with Topic Modeling learnt from the guide articles:
@@ -49,10 +50,10 @@ On top of this we can use a neat visualization tool : `pyLDAvis`
 And altering a Jupyter Notebook I found at [Sample](https://github.com/bmabey/pyLDAvis/blob/master/notebooks/Gensim%20Newsgroup.ipynb
 ) we can get an amazing interactive view of the topics `g_b_jupyter_visualization.ipynb`
 
-![](g_b_jupyter_visualization.png)
+![](assets/g_b_jupyter_visualization.png)
 
 
 
 | Previous        | Home          | Next |
 |:-------------|:------------------|:------|
-|  [Hebrew](A-hebrew) | [θεόφιλος Journey](A-θεόφιλος-Journey) |  |
+|  [Hebrew](A-hebrew) | [θεόφιλος Journey](A-θεόφιλος-Journey) | [Topic Visualization](A-topic-visualization) |
