@@ -13,16 +13,16 @@
     
       <item>
         <title>Hebrew</title>
-        <description>&lt;p&gt;Let’s see how far can we get using hebrew:&lt;/p&gt;
+        <description>&lt;p&gt;Let’s see how far can we get using Hebrew:&lt;/p&gt;
 
 &lt;h3 id=&quot;-nltk&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt; NLTK&lt;/h3&gt;
 
-&lt;p&gt;First good sign comes from NLTK, running the command:&lt;/p&gt;
+&lt;p&gt;The first good sign comes from NLTK, running the command:&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nltk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;corpus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;udhr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fileids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;returns as part of it’s output:&lt;/p&gt;
+&lt;p&gt;returns as part of its output:&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'Hebrew_Ivrit-Hebrew', 'Hebrew_Ivrit-UTF8'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -31,32 +31,32 @@
 
 &lt;p&gt;But sadly, the API chosen at the beginning does not provide a bible in Hebrew.&lt;/p&gt;
 
-&lt;p&gt;For a site that provides so wide a variety of bible versions in several languages, there must be a very good set of reasons as for why Hebrew is not present; I can only blame myself for not checking that while picking a source.&lt;/p&gt;
+&lt;p&gt;For a site that provides so wide a variety of Bible versions in several languages, there must be a very good set of reasons why Hebrew is not present; I can only blame myself for not checking that while picking a source.&lt;/p&gt;
 
-&lt;p&gt;With the purpose of finding a way to make the basic analysis in Hebrew, here’s some interesting findings:&lt;/p&gt;
+&lt;p&gt;To find a way to make the basic analysis in Hebrew, here are some interesting findings:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/openscriptures/morphhb&quot;&gt;https://github.com/openscriptures/morphhb&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Other API produces the following:&lt;/p&gt;
+&lt;p&gt;Other APIs produces the following:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://getbible.net/json?passage=GEN1:1&amp;amp;version=wlc&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;book&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;book_ref&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Ge&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;book_name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Genesis&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;book_nr&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;chapter_nr&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;chapter&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;verse_nr&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;verse&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d1&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05bc&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05e8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b5&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05e9&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05c1&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b4&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d9&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05ea &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d1&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05bc&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05e8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d0 &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b1&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05dc&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b9&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d4&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b4&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d9&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05dd &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b5&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05ea &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d4&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b7&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05e9&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05c1&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05bc&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05de&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b7&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d9&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b4&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05dd &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d5&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b5&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05ea &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d4&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05d0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05e8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05b6&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05e5&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;05c3&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\r\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}}],&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;direction&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RTL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;verse&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;wlc&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Where “\u05d1” is unicode for the Hebrew letter “Bet” , so it would be better to first see whether NLTK can process the text in this format.&lt;/p&gt;
+&lt;p&gt;Where “\u05d1” is Unicode for the Hebrew letter “Bet”, so it would be better to first see whether NLTK can process the text in this format.&lt;/p&gt;
 
-&lt;p&gt;With this we could follow the same path than with the english analysis: Build some scripts and retrieve all the text to local storage for processing.&lt;/p&gt;
+&lt;p&gt;With this, we could follow the same path as with the English analysis: Build some scripts and retrieve all the text to local storage for processing.&lt;/p&gt;
 
 &lt;h3 id=&quot;-stricking-gold--sefaria&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt; Stricking Gold : &lt;strong&gt;Sefaria&lt;/strong&gt;&lt;/h3&gt;
 
-&lt;p&gt;In the search of an API Service from where to retrieve the text of the Scriptures in Hebrew I found &lt;a href=&quot;https://www.sefaria.org&quot;&gt;Sefaria&lt;/a&gt; a project which aside of providing an API, allows you to download a dump of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;all their content as a mongo database !!!&lt;/code&gt;. We are talking at least 2GB of text content including&lt;/p&gt;
+&lt;p&gt;In the search of an API Service from where to retrieve the text of the Scriptures in Hebrew, I found &lt;a href=&quot;https://www.sefaria.org&quot;&gt;Sefaria&lt;/a&gt; a project which aside from providing an API, allows you to download a dump of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;all their content as a mongo database !!!&lt;/code&gt;. We are talking at least 2GB of text content including&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Articles in English and Hebrew&lt;/li&gt;
-  &lt;li&gt;The scriptures in hebrew: 3 versions : “Tanach with Ta’amei Hamikra”, “Tanach with Text Only”, “Tanach with Nikkud”&lt;/li&gt;
+  &lt;li&gt;The scriptures in Hebrew: 3 versions: “Tanach with Ta’amei Hamikra”, “Tanach with Text Only”, “Tanach with Nikkud”&lt;/li&gt;
   &lt;li&gt;Web pages&lt;/li&gt;
   &lt;li&gt;Linking between content, including translations.&lt;/li&gt;
   &lt;li&gt;A lot more …&lt;/li&gt;
@@ -64,11 +64,11 @@
 
 &lt;p&gt;So this looks to me as a Gold Mine in terms of Semantic Information.&lt;/p&gt;
 
-&lt;p&gt;So let’s start mining, this is going to involve some good amount of work but i think it’s worth it.&lt;/p&gt;
+&lt;p&gt;So let’s start mining, this is going to involve some good amount of work but I think it’s worth it.&lt;/p&gt;
 
 &lt;h3 id=&quot;-step-1--loading-the-database&quot;&gt;&lt;a href=&quot;#header-5&quot;&gt;&lt;/a&gt; Step 1 : Loading the Database&lt;/h3&gt;
 
-&lt;p&gt;Installing mongo was not a problem. After that at trying the databse restoring command is where the problems began: it seems like my 1GB-RAM-20GB-disk-free-tier humble instance of EC2-AWS didn’t have the memory to handle the restoring process.
+&lt;p&gt;Installing mongo was not a problem. After that, while trying the database restoring command is where the problems began: it seems like my 1GB-RAM-20GB-disk-free-tier humble instance of EC2-AWS didn’t have the memory to handle the restoring process.
 Instead of paying for more memory, creating a swap file to be used by the system as additional memory allowed the restoring to start running:&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;fallocate &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; 4G /swapfile
@@ -78,20 +78,20 @@ Instead of paying for more memory, creating a swap file to be used by the system
 &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;swapon &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;But each time the process would just get stuck at some point, processing power? memory still not enought? space in disk?&lt;/p&gt;
+&lt;p&gt;But each time the process would just get stuck at some point, processing power? the memory still not enough? space in the disk?&lt;/p&gt;
 
-&lt;p&gt;So as an alternative lets just try and load what we need right now : the texts&lt;/p&gt;
+&lt;p&gt;So as an alternative let us just try and load what we need right now: the texts&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mongorestore &lt;span class=&quot;nt&quot;&gt;--drop&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; sefaria &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; texts ./texts.bson
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Again. the process stops adding data at around 50% before dying out.&lt;/p&gt;
 
-&lt;p&gt;Even with this error, the data restored is accesible, so I will start the analysis on the books I have available, with any luck all the books of the Bible might be there.&lt;/p&gt;
+&lt;p&gt;Even with this error, the data restored is accessible, so I will start the analysis on the books I have available, with any luck all the books of the Bible might be there.&lt;/p&gt;
 
-&lt;p&gt;Decision time: Should I use the Text-only version or the one with nikkud ?&lt;/p&gt;
+&lt;p&gt;Decision time: Should I use the Text-only version or the one with nikkud?&lt;/p&gt;
 
-&lt;p&gt;Since nikkud is, as far as i know, mostly a pronunciation help, and right now i’m more interested in meaning than in pronunciation, lets go for the plain-text version.&lt;/p&gt;
+&lt;p&gt;Since nikkud is, as far as I know, mostly a pronunciation help, and right now I’m more interested in meaning than in pronunciation, let’s go for the plain-text version.&lt;/p&gt;
 
 &lt;p&gt;This is how it looks like to retrieve the text for a whole book:&lt;/p&gt;
 
@@ -104,7 +104,8 @@ switched to db sefaria
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; db.texts.find&lt;span class=&quot;o&quot;&gt;({&lt;/span&gt; _id: ObjectId&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5497c115fbfba238003c2d01&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;})&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;which returns the following json:&lt;/p&gt;
+
+&lt;p&gt;which returns the following JSON:&lt;/p&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;_id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ObjectId(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5497c115fbfba238003c2d01&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -144,11 +145,9 @@ switched to db sefaria
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Just realized that Original Scripture doesn’t have Chapter-Verse divisions.&lt;/p&gt;
-
 &lt;h3 id=&quot;-tokenizing&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt; Tokenizing&lt;/h3&gt;
 
-&lt;p&gt;Well, there’s no hebrew tokenizer in my nltk installation :&lt;/p&gt;
+&lt;p&gt;Well, there’s no Hebrew tokenizer in my NLTK installation :&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tokenizers/punkt/czech.pickle
 tokenizers/punkt/danish.pickle
@@ -169,9 +168,10 @@ tokenizers/punkt/spanish.pickle
 tokenizers/punkt/swedish.pickle
 tokenizers/punkt/turkish.pickle
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Nevertheless, the general tokenizer seems to works just fine, it takes just the spaces I guess. And with that we can just use practically the same code used before.&lt;/p&gt;
 
-&lt;p&gt;these scripts are available inside the “hebrew” folder of the &lt;a href=&quot;https://github.com/murillocjr/theophilusnlp&quot;&gt;Scripts Source Code&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nevertheless, the general tokenizer seems to works just fine, it takes just the spaces I guess. And with that, we can just use practically the same code used before.&lt;/p&gt;
+
+&lt;p&gt;these scripts are available inside the “Hebrew” folder of the &lt;a href=&quot;https://github.com/murillocjr/theophilusnlp&quot;&gt;Scripts Source Code&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;running &lt;strong&gt;f_b_tokenize_documents.py&lt;/strong&gt; all the books of the Tanach are processed and reports the following:&lt;/p&gt;
 
@@ -216,19 +216,19 @@ Ruth 5
 Ezra 11
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Resulting on 70226 distinct wordTokens, almost 162% of the 43518 we found for the english version. This is the count before removing stop words.&lt;/p&gt;
+&lt;p&gt;Resulting in 70226 distinct word tokens, almost 162% of the 43518 we found for the English version. This is the count before removing stop words.&lt;/p&gt;
 
 &lt;p&gt;After removing the stop words we are left with 69907&lt;/p&gt;
 
-&lt;p&gt;After that we can run &lt;strong&gt;f_e_print_word_frequency_by_book.py&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;After that, we can run &lt;strong&gt;f_e_print_word_frequency_by_book.py&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;and we get the following reports&lt;/p&gt;
 
 &lt;h3 id=&quot;-global&quot;&gt;&lt;a href=&quot;#header-3&quot;&gt;&lt;/a&gt; Global&lt;/h3&gt;
 
-&lt;p&gt;In english the top 5 words were : Lord, shall, said, God, Israel&lt;/p&gt;
+&lt;p&gt;In English, the top 5 words were: Lord, shall, said, God, Israel&lt;/p&gt;
 
-&lt;p&gt;In hebrew we have (translated) : “I Am”=Yahweh, which, God, man, said&lt;/p&gt;
+&lt;p&gt;In Hebrew we have (translated): “I Am”=Yahweh, which, God, man, said&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;('יהוה', 98805)
 ('אשר', 57580)
@@ -658,6 +658,8 @@ Ezra 11
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;p&gt;With this, we have reached more or less the same degree of analysis as with the English texts.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
