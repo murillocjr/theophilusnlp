@@ -23,7 +23,7 @@
 <link rel="prev" href="http://0.0.0.0:4000/page/2/" />
 <link rel="next" href="http://0.0.0.0:4000/page/4/" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"Jorge Murillo"},"@type":"WebPage","url":"http://0.0.0.0:4000/page/3/","headline":"θεόφιλος Journey","description":"NLP Books semantic mapping project","@context":"https://schema.org"}</script>
+{"@type":"WebPage","url":"http://0.0.0.0:4000/page/3/","headline":"θεόφιλος Journey","author":{"@type":"Person","name":"Jorge Murillo"},"description":"NLP Books semantic mapping project","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -49,21 +49,21 @@
         <ul>
     
       <li>
+          <h2><a href="/A-one-result-several-questions">One result ...several questions</a></h2>
+          <time datetime="2020-08-11T00:00:00+00:00">11 Aug 2020</time>
+          <p>At this point we have tokenized the whole text of the “World Messianic Bible” and we have the first report of the most used words that are also semantically valuable:” LORD”, “shall” and “said” are the first of 2362 unique token-words found. The API service that provided us with the...</p>
+      </li>
+    
+      <li>
+          <h2><a href="/A-tokenizing-all-documents">Tokenizing all documents</a></h2>
+          <time datetime="2020-08-06T00:00:00+00:00">06 Aug 2020</time>
+          <p>Scripts Source Code The purpose is to go chapter by chapter and run the “tokenizing by words” process, then store the results in a database so we can start getting statistics on the words used. All our JSON documents are stored in TinyDB structures, from there we will extract information...</p>
+      </li>
+    
+      <li>
           <h2><a href="/A-milestone-1">Milestone 1</a></h2>
           <time datetime="2020-08-04T00:00:00+00:00">04 Aug 2020</time>
           <p>Scripts Source Code This is what we have so far: Data: A whole bible text inside TinyDB documents database entities. Code: A function that returns the raw text of a whole chapter on receiving the ChapterID NLTK environment up and running. The code used to retrieve this information is inside...</p>
-      </li>
-    
-      <li>
-          <h2><a href="/A-database-support">Database support</a></h2>
-          <time datetime="2020-08-03T00:00:00+00:00">03 Aug 2020</time>
-          <p>Since a lot of the data retrieved from the API comes in JSON format, and NLTK outputs are also in JSON, it stands to reason to use a JSON Documents based database to store the partial results and help to process and analyze the data, something on the line of...</p>
-      </li>
-    
-      <li>
-          <h2><a href="/B-tokenizing-with-nltk">Tokenizing with NLTK</a></h2>
-          <time datetime="2020-07-28T00:00:00+00:00">28 Jul 2020</time>
-          <p>Using our function to get the whole chapter text we can start trying some of the NLTK tokenizers : Tokenizing text into sentences: &gt;&gt;&gt; import sys &gt;&gt;&gt; import json &gt;&gt;&gt; from nltk.tokenize import sent_tokenize &gt;&gt;&gt; from TextFromChapter import wholeChapter &gt;&gt;&gt; with open('GEN.1.json', 'r') as f: ... chapter_dict = json.load(f) ......</p>
       </li>
     
 </ul>

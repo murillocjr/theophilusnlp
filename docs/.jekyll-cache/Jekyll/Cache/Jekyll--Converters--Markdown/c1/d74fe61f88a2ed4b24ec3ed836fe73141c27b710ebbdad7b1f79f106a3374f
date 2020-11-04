@@ -1,11 +1,13 @@
-I"{<p>Up to this point, we have been able to extract topics from the bible taking each chapter as an <code class="language-plaintext highlighter-rouge">article</code> and then extracting topics from the <code class="language-plaintext highlighter-rouge">collection of articles</code>.</p>
+I"�<p>Up to this point, we have been able to extract topics from the bible taking each chapter as an <code class="language-plaintext highlighter-rouge">article</code> and then extracting topics from the <code class="language-plaintext highlighter-rouge">collection of articles</code>.</p>
 
 <p>But the initial purpose of this little project of mine was to process and analyze PDF books/articles/papers in bulk; so, let’s start playing with one PDF file:</p>
 
-<p>The Creation Account
+<blockquote>
+  <p>The Creation Account
 in Genesis 1:1-3
- Part I: Introduction to Biblical Cosmogony
- Bruce K. Waltke</p>
+Part I: Introduction to Biblical Cosmogony
+Bruce K. Waltke</p>
+</blockquote>
 
 <p><a href="https://medium.com/better-programming/how-to-convert-pdfs-into-searchable-key-words-with-python-85aab86c544f">This site</a> has instructions on processing a PDF file, with some changes in punctuation handling it served as a base to make a couple of Experiments:</p>
 
@@ -89,7 +91,7 @@ in Genesis 1:1-3
     <tr>
       <td style="text-align: left"><a href="A-topic-visualization">Topic Modeling</a></td>
       <td style="text-align: left"><a href="A-θεόφιλος-Journey">θεόφιλος Journey</a></td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left"><a href="B-Sefaria">Sefaria</a></td>
     </tr>
   </tbody>
 </table>

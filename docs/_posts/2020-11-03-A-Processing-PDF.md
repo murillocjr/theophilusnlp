@@ -89,4 +89,4 @@ in these results, we can see that the predominant topic would be: `myth, creatio
 
 | Previous        | Home          | Next |
 |:-------------|:------------------|:------|
-|  [Topic Modeling](A-topic-visualization) | [θεόφιλος Journey](A-θεόφιλος-Journey) |  |
+|  [Topic Modeling](A-topic-visualization) | [θεόφιλος Journey](A-θεόφιλος-Journey) | [Sefaria](B-Sefaria)  |
