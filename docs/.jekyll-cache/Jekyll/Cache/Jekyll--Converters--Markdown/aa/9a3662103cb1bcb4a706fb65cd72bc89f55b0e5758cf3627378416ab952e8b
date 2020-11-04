@@ -1,51 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-  <meta name="generator" content="Jekyll">
-
-  <title>Archive</title>
-
-  <link rel="stylesheet" href="/css/main.css">
-  
-  <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" /> <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Archive | θεόφιλος Journey</title>
-<meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Archive" />
-<meta name="author" content="Jorge Murillo" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="NLP Books semantic mapping project" />
-<meta property="og:description" content="NLP Books semantic mapping project" />
-<link rel="canonical" href="http://0.0.0.0:4000/archive" />
-<meta property="og:url" content="http://0.0.0.0:4000/archive" />
-<meta property="og:site_name" content="θεόφιλος Journey" />
-<script type="application/ld+json">
-{"author":{"@type":"Person","name":"Jorge Murillo"},"@type":"WebPage","url":"http://0.0.0.0:4000/archive","headline":"Archive","description":"NLP Books semantic mapping project","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-</head>
-
-<body>
-  <div id="wrapper">
-    <header>
-  <div>
-    <a href="/">
-    
-    <h1>jorge@home:~$</h1>
-    </a>
-    <div class="header-links">
-      <a href="/archive"><h2 class="header-link">Archive</h2></a>
-<a href="/about"><h2 class="header-link">About</h2></a>
-<a href="https://github.com/murillocjr/theophilusnlp"><h2 class="header-link">Source Code</h2></a>
-
-    </div>
-  </div>
-</header>
-    <div class="container">
-      <section id="main_content">
-        <article>
-  <section>
+I"<section>
   
 
     
@@ -233,33 +186,4 @@
 
   
 </section>
-
-</article>
-      </section>
-    </div>
-  </div>
-
-   <footer>
-    <a href="http://murillocjr.github.io/">
-    <span>
-        <b>Jorge Murillo</b>
-    </span>
-    
-    <span>© 2020</span>
-    </a>
-</footer>
-
-
-  
-    <script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-49256786-5', 'auto');
-  ga('send', 'pageview');
-</script>
-  
-</body>
-
-</html>
+:ET
