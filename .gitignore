@@ -131,3 +131,10 @@ dmypy.json
 
 a_a_parameters_connection.py
 hebrew/f_c_db_tanach.sqlite
+
+#Gensim Model Files
+*.pkl
+*.gensim
+*.gensim.expElogbeta.npy
+*.gensim.id2word
+*.gensim.state
