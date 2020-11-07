@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="generator" content="Jekyll">
+
+  <title>Extracting Topics from Sefaria</title>
+
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" /> <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Extracting Topics from Sefaria | θεόφιλος Journey</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Extracting Topics from Sefaria" />
+<meta name="author" content="Jorge Murillo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="With over 2000 articles available from sefaria, even just reading the titles it takes a while to go through the list; at first glace these titles look interesting:" />
+<meta property="og:description" content="With over 2000 articles available from sefaria, even just reading the titles it takes a while to go through the list; at first glace these titles look interesting:" />
+<link rel="canonical" href="http://0.0.0.0:4000/A-Topics-Sefaria" />
+<meta property="og:url" content="http://0.0.0.0:4000/A-Topics-Sefaria" />
+<meta property="og:site_name" content="θεόφιλος Journey" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-04T00:00:00+00:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/A-Topics-Sefaria"},"author":{"@type":"Person","name":"Jorge Murillo"},"@type":"BlogPosting","url":"http://0.0.0.0:4000/A-Topics-Sefaria","headline":"Extracting Topics from Sefaria","dateModified":"2020-11-04T00:00:00+00:00","datePublished":"2020-11-04T00:00:00+00:00","description":"With over 2000 articles available from sefaria, even just reading the titles it takes a while to go through the list; at first glace these titles look interesting:","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <header>
+  <div>
+    <a href="/">
+    
+    <h1>jorge@home:~$</h1>
+    </a>
+    <div class="header-links">
+      <a href="/archive"><h2 class="header-link">Archive</h2></a>
+<a href="/about"><h2 class="header-link">About</h2></a>
+<a href="https://github.com/murillocjr/theophilusnlp"><h2 class="header-link">Source Code</h2></a>
+
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <section id="main_content">
+        <article>
+  <h2>Extracting Topics from Sefaria</h2>
+  <time datetime="2020-11-04T00:00:00+00:00" class="by-line">04 Nov 2020</time>
+  <p>With over 2000 articles available from sefaria, even just reading the titles it takes a while to go through the list; at first glace these titles look interesting:</p>
+
+<ul>
+  <li>5785647ed6e4a925d823d80f	Jewish Approach to Abortion	Sanhedrin</li>
+  <li>5ef89a6c56c1086443e21a92	Ktav Pub. House, NY, 1974	Major Themes in Modern Philosophies of Judaism</li>
+  <li>5c8d29e1eef7b9007079d2e8	Pashanut Salt of the Earth	Bereishit Rabbah</li>
+  <li>58dd6562d6e4a9084de0b5d5	Path of the Just. Trans. Rabbi Yosef Sebag	Messilat Yesharim</li>
+  <li>5ccc74c4a100190018ebbf0a	Sanctifying G-d’s Name	Sefer HaMitzvot</li>
+  <li>56a9486ed6e4a960e992e991	Sefaria Community Translation	Legends of the Jews</li>
+  <li>56f265d8d6e4a94c31c8bf88	The Rashi Ketuvim by Rabbi Shraga Silverstein	Job</li>
+</ul>
+
+<p>So they will be used in the following experiments</p>
+
+<p>Another problem that arises is that not all the documents have the same document structure, here some examples:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  '_id': ObjectId('58dd6562d6e4a9084de0b5d5'),
+  'language': 'en',
+  'title': 'Messilat Yesharim',
+  'versionSource': 'http://dafyomireview.com/mesilat.php',
+  'versionTitle': 'Path of the Just. Trans. Rabbi Yosef Sebag',
+  'chapter': {
+    'default': [
+      [
+        'The foundation of piety and the root of perfect service [of G-d] is for a man to clarify and come to realize as truth what is his obligation in his world and to what he needs to direct his gaze and his aspiration in all that he toils all the days of his life.',
+        'Behold, what our sages, of blessed memory, have taught us is that man was created solely to delight in G-d and to derive pleasure in the radiance of the Shechina (divine presence). For this is the true delight and the greatest pleasure that can possibly exist. The place of this pleasure is, in truth, in Olam Haba (the World to Come). For it was created expressly for this purpose.',
+        'But the path to arrive at the "desired haven" (Ps. 107:30) of ours is this world. This is what our sages of blessed memory said: "this world 
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  '_id': ObjectId('56a9486ed6e4a960e992e991'),
+  'chapter': [
+    [
+      
+    ],
+    [
+      
+    ],
+    [
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        '...Cuando Moisés murió, una voz resonaba desde el cielo a lo largo de todo el campamento de Israel, que medía doce millas de largo por doce de ancho, y decía: "¡Ay, Moisés ha muerto! ¡Ay, Moisés ha muerto!" Todo Israel que, durante treinta días antes de la muerte de Moisés, había llorado su inminente muerte ahora arregló un luto de tres meses para él. Pero Israel no fue el único enlutado por Moisés, Dios mismo lloró por Moisés, diciendo: "¿Quién se levantará contra los malvados? ¿Quién me defenderá contra los que hacen iniquidad?" Metatrón se apareció ante Dios y dijo: "Moisés fue tuyo cuando vivió, y él es tuyo en su muerte". Dios respondió: "No lloro por el amor de Moisés, sino por la pérdida que sufrió Israel con su muerte. Cuántas veces me enojaron, pero él oró por ellos y apaciguó mi ira". Los ángeles lloraron con Dios, diciendo: "¿Dónde se encontrará la sabiduría?" Los cielos se lamentaron: "El hombre piadoso pereció de la tierra". La tierra lloró: "Y no hay nadie recto entre los hombres". Las estrellas, los planetas, el sol y la luna gemían: "El justo perece, y nadie se lo piensa de corazón", y Dios elogió la excelencia de Moisés en las palabras: "Tú has dicho de mí, \'El Señor es Dios: hay ninguno más, \'y por eso diré de ti:\' Y no se levantó en Israel un profeta como Moisés \'".\n...',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '...\n'
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ]
+    ]
+  ],
+  'versionTitle': 'Sefaria Community Translation',
+  'language': 'en',
+  'title': 'Legends of the Jews',
+  'versionTitleInHebrew': 'תרגום קהילת ספאריה',
+  'versionSource': 'https://www.sefaria.org'
+}
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  '_id': ObjectId('5ef89a6c56c1086443e21a92'),
+  'language': 'en',
+  'title': 'Major Themes in Modern Philosophies of Judaism',
+  'versionSource': 'https://www.nli.org.il/he/books/NNL_ALEPH001941511/NLI',
+  'versionTitle': 'Ktav Pub. House, NY, 1974',
+  'chapter': {
+    'Foreword': [
+      'As its title indicates, this volume deals with several major themes in the modern philosophies of Judaism as they emerge from some of the key writings of the authors discussed.',
+      'The analysis is critical. I believe that in my criticism I have given illustrative expression to the conviction that at this time we have neither a theology nor a philosophy of Judaism that does justice to the essential nature of Jewish teaching about God, man, and the universe as expressed in the classical sources of Judaism, nor one that can be maintained with contemporary philosophical validity.',
+      'In my opinion, we have reached a stage that requires a great deal of rethinking of the nature of the Jewish position in the history of human thought and commitment in the light of contemporary philosophical problematics and existential experience. Judaism is awaiting a reformulation of its theology and philosophy. It will, however, be accomplished by means of an intellectual strength that draws its creative inspiration as well as its contents from the classical sources of Judaism—Bible, Talmud, and Midrash.',
+      'The chapter on Buber was previously published by Yeshiva University, New York, in 196
+</code></pre></div></div>
+
+<p>So it was necessary to use a recursive exploration of the document looking for string data to gather the text to process (<code class="language-plaintext highlighter-rouge">b_get_documents_topics.py</code>).</p>
+
+<p>Also the use of a custom collection of stop words was necessary since the default list from NLTK was’t catching “thou” for example and also some words like “footnote” needed to be discarded.</p>
+
+<p>With all this adjustments we could get our first topic models:</p>
+
+<p>(1) 5ef89a6c56c1086443e21a92	Ktav Pub. House, NY, 1974	Major Themes in Modern Philosophies of Judaism</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(0, '0.024*"Jew" + 0.016*"Jewish" + 0.012*"Christian" + 0.009*"Zion"')
+(1, '0.023*"Buber" + 0.013*"encounter" + 0.013*"Israel" + 0.013*"community"')
+(2, '0.029*"God" + 0.022*"law" + 0.012*"Rosenzweig" + 0.011*"Torah"')
+(3, '0.087*"God" + 0.021*"relation" + 0.018*"Buber" + 0.015*"encounter"')
+(4, '0.036*"cosmic" + 0.022*"human" + 0.018*"Judaism" + 0.018*"reality"')
+(5, '0.037*"obligation" + 0.023*"dialogical" + 0.020*"contents" + 0.017*"answer"')
+(6, '0.028*"God" + 0.025*"Cohen" + 0.015*"human" + 0.013*"religion"')
+(7, '0.033*"history" + 0.029*"Jew" + 0.022*"Judaism" + 0.020*"Christian"')
+(8, '0.018*"nature" + 0.017*"Reconstructionist" + 0.013*"natural" + 0.013*"Reconstructionism"')
+(9, '0.043*"God" + 0.038*"Cohen" + 0.036*"law" + 0.032*"correlation"')
+(10, '0.033*"relation" + 0.022*"human" + 0.013*"reality" + 0.013*"freedom"')
+(11, '0.014*"God" + 0.013*"prayer" + 0.010*"laws" + 0.009*"language"')
+(12, '0.018*"God" + 0.012*"Jewish" + 0.012*"Reconstructionism" + 0.010*"Reconstructionist"')
+(13, '0.029*"law" + 0.017*"Jew" + 0.013*"Rosenzweig" + 0.012*"Jewish"')
+(14, '0.048*"land" + 0.017*"Jew" + 0.015*"blood" + 0.014*"Jews"')
+(15, '0.091*"God" + 0.047*"pathos" + 0.033*"divine" + 0.025*"Heschel"')
+(16, '0.028*"relation" + 0.025*"Buber" + 0.024*"God" + 0.014*"reality"')
+(17, '0.043*"Buber" + 0.029*"revelation" + 0.028*"situation" + 0.027*"law"')
+(18, '0.020*"idea" + 0.014*"religion" + 0.013*"ethics" + 0.010*"nature"')
+(19, '0.046*"love" + 0.039*"God" + 0.019*"idea" + 0.012*"law"')
+</code></pre></div></div>
+
+<p>(2) 5785647ed6e4a925d823d80f	Jewish Approach to Abortion	Sanhedrin</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(0, '0.568*"Sanhedrin" + 0.027*"spill" + 0.027*"Abortion" + 0.027*"refer"')
+(1, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+(2, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+(3, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+(4, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+(5, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+(6, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+(7, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+(8, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+(9, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+(10, '0.225*"person" + 0.114*"blood" + 0.114*"spill" + 0.076*"Rabbi"')
+(11, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+(12, '0.368*"Abortion" + 0.368*"Jewish" + 0.018*"spill" + 0.018*"refer"')
+(13, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+(14, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+(15, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+(16, '0.059*"person" + 0.059*"spill" + 0.059*"blood" + 0.059*"Yishmael"')
+(17, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+(18, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+(19, '0.059*"spill" + 0.059*"Abortion" + 0.059*"refer" + 0.059*"mother"')
+</code></pre></div></div>
+
+<p>(3) 58dd6562d6e4a9084de0b5d5	Path of the Just. Trans. Rabbi Yosef Sebag	Messilat Yesharim</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(0, '0.017*"heart" + 0.015*"person" + 0.011*"love" + 0.009*"evil"')
+(1, '0.025*"person" + 0.016*"Torah" + 0.011*"bless" + 0.010*"bring"')
+(2, '0.016*"Torah" + 0.012*"person" + 0.012*"Rav" + 0.012*"sage"')
+(3, '0.015*"person" + 0.012*"understanding" + 0.012*"anger" + 0.009*"evil"')
+(4, '0.021*"soul" + 0.011*"heart" + 0.010*"fruit" + 0.009*"sin"')
+(5, '0.019*"bless" + 0.011*"Holy" + 0.011*"mitzva" + 0.011*"person"')
+(6, '0.031*"bless" + 0.025*"sage" + 0.018*"memory" + 0.014*"sin"')
+(7, '0.014*"kindness" + 0.012*"deeds" + 0.012*"trait" + 0.011*"nature"')
+(8, '0.018*"person" + 0.013*"evil" + 0.013*"justice" + 0.011*"anger"')
+(9, '0.014*"matter" + 0.013*"person" + 0.013*"sin" + 0.012*"contemplate"')
+(10, '0.021*"Separation" + 0.012*"trait" + 0.011*"sage" + 0.011*"Piety"')
+(11, '0.029*"bless" + 0.027*"sage" + 0.023*"memory" + 0.017*"Torah"')
+(12, '0.017*"fear" + 0.014*"teach" + 0.012*"bless" + 0.011*"Isaiah"')
+(13, '0.023*"heart" + 0.016*"evil" + 0.012*"sin" + 0.011*"sage"')
+(14, '0.014*"forbid" + 0.013*"bless" + 0.010*"sage" + 0.009*"increase"')
+(15, '0.010*"action" + 0.010*"Sabbath" + 0.009*"person" + 0.009*"sage"')
+(16, '0.036*"bless" + 0.021*"sage" + 0.020*"evil" + 0.017*"memory"')
+(17, '0.043*"fear" + 0.032*"matter" + 0.017*"heart" + 0.014*"bless"')
+(18, '0.021*"cling" + 0.016*"extent" + 0.013*"Torah" + 0.013*"Tehilim"')
+(19, '0.015*"bless" + 0.012*"person" + 0.012*"evil" + 0.010*"sin"')
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Previous</th>
+      <th style="text-align: left">Home</th>
+      <th style="text-align: left">Next</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="C-English-Titles">English Titles</a></td>
+      <td style="text-align: left"><a href="A-θεόφιλος-Journey">θεόφιλος Journey</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+</article>
+      </section>
+    </div>
+  </div>
+
+   <footer>
+    <a href="http://murillocjr.github.io/">
+    <span>
+        <b>Jorge Murillo</b>
+    </span>
+    
+    <span>© 2020</span>
+    </a>
+</footer>
+
+
+  
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-49256786-5', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+</body>
+
+</html>

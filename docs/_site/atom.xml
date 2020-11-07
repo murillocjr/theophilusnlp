@@ -12,6 +12,636 @@
     </author>
     
       <item>
+        <title>Extracting Topics from Sefaria</title>
+        <description>&lt;p&gt;With over 2000 articles available from sefaria, even just reading the titles it takes a while to go through the list; at first glace these titles look interesting:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;5785647ed6e4a925d823d80f	Jewish Approach to Abortion	Sanhedrin&lt;/li&gt;
+  &lt;li&gt;5ef89a6c56c1086443e21a92	Ktav Pub. House, NY, 1974	Major Themes in Modern Philosophies of Judaism&lt;/li&gt;
+  &lt;li&gt;5c8d29e1eef7b9007079d2e8	Pashanut Salt of the Earth	Bereishit Rabbah&lt;/li&gt;
+  &lt;li&gt;58dd6562d6e4a9084de0b5d5	Path of the Just. Trans. Rabbi Yosef Sebag	Messilat Yesharim&lt;/li&gt;
+  &lt;li&gt;5ccc74c4a100190018ebbf0a	Sanctifying G-d’s Name	Sefer HaMitzvot&lt;/li&gt;
+  &lt;li&gt;56a9486ed6e4a960e992e991	Sefaria Community Translation	Legends of the Jews&lt;/li&gt;
+  &lt;li&gt;56f265d8d6e4a94c31c8bf88	The Rashi Ketuvim by Rabbi Shraga Silverstein	Job&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So they will be used in the following experiments&lt;/p&gt;
+
+&lt;p&gt;Another problem that arises is that not all the documents have the same document structure, here some examples:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+  '_id': ObjectId('58dd6562d6e4a9084de0b5d5'),
+  'language': 'en',
+  'title': 'Messilat Yesharim',
+  'versionSource': 'http://dafyomireview.com/mesilat.php',
+  'versionTitle': 'Path of the Just. Trans. Rabbi Yosef Sebag',
+  'chapter': {
+    'default': [
+      [
+        'The foundation of piety and the root of perfect service [of G-d] is for a man to clarify and come to realize as truth what is his obligation in his world and to what he needs to direct his gaze and his aspiration in all that he toils all the days of his life.',
+        'Behold, what our sages, of blessed memory, have taught us is that man was created solely to delight in G-d and to derive pleasure in the radiance of the Shechina (divine presence). For this is the true delight and the greatest pleasure that can possibly exist. The place of this pleasure is, in truth, in Olam Haba (the World to Come). For it was created expressly for this purpose.',
+        'But the path to arrive at the &quot;desired haven&quot; (Ps. 107:30) of ours is this world. This is what our sages of blessed memory said: &quot;this world 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+  '_id': ObjectId('56a9486ed6e4a960e992e991'),
+  'chapter': [
+    [
+      
+    ],
+    [
+      
+    ],
+    [
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        '...Cuando Moisés murió, una voz resonaba desde el cielo a lo largo de todo el campamento de Israel, que medía doce millas de largo por doce de ancho, y decía: &quot;¡Ay, Moisés ha muerto! ¡Ay, Moisés ha muerto!&quot; Todo Israel que, durante treinta días antes de la muerte de Moisés, había llorado su inminente muerte ahora arregló un luto de tres meses para él. Pero Israel no fue el único enlutado por Moisés, Dios mismo lloró por Moisés, diciendo: &quot;¿Quién se levantará contra los malvados? ¿Quién me defenderá contra los que hacen iniquidad?&quot; Metatrón se apareció ante Dios y dijo: &quot;Moisés fue tuyo cuando vivió, y él es tuyo en su muerte&quot;. Dios respondió: &quot;No lloro por el amor de Moisés, sino por la pérdida que sufrió Israel con su muerte. Cuántas veces me enojaron, pero él oró por ellos y apaciguó mi ira&quot;. Los ángeles lloraron con Dios, diciendo: &quot;¿Dónde se encontrará la sabiduría?&quot; Los cielos se lamentaron: &quot;El hombre piadoso pereció de la tierra&quot;. La tierra lloró: &quot;Y no hay nadie recto entre los hombres&quot;. Las estrellas, los planetas, el sol y la luna gemían: &quot;El justo perece, y nadie se lo piensa de corazón&quot;, y Dios elogió la excelencia de Moisés en las palabras: &quot;Tú has dicho de mí, \'El Señor es Dios: hay ninguno más, \'y por eso diré de ti:\' Y no se levantó en Israel un profeta como Moisés \'&quot;.\n...',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '...\n'
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        
+      ]
+    ]
+  ],
+  'versionTitle': 'Sefaria Community Translation',
+  'language': 'en',
+  'title': 'Legends of the Jews',
+  'versionTitleInHebrew': 'תרגום קהילת ספאריה',
+  'versionSource': 'https://www.sefaria.org'
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+  '_id': ObjectId('5ef89a6c56c1086443e21a92'),
+  'language': 'en',
+  'title': 'Major Themes in Modern Philosophies of Judaism',
+  'versionSource': 'https://www.nli.org.il/he/books/NNL_ALEPH001941511/NLI',
+  'versionTitle': 'Ktav Pub. House, NY, 1974',
+  'chapter': {
+    'Foreword': [
+      'As its title indicates, this volume deals with several major themes in the modern philosophies of Judaism as they emerge from some of the key writings of the authors discussed.',
+      'The analysis is critical. I believe that in my criticism I have given illustrative expression to the conviction that at this time we have neither a theology nor a philosophy of Judaism that does justice to the essential nature of Jewish teaching about God, man, and the universe as expressed in the classical sources of Judaism, nor one that can be maintained with contemporary philosophical validity.',
+      'In my opinion, we have reached a stage that requires a great deal of rethinking of the nature of the Jewish position in the history of human thought and commitment in the light of contemporary philosophical problematics and existential experience. Judaism is awaiting a reformulation of its theology and philosophy. It will, however, be accomplished by means of an intellectual strength that draws its creative inspiration as well as its contents from the classical sources of Judaism—Bible, Talmud, and Midrash.',
+      'The chapter on Buber was previously published by Yeshiva University, New York, in 196
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So it was necessary to use a recursive exploration of the document looking for string data to gather the text to process (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b_get_documents_topics.py&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Also the use of a custom collection of stop words was necessary since the default list from NLTK was’t catching “thou” for example and also some words like “footnote” needed to be discarded.&lt;/p&gt;
+
+&lt;p&gt;With all this adjustments we could get our first topic models:&lt;/p&gt;
+
+&lt;p&gt;(1) 5ef89a6c56c1086443e21a92	Ktav Pub. House, NY, 1974	Major Themes in Modern Philosophies of Judaism&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(0, '0.024*&quot;Jew&quot; + 0.016*&quot;Jewish&quot; + 0.012*&quot;Christian&quot; + 0.009*&quot;Zion&quot;')
+(1, '0.023*&quot;Buber&quot; + 0.013*&quot;encounter&quot; + 0.013*&quot;Israel&quot; + 0.013*&quot;community&quot;')
+(2, '0.029*&quot;God&quot; + 0.022*&quot;law&quot; + 0.012*&quot;Rosenzweig&quot; + 0.011*&quot;Torah&quot;')
+(3, '0.087*&quot;God&quot; + 0.021*&quot;relation&quot; + 0.018*&quot;Buber&quot; + 0.015*&quot;encounter&quot;')
+(4, '0.036*&quot;cosmic&quot; + 0.022*&quot;human&quot; + 0.018*&quot;Judaism&quot; + 0.018*&quot;reality&quot;')
+(5, '0.037*&quot;obligation&quot; + 0.023*&quot;dialogical&quot; + 0.020*&quot;contents&quot; + 0.017*&quot;answer&quot;')
+(6, '0.028*&quot;God&quot; + 0.025*&quot;Cohen&quot; + 0.015*&quot;human&quot; + 0.013*&quot;religion&quot;')
+(7, '0.033*&quot;history&quot; + 0.029*&quot;Jew&quot; + 0.022*&quot;Judaism&quot; + 0.020*&quot;Christian&quot;')
+(8, '0.018*&quot;nature&quot; + 0.017*&quot;Reconstructionist&quot; + 0.013*&quot;natural&quot; + 0.013*&quot;Reconstructionism&quot;')
+(9, '0.043*&quot;God&quot; + 0.038*&quot;Cohen&quot; + 0.036*&quot;law&quot; + 0.032*&quot;correlation&quot;')
+(10, '0.033*&quot;relation&quot; + 0.022*&quot;human&quot; + 0.013*&quot;reality&quot; + 0.013*&quot;freedom&quot;')
+(11, '0.014*&quot;God&quot; + 0.013*&quot;prayer&quot; + 0.010*&quot;laws&quot; + 0.009*&quot;language&quot;')
+(12, '0.018*&quot;God&quot; + 0.012*&quot;Jewish&quot; + 0.012*&quot;Reconstructionism&quot; + 0.010*&quot;Reconstructionist&quot;')
+(13, '0.029*&quot;law&quot; + 0.017*&quot;Jew&quot; + 0.013*&quot;Rosenzweig&quot; + 0.012*&quot;Jewish&quot;')
+(14, '0.048*&quot;land&quot; + 0.017*&quot;Jew&quot; + 0.015*&quot;blood&quot; + 0.014*&quot;Jews&quot;')
+(15, '0.091*&quot;God&quot; + 0.047*&quot;pathos&quot; + 0.033*&quot;divine&quot; + 0.025*&quot;Heschel&quot;')
+(16, '0.028*&quot;relation&quot; + 0.025*&quot;Buber&quot; + 0.024*&quot;God&quot; + 0.014*&quot;reality&quot;')
+(17, '0.043*&quot;Buber&quot; + 0.029*&quot;revelation&quot; + 0.028*&quot;situation&quot; + 0.027*&quot;law&quot;')
+(18, '0.020*&quot;idea&quot; + 0.014*&quot;religion&quot; + 0.013*&quot;ethics&quot; + 0.010*&quot;nature&quot;')
+(19, '0.046*&quot;love&quot; + 0.039*&quot;God&quot; + 0.019*&quot;idea&quot; + 0.012*&quot;law&quot;')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;(2) 5785647ed6e4a925d823d80f	Jewish Approach to Abortion	Sanhedrin&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(0, '0.568*&quot;Sanhedrin&quot; + 0.027*&quot;spill&quot; + 0.027*&quot;Abortion&quot; + 0.027*&quot;refer&quot;')
+(1, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+(2, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+(3, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+(4, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+(5, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+(6, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+(7, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+(8, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+(9, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+(10, '0.225*&quot;person&quot; + 0.114*&quot;blood&quot; + 0.114*&quot;spill&quot; + 0.076*&quot;Rabbi&quot;')
+(11, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+(12, '0.368*&quot;Abortion&quot; + 0.368*&quot;Jewish&quot; + 0.018*&quot;spill&quot; + 0.018*&quot;refer&quot;')
+(13, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+(14, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+(15, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+(16, '0.059*&quot;person&quot; + 0.059*&quot;spill&quot; + 0.059*&quot;blood&quot; + 0.059*&quot;Yishmael&quot;')
+(17, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+(18, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+(19, '0.059*&quot;spill&quot; + 0.059*&quot;Abortion&quot; + 0.059*&quot;refer&quot; + 0.059*&quot;mother&quot;')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;(3) 58dd6562d6e4a9084de0b5d5	Path of the Just. Trans. Rabbi Yosef Sebag	Messilat Yesharim&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(0, '0.017*&quot;heart&quot; + 0.015*&quot;person&quot; + 0.011*&quot;love&quot; + 0.009*&quot;evil&quot;')
+(1, '0.025*&quot;person&quot; + 0.016*&quot;Torah&quot; + 0.011*&quot;bless&quot; + 0.010*&quot;bring&quot;')
+(2, '0.016*&quot;Torah&quot; + 0.012*&quot;person&quot; + 0.012*&quot;Rav&quot; + 0.012*&quot;sage&quot;')
+(3, '0.015*&quot;person&quot; + 0.012*&quot;understanding&quot; + 0.012*&quot;anger&quot; + 0.009*&quot;evil&quot;')
+(4, '0.021*&quot;soul&quot; + 0.011*&quot;heart&quot; + 0.010*&quot;fruit&quot; + 0.009*&quot;sin&quot;')
+(5, '0.019*&quot;bless&quot; + 0.011*&quot;Holy&quot; + 0.011*&quot;mitzva&quot; + 0.011*&quot;person&quot;')
+(6, '0.031*&quot;bless&quot; + 0.025*&quot;sage&quot; + 0.018*&quot;memory&quot; + 0.014*&quot;sin&quot;')
+(7, '0.014*&quot;kindness&quot; + 0.012*&quot;deeds&quot; + 0.012*&quot;trait&quot; + 0.011*&quot;nature&quot;')
+(8, '0.018*&quot;person&quot; + 0.013*&quot;evil&quot; + 0.013*&quot;justice&quot; + 0.011*&quot;anger&quot;')
+(9, '0.014*&quot;matter&quot; + 0.013*&quot;person&quot; + 0.013*&quot;sin&quot; + 0.012*&quot;contemplate&quot;')
+(10, '0.021*&quot;Separation&quot; + 0.012*&quot;trait&quot; + 0.011*&quot;sage&quot; + 0.011*&quot;Piety&quot;')
+(11, '0.029*&quot;bless&quot; + 0.027*&quot;sage&quot; + 0.023*&quot;memory&quot; + 0.017*&quot;Torah&quot;')
+(12, '0.017*&quot;fear&quot; + 0.014*&quot;teach&quot; + 0.012*&quot;bless&quot; + 0.011*&quot;Isaiah&quot;')
+(13, '0.023*&quot;heart&quot; + 0.016*&quot;evil&quot; + 0.012*&quot;sin&quot; + 0.011*&quot;sage&quot;')
+(14, '0.014*&quot;forbid&quot; + 0.013*&quot;bless&quot; + 0.010*&quot;sage&quot; + 0.009*&quot;increase&quot;')
+(15, '0.010*&quot;action&quot; + 0.010*&quot;Sabbath&quot; + 0.009*&quot;person&quot; + 0.009*&quot;sage&quot;')
+(16, '0.036*&quot;bless&quot; + 0.021*&quot;sage&quot; + 0.020*&quot;evil&quot; + 0.017*&quot;memory&quot;')
+(17, '0.043*&quot;fear&quot; + 0.032*&quot;matter&quot; + 0.017*&quot;heart&quot; + 0.014*&quot;bless&quot;')
+(18, '0.021*&quot;cling&quot; + 0.016*&quot;extent&quot; + 0.013*&quot;Torah&quot; + 0.013*&quot;Tehilim&quot;')
+(19, '0.015*&quot;bless&quot; + 0.012*&quot;person&quot; + 0.012*&quot;evil&quot; + 0.010*&quot;sin&quot;')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;C-English-Titles&quot;&gt;English Titles&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000//A-Topics-Sefaria</link>
+        <link href="http://0.0.0.0:4000/A-Topics-Sefaria"/>
+        <guid isPermaLink="true">http://0.0.0.0:4000/A-Topics-Sefaria</guid>
+      </item>
+    
+      <item>
         <title>English Titles</title>
         <description>&lt;html&gt;
 &lt;pre style=&quot;width:1100px; height: 1000px; overflow-y: scroll;&quot;&gt;
@@ -2396,7 +3026,7 @@
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;B-Sefaria&quot;&gt;Sefaria&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-Topics-Sefaria&quot;&gt;Topics from Sefaria&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -18285,38 +18915,6 @@ python f_b_tokenize_documents.py
         <link>http://0.0.0.0:4000//A-milestone-1</link>
         <link href="http://0.0.0.0:4000/A-milestone-1"/>
         <guid isPermaLink="true">http://0.0.0.0:4000/A-milestone-1</guid>
-      </item>
-    
-      <item>
-        <title>Database support</title>
-        <description>&lt;p&gt;Since a lot of the data retrieved from the API comes in JSON format, and NLTK outputs are also in JSON, it stands to reason to use a JSON Documents based database to store the partial results and help to process and analyze the data, something on the line of MongoDB or CouchDB; but these two feels like overkill, so TinyDB looks more appropriate for the task at hand, installing it is as simple as:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;tinydb
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;At this point, it was necessary to do significant modifications to retrieve the whole text of the selected version of the bible, store the data inside TinyDB, and also retrieve the whole text of a Chapter. All the associated code and the resulting databases are available at the following GitHub repo: &lt;a href=&quot;https://github.com/murillocjr/theophilusnlp&quot;&gt;https://github.com/murillocjr/theophilusnlp&lt;/a&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;B-tokenizing-with-nltk&quot;&gt;Tokenizing with NLTK&lt;/a&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-milestone-1&quot;&gt;Milestone 1&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-</description>
-        <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:4000//A-database-support</link>
-        <link href="http://0.0.0.0:4000/A-database-support"/>
-        <guid isPermaLink="true">http://0.0.0.0:4000/A-database-support</guid>
       </item>
     
   </channel>
