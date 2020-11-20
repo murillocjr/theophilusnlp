@@ -61,11 +61,11 @@ for doc_id in pr.DOC_IDS:
 
     dictionary = corpora.Dictionary(text_data)
     corpus = [dictionary.doc2bow(text) for text in text_data]
-    pickle.dump(corpus, open(doc_id+'_corpus.pkl', 'wb'))
-    dictionary.save(doc_id+'_dict.gensim')
+    pickle.dump(corpus, open('models/'+doc_id+'_corpus.pkl', 'wb'))
+    dictionary.save('models/'+doc_id+'_dict.gensim')
 
     ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics = pr.NUM_TOPICS, id2word=dictionary, passes=30)
-    ldamodel.save(doc_id+'_model5.gensim')
+    ldamodel.save('models/'+doc_id+'_model5.gensim')
     topics = ldamodel.print_topics(num_words=4)
     for topic in topics:
         print(topic)

@@ -138,3 +138,6 @@ hebrew/f_c_db_tanach.sqlite
 *.gensim.expElogbeta.npy
 *.gensim.id2word
 *.gensim.state
+
+#PDFs
+*.pdf
