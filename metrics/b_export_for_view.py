@@ -13,13 +13,14 @@ def filesList():
     return [f for f in listdir(folderName) if isfile(join(folderName, f))]
 
 dependencies = {}
-
 dependencies['objects']={}
+dependencies['links']=[]
+dependencies['links_count']=0
 for file in filesList():
     if file.endswith(".metadata"):
         with open(folderName + '/' + file) as json_file: 
             data = json.load(json_file)
-            dependencies['objects'][data['title']]={'type': 'unknown', 'size': data['size']}
+            dependencies['objects'][data['md5']]={'type': 'unknown', 'size': data['size'], 'title': data['title']}
 
 visualFilePath = '../visual/origin.js'
 if os.path.exists(visualFilePath):

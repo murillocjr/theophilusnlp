@@ -51,6 +51,7 @@ let dvvisualizer = {
                     .attr("id", (d) => d)
                     .attr("orient", "auto")
                     .attr("class", "marker")
+                    .attr("size", d => d.size)
                     .append("path");
 
                 this.updateMarkers(size);
@@ -65,7 +66,7 @@ let dvvisualizer = {
                     .style("stroke-width", (d) => d);
 
                 this._link = svg.selectAll("path.link");
-                console.log(this.d3graph.links);
+                // console.log(this.d3graph.links);
             },
 
             _d3graphAllNodes: function () { return this.d3graph.nodes },
@@ -107,7 +108,8 @@ let dvvisualizer = {
             }.bind(visualizer),
 
             _radius: function (node) {
-                return config.default_circle_radius + config.default_circle_radius * node.source / 10;
+                radius = node.size
+                return radius + radius * node.source / 10;
             },
 
             _setupSimulation: function () {

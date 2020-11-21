@@ -141,3 +141,6 @@ hebrew/f_c_db_tanach.sqlite
 
 #PDFs
 *.pdf
+
+models/*
+

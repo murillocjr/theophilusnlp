@@ -38,7 +38,7 @@ let objcdv = {
                 if (node == null) {
                     var idx = Object.keys(this.nodesSet).length;
                     let object = setDefaultValue(this.objects[nodeName], {})
-                    this.nodesSet[nodeName] = node = {idx: idx, name: nodeName, source: 1, dest: 0, type: object.type};
+                    this.nodesSet[nodeName] = node = {idx: idx, name: nodeName, source: 1, dest: 0, type: object.type, size: object.size};
                 }
                 return node
             },

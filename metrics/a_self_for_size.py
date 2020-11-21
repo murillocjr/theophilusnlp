@@ -27,7 +27,10 @@ for file in filesList():
                     totalVal += val
                     totalCount += 1
 
-        size = round(100*totalVal/totalCount)
+        if totalCount>0:
+            size = round(30*totalVal/totalCount)
+        else:
+            size = 1
         #
         metaFile = folderName + '/' + file[0: -14]+'.metadata'
         with open(metaFile) as json_file: 
