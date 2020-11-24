@@ -18,28 +18,22 @@ for file in filesList():
         ldamodel =  models.LdaModel.load(folderName +'/'+ file)
         mdiff, annotation = ldamodel.diff(ldamodel, distance='jaccard', num_words=50)
 
-        totalVal = 0
-        totalCount = 0
-
+        minimum = 2
         for row in mdiff:
             for val in row:
                 if val>0:
-                    totalVal += val
-                    totalCount += 1
-
-        if totalCount>0:
-            size = round(30*totalVal/totalCount)
-        else:
+                    if val < minimum:
+                        minimum = val
+                    
+        if minimum == 2:
             size = 1
+        else:
+            size = round(40*(1-minimum))
         #
         metaFile = folderName + '/' + file[0: -14]+'.metadata'
         with open(metaFile) as json_file: 
             data = json.load(json_file)
             data['size'] = size
-        
-        # print(data)
-        if os.path.exists('topic_words.txt'):
-            os.remove('topic_words.txt')
 
         mf = open(metaFile, 'w')
         json.dump(data, mf)

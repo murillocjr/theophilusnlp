@@ -2,6 +2,8 @@ import sys
 sys.path.append('../commons/')
 from get_lemma import getLemma
 from stop_words import getStopWords
+from english_words import getEnglishWords
+
 from md5_utils import md5
 
 import PyPDF2 
@@ -14,13 +16,14 @@ import os
 import json
 
 
-def processPDF(pdfFilePath, stopWords, numTopics, numWords, modelPasses, outputPath, isScanned):
+def processPDF(pdfFilePath, stopWords, englishWords, numTopics, numWords, modelPasses, outputPath, isScanned):
     pdfFileObj = open(pdfFilePath,'rb')
     pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
     num_pages = pdfReader.numPages
     count = 0
     #
     text_data = []
+    non_english = []
     while count < num_pages:
         pageObj = pdfReader.getPage(count)
         count +=1
@@ -38,14 +41,20 @@ def processPDF(pdfFilePath, stopWords, numTopics, numWords, modelPasses, outputP
     
         non_punctuation_tokens = [token for token in tokens if token.isalnum()]
         removed_stop_words = [w for w in non_punctuation_tokens if not w.lower() in stopWords]
+
+        english_words = [w for w in removed_stop_words if w.lower() in englishWords]
+        non_english_page = [w for w in removed_stop_words if not w.lower() in englishWords]
+        non_english.extend(non_english_page)
     
         ch_tokens = []
-        for word in removed_stop_words:
+        for word in english_words:
             ch_tokens.append(getLemma(word))
     
         text_data.append(ch_tokens)
-        
-        # break
+        #break
+
+    print('Non English')
+    print(non_english)
 
     filename = md5(pdfFilePath)
     dictionary = corpora.Dictionary(text_data)
@@ -75,4 +84,5 @@ def processPDF(pdfFilePath, stopWords, numTopics, numWords, modelPasses, outputP
 
 
 # stop_words = getStopWords('../commons/stop_words')
-# processPDF('files/The Creation Account in Genesis 1:1-3 Part IV: The Theology of Genesis 1.pdf', stop_words, 20, 4, 15, '../models', False)
+# english_words = getEnglishWords('../commons/english_words')
+# processPDF('files/The Creation Account in Genesis 1:1-3 Part IV: The Theology of Genesis 1.pdf', stop_words, english_words, 20, 4, 15, '../models', False)
