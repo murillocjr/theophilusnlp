@@ -52,6 +52,7 @@ let dvvisualizer = {
                     .attr("orient", "auto")
                     .attr("class", "marker")
                     .attr("size", d => d.size)
+                    .attr("title", d => d.title)
                     .append("path");
 
                 this.updateMarkers(size);
@@ -237,7 +238,7 @@ let dvvisualizer = {
                     .enter()
                     .append("text")
                     .attr("visibility", "hidden")
-                    .text(d => d.name.substring(0, this.config.default_max_texts_length));
+                    .text(d => d.title.substring(0,15));
 
                 this._textNode = svg.selectAll("text");
             },
