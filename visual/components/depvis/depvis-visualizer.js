@@ -236,11 +236,29 @@ let dvvisualizer = {
                 svg.append("g").selectAll("text")
                     .data(this.simulation.nodes())
                     .enter()
-                    .append("text")
-                    .attr("visibility", "hidden")
-                    .text(d => d.title.substring(0,15));
+                    .append('svg:text')
+                    .attr('x', 0)
+                    .attr('y', 30)
+                    .attr('class', 'id')
+                    .append('svg:tspan')
+                    .attr('x', 0)
+                    .attr('dy', 5)
+                    .text(d => d.title.substring(0,20))
+                    .append('svg:tspan')
+                    .attr('x', 0)
+                    .attr('dy', 20)
+                    .text(d => d.title.substring(20,40))
+                    .append('svg:tspan')
+                    .attr('x', 0)
+                    .attr('dy', 20)
+                    .text(d => d.title.substring(40,60))
+
+
+                    // .text(d => d.title.substring(0,15)+"ring. \n  \r This ");
 
                 this._textNode = svg.selectAll("text");
+
+
             },
 
             _link_line: function (d) {

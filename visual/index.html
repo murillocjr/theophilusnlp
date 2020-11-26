@@ -20,7 +20,7 @@
     <label><input type="range" name="circle_size" min="1" max="50" value="15"/> Circle size</label><br>
     <label><input type="range" name="charge_multiplier" min="1" max="500" value="1"/> Charge multiplier</label><br>
     <label><input type="range" name="link_strength" min="0.1" max="100" value="1"/> Link strength</label><br>
-    <label><input type="checkbox" name="show_texts_near_circles" checked /> Show names</label><br>
+    <label><input type="checkbox" name="show_texts_near_circles" id="show_texts_near_circles" checked /> Show names</label><br>
     <input id="search_input" placeholder="Type regexp to filter nodes" style="width:100%;"><br>
 </form>
 
@@ -208,5 +208,7 @@
         live_filter_graph(r.value, "filtered");
         //visualizer.reapply_charge_and_links();
     });
+
+    visualizer.updateTextVisibility(d.getElementById("show_texts_near_circles").checked);
         
 </script>
