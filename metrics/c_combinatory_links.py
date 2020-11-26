@@ -66,7 +66,7 @@ for i in range(0, len(list)):
         #     distanceMax = round(500*(maximum))
         #     maxDis = maximum
 
-        linkMin = {'source': list[i], 'dest': list[j], 'distance': round(500*(minimum))}
+        linkMin = {'source': list[i], 'dest': list[j], 'distance': round(1000*(pow(minimum,3)))}
         obj['links'].append(linkMin)
         linkCount += 1
 
