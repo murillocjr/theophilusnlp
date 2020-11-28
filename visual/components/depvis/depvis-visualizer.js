@@ -179,9 +179,7 @@ let dvvisualizer = {
                 this.simulation.alphaTarget(0.3).restart()
             },
 
-            reapply_links_power: function (linkPower) {
-                console.log(linkPower);
-
+            reapply_links_settings: function () {
                 this.simulation.force("link", d3.forceLink(d3graph.links)
                     .distance(this._linkDistance)
                 );
@@ -206,7 +204,6 @@ let dvvisualizer = {
             },
 
             reapply_links_strength: function (linkStrength) {
-                console.log(linkStrength);
                 config.default_link_strength = setDefaultValue(linkStrength, config.default_link_strength);
                 this.simulation.force("link", d3.forceLink(d3graph.links)
                     .distance(this._linkDistance)

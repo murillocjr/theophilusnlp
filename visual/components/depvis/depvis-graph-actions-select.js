@@ -115,6 +115,20 @@ let graph_actions = {
                     .transition();
             },
 
+            selectNodesStartingFromSelectedNode(max_distance) {
+
+                let neighborIndexes =
+                    this.dvgraph.nodesStartingFromNodeByDistance(
+                        this.selectedObject, 
+                        max_distance
+                    )
+                    .map((n) => n.index);
+
+                this._fadeOutAllNodesAndLinks();
+                this._highlightNodesWithIndexes(neighborIndexes);
+                // this._highlightLinksFromRootWithNodesIndexes(node, neighborIndexes);
+            },
+
             selectNodesStartingFromNode: function (node, max_distance ) {
 
                 this._selectAndLockNode(node);
@@ -125,9 +139,6 @@ let graph_actions = {
                         max_distance
                     )
                     .map((n) => n.index);
-
-                console.log(node)
-                console.log(neighborIndexes)
 
                 this._fadeOutAllNodesAndLinks();
                 this._highlightNodesWithIndexes(neighborIndexes);
