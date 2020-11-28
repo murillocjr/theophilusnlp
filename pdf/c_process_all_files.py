@@ -12,7 +12,7 @@ from english_words import getEnglishWords
 
 from md5_utils import md5
 
-keepExisting = False
+keepExisting = True
 folderName = 'files'
 stopWords = getStopWords('../commons/stop_words')
 englishWords = getEnglishWords('../commons/english_words')

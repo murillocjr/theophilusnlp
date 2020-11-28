@@ -8,7 +8,7 @@ let dvconfig = {
             // 0.5 - Change it as you want, but it's preferrable to have default_link_distance
             // 1   - One does not change default_link_distance
             // 0.7
-            default_link_strength: 1,
+            default_link_strength: 0,
 
             // Should I comment this?
             default_circle_radius: 15,
@@ -19,7 +19,10 @@ let dvconfig = {
             default_max_texts_length: 100,
 
             // 200
-            charge_multiplier: 1
+            charge_multiplier: 0,
+            // power link
+            link_pow : 3,
+            link_coe : 1000
         }
     }
 };

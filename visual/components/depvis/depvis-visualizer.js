@@ -108,6 +108,10 @@ let dvvisualizer = {
 
             }.bind(visualizer),
 
+            _distanceFunction(base){
+                return 1000 * Math.pow(base, this.config.link_pow);
+            },
+
             _radius: function (node) {
                 radius = node.size
                 return radius + radius * node.source / 10;
@@ -129,11 +133,11 @@ let dvvisualizer = {
             },
 
             _linkDistance: function (link) {
-                // if (link.source.filtered || link.target.filtered) {
-                    // return 500;
-                // }
+                if (link.source.filtered || link.target.filtered) {
+                    return 0;
+                }
                 // return this._radius(link.source) + this._radius(link.target) + this.config.default_link_distance;
-                return this._radius(link.source) + this._radius(link.target) + link.distance;
+                return this._radius(link.source) + this._radius(link.target) + this._distanceFunction(link.distance);
             }.bind(visualizer),
 
             _linkStrength: function (link) {
@@ -175,6 +179,15 @@ let dvvisualizer = {
                 this.simulation.alphaTarget(0.3).restart()
             },
 
+            reapply_links_power: function (linkPower) {
+                console.log(linkPower);
+
+                this.simulation.force("link", d3.forceLink(d3graph.links)
+                    .distance(this._linkDistance)
+                );
+                this.simulation.alphaTarget(0.3).restart()
+            },
+
             reapply_charge_and_links: function () {
                 this.reapply_charge();
                 this.reapply_links_strength()
@@ -193,6 +206,7 @@ let dvvisualizer = {
             },
 
             reapply_links_strength: function (linkStrength) {
+                console.log(linkStrength);
                 config.default_link_strength = setDefaultValue(linkStrength, config.default_link_strength);
                 this.simulation.force("link", d3.forceLink(d3graph.links)
                     .distance(this._linkDistance)

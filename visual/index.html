@@ -18,8 +18,9 @@
 
 <form id="form">
     <label><input type="range" name="circle_size" min="1" max="50" value="15"/> Circle size</label><br>
+    <label><input type="range" name="link_pow" min="1" max="10" value="3"/> Link Power</label><br>
     <label><input type="range" name="charge_multiplier" min="1" max="500" value="1"/> Charge multiplier</label><br>
-    <label><input type="range" name="link_strength" min="0.1" max="100" value="1"/> Link strength</label><br>
+    <label><input type="range" name="link_strength" min="0.1" max="100" value="0"/> Link strength</label><br>
     <label><input type="checkbox" name="show_texts_near_circles" id="show_texts_near_circles" checked /> Show names</label><br>
     <input id="search_input" placeholder="Type regexp to filter nodes" style="width:100%;"><br>
 </form>
@@ -119,6 +120,10 @@
             config.default_circle_radius = parseInt(this.value);
             visualizer.updateRadiuses(parseInt(this.value));
         }
+        if (this.name === "link_pow") {
+            config.link_pow = parseInt(this.value);
+            visualizer.reapply_links_power(parseInt(this.value));
+        }
 
         if (this.name === "charge_multiplier") {
             let chargeMultiplier = parseInt(this.value);
@@ -151,7 +156,7 @@
 
         actions.svg.selectAll('.node, .structNode')
                     .each(function (node) {
-                         let filtered = !node.name.match(re);
+                         let filtered = !node.title.match(re);
                          if (!filtered) {
                             actions.selectNodesStartingFromNode(node);
                             node.filtered = filtered;
@@ -191,7 +196,6 @@
 
 
     d3.select("#search_input").on("input", function () {
-        // Filter all items
         console.log("Input changed to" + this.value);
         actions.deselect_selected_node();
 
@@ -202,13 +206,10 @@
     });
 
     d.addEventListener("DOMContentLoaded", function(){
-        r = d.getElementById("search_input");
-        r.value = "UserLogedData|Donation";
-        //r.value = "UserLogedData"
-        live_filter_graph(r.value, "filtered");
-        //visualizer.reapply_charge_and_links();
-    });
+       
+        setTimeout(() => {  visualizer.reapply_links_strength(0.1) }, 2000);
+        visualizer.updateTextVisibility(d.getElementById("show_texts_near_circles").checked);
 
-    visualizer.updateTextVisibility(d.getElementById("show_texts_near_circles").checked);
+    });
         
 </script>
