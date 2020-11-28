@@ -105,29 +105,33 @@ let graph_actions = {
             _nodeExistsInLink: (node, link) => (link.source.index === node.index || link.target.index === node.index),
             _oppositeNodeOfLink: (node, link) => (link.source.index === node.index ? link.target : link.target.index === node.index ? link.source : null),
 
-            _highlightLinksFromRootWithNodesIndexes: function (root, nodeNeighbors, maxLevel) {
+            _highlightLinksFromRootWithNodesIndexes: function (root, nodeNeighbors) {
                 this.svg.selectAll('.link')
                     .filter((link) => nodeNeighbors.indexOf(link.source.index) > -1)
                     .classed('filtered', false)
                     .classed('dependency', (l) => this._nodeExistsInLink(root,l) && this._isDependencyLink(root, l))
                     .classed('dependants', (l) => this._nodeExistsInLink(root,l) && !this._isDependencyLink(root, l))
-                    .attr("marker-end", (l) => this._nodeExistsInLink(root,l) ? (this._isDependencyLink(root, l) ? "url(#dependency)" : "url(#dependants)") : (maxLevel == 1 ? "" : "url(#default)"))
+                    // .attr("marker-end", (l) => this._nodeExistsInLink(root,l) ? (this._isDependencyLink(root, l) ? "url(#dependency)" : "url(#dependants)") : (maxLevel == 1 ? "" : "url(#default)"))
                     .transition();
             },
 
-            selectNodesStartingFromNode: function (node, maxLevel = 100) {
-                if (this._deselectNodeIfNeeded(node, "level" + maxLevel)) {
-                    return
-                }
-                this._selectAndLockNode(node, "level" + maxLevel);
+            selectNodesStartingFromNode: function (node, max_distance ) {
+
+                this._selectAndLockNode(node);
 
                 let neighborIndexes =
-                    this.dvgraph.nodesStartingFromNode(node, {max_level: maxLevel, use_backward_search: maxLevel == 1})
-                        .map((n) => n.index);
+                    this.dvgraph.nodesStartingFromNodeByDistance(
+                        node, 
+                        max_distance
+                    )
+                    .map((n) => n.index);
+
+                console.log(node)
+                console.log(neighborIndexes)
 
                 this._fadeOutAllNodesAndLinks();
                 this._highlightNodesWithIndexes(neighborIndexes);
-                this._highlightLinksFromRootWithNodesIndexes(node, neighborIndexes, maxLevel);
+                // this._highlightLinksFromRootWithNodesIndexes(node, neighborIndexes);
             }
 
         };

@@ -99,6 +99,20 @@ let objcdv = {
                 }
                 return _.values(neighbours);
 
+            },
+
+            nodesStartingFromNodeByDistance: function (node, max_distance) {
+                var neighbours = {};
+                let tmpNeighbours = this.links
+                    .filter((link) => (link.source.idx == node.idx || link.target.idx == node.idx) )
+                    .map((link) => {
+                        if(link.distance < max_distance){
+                            neighbours[link.source.idx] = link.source;
+                            neighbours[link.target.idx] = link.target;
+                            // console.log(link.source.idx+','+link.distance+','+link.target.idx)
+                        }
+                    });
+                return _.values(neighbours);
             }
 
         };

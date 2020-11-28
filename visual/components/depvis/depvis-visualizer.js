@@ -134,7 +134,7 @@ let dvvisualizer = {
 
             _linkDistance: function (link) {
                 if (link.source.filtered || link.target.filtered) {
-                    return 0;
+                    return 2000;
                 }
                 // return this._radius(link.source) + this._radius(link.target) + this.config.default_link_distance;
                 return this._radius(link.source) + this._radius(link.target) + this._distanceFunction(link.distance);
@@ -275,22 +275,22 @@ let dvvisualizer = {
 
             },
 
-            _link_line: function (d) {
-                const dx = d.target.x - d.source.x,
-                    dy = d.target.y - d.source.y,
-                    dr = Math.sqrt(dx * dx + dy * dy);
+            // _link_line: function (d) {
+            //     const dx = d.target.x - d.source.x,
+            //         dy = d.target.y - d.source.y,
+            //         dr = Math.sqrt(dx * dx + dy * dy);
 
-                if (dr === 0) { return "M0,0L0,0" }
+            //     if (dr === 0) { return "M0,0L0,0" }
 
-                const rsource = this._radius(d.sourceNode) / dr;
-                const rdest = this._radius(d.targetNode) / dr;
-                const startX = d.source.x + dx * rsource;
-                const startY = d.source.y + dy * rsource;
+            //     const rsource = this._radius(d.sourceNode) / dr;
+            //     const rdest = this._radius(d.targetNode) / dr;
+            //     const startX = d.source.x + dx * rsource;
+            //     const startY = d.source.y + dy * rsource;
 
-                const endX = d.target.x - dx * rdest;
-                const endY = d.target.y - dy * rdest;
-                return "M" + startX + "," + startY + "L" + endX + "," + endY;
-            }.bind(visualizer),
+            //     const endX = d.target.x - dx * rdest;
+            //     const endY = d.target.y - dy * rdest;
+            //     return "M" + startX + "," + startY + "L" + endX + "," + endY;
+            // }.bind(visualizer),
 
             setupZoom: function (container) {
                 const w = window,
@@ -318,7 +318,7 @@ let dvvisualizer = {
 
 
             _ticked: function () {
-                this._link.attr("d", this._link_line);
+                // this._link.attr("d", this._link_line);
                 this._node.attr("transform", this._transform);
                 this._structNode.attr("transform", this._transform);
                 if (config.show_texts_near_circles) {

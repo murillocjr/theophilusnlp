@@ -22,7 +22,9 @@ let dvconfig = {
             charge_multiplier: 0,
             // power link
             link_pow : 3,
-            link_coe : 1000
+            link_coe : 1000,
+
+            max_distance: 0.9
         }
     }
 };
