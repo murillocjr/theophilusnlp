@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="generator" content="Jekyll">
+
+  <title>Library Graphic Representation</title>
+
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" /> <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Library Graphic Representation | θεόφιλος Journey</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Library Graphic Representation" />
+<meta name="author" content="Jorge Murillo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="With the metrics information gathered in the previous section and with the help of D3Js, we can make a graphical representation of the books in my digital library (well, just part of it for this project, but eventually I do plan to include all of them)." />
+<meta property="og:description" content="With the metrics information gathered in the previous section and with the help of D3Js, we can make a graphical representation of the books in my digital library (well, just part of it for this project, but eventually I do plan to include all of them)." />
+<link rel="canonical" href="http://0.0.0.0:7000/B-LibGraph" />
+<meta property="og:url" content="http://0.0.0.0:7000/B-LibGraph" />
+<meta property="og:site_name" content="θεόφιλος Journey" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-28T00:00:00+00:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:7000/B-LibGraph"},"@type":"BlogPosting","url":"http://0.0.0.0:7000/B-LibGraph","headline":"Library Graphic Representation","dateModified":"2020-11-28T00:00:00+00:00","datePublished":"2020-11-28T00:00:00+00:00","author":{"@type":"Person","name":"Jorge Murillo"},"description":"With the metrics information gathered in the previous section and with the help of D3Js, we can make a graphical representation of the books in my digital library (well, just part of it for this project, but eventually I do plan to include all of them).","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <header>
+  <div>
+    <a href="/">
+    
+    <h1>jorge@home:~$</h1>
+    </a>
+    <div class="header-links">
+      <a href="/archive"><h2 class="header-link">Archive</h2></a>
+<a href="/about"><h2 class="header-link">About</h2></a>
+<a href="https://github.com/murillocjr/theophilusnlp"><h2 class="header-link">Source Code</h2></a>
+
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <section id="main_content">
+        <article>
+  <h2>Library Graphic Representation</h2>
+  <time datetime="2020-11-28T00:00:00+00:00" class="by-line">28 Nov 2020</time>
+  <p>With the metrics information gathered in the previous section and with the help of D3Js, we can make a graphical representation of the books in my digital library (well, just part of it for this project, but eventually I do plan to include all of them).</p>
+
+<p><img src="assets/d3js_1.png" alt="" /></p>
+
+<ul>
+  <li>The size of the circle representing a book shows how diverse are the topics found: a smaller circle means a mono-thematic book, while a big circle is a book covering a wide variety of topics.</li>
+  <li>The distance between books represents the distance between the topics contained (the closest pair to be more precise).</li>
+</ul>
+
+<p>There are some controls available to play a little with the parameters used for the graphical representation.</p>
+
+<p>The “Link Power” slider allows to “accentuate” the diff-value found, the initial default is 3, increasing it produces a graphic where is easier to pick up thematic groups:</p>
+
+<p><img src="assets/d3js_2.png" alt="" /></p>
+
+<p>The “Link Limit” control requires to select one book first, then we can regulate how close the other books need to be to the selected one to become visible. This way one can see only the books that are closer to a particular item.</p>
+
+<p><img src="assets/d3js_3.png" alt="" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Previous</th>
+      <th style="text-align: left">Home</th>
+      <th style="text-align: left">Next</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="A-Metrics">Metrics</a></td>
+      <td style="text-align: left"><a href="A-θεόφιλος-Journey">θεόφιλος Journey</a></td>
+      <td style="text-align: left"><a href="C-library-visualization">Interactive Visualization</a></td>
+    </tr>
+  </tbody>
+</table>
+
+</article>
+      </section>
+    </div>
+  </div>
+
+   <footer>
+    <a href="http://murillocjr.github.io/">
+    <span>
+        <b>Jorge Murillo</b>
+    </span>
+    
+    <span>© 2020</span>
+    </a>
+</footer>
+
+
+  
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-49256786-5', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+</body>
+
+</html>

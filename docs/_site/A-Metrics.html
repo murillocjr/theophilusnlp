@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="generator" content="Jekyll">
+
+  <title>Metrics</title>
+
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" /> <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Metrics | θεόφιλος Journey</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Metrics" />
+<meta name="author" content="Jorge Murillo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The next question to solve would be: How similar are two documents?, ideally this would be a numeric value based on the gensim-topics we can now obtain from each document." />
+<meta property="og:description" content="The next question to solve would be: How similar are two documents?, ideally this would be a numeric value based on the gensim-topics we can now obtain from each document." />
+<link rel="canonical" href="http://0.0.0.0:7000/A-Metrics" />
+<meta property="og:url" content="http://0.0.0.0:7000/A-Metrics" />
+<meta property="og:site_name" content="θεόφιλος Journey" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-28T00:00:00+00:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:7000/A-Metrics"},"@type":"BlogPosting","url":"http://0.0.0.0:7000/A-Metrics","headline":"Metrics","dateModified":"2020-11-28T00:00:00+00:00","datePublished":"2020-11-28T00:00:00+00:00","author":{"@type":"Person","name":"Jorge Murillo"},"description":"The next question to solve would be: How similar are two documents?, ideally this would be a numeric value based on the gensim-topics we can now obtain from each document.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <header>
+  <div>
+    <a href="/">
+    
+    <h1>jorge@home:~$</h1>
+    </a>
+    <div class="header-links">
+      <a href="/archive"><h2 class="header-link">Archive</h2></a>
+<a href="/about"><h2 class="header-link">About</h2></a>
+<a href="https://github.com/murillocjr/theophilusnlp"><h2 class="header-link">Source Code</h2></a>
+
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <section id="main_content">
+        <article>
+  <h2>Metrics</h2>
+  <time datetime="2020-11-28T00:00:00+00:00" class="by-line">28 Nov 2020</time>
+  <p>The next question to solve would be: <code class="language-plaintext highlighter-rouge">How similar are two documents?</code>, ideally this would be a numeric value based on the gensim-topics we can now obtain from each document.</p>
+
+<p>Fortunately, gensim models do provide a neat function to obtain just that; this <code class="language-plaintext highlighter-rouge">diff</code> function compares topics between two models and returns a value from 0 to 1 that represents how similar is a topic to another topic.</p>
+
+<p>Since our current code obtains 20 topics from each document we can obtain a 20x20 matrix of values comparing all topics between two models, a jupyter notebook is included in the source code that computes this matrix for any required model and even builds a graphic representation of it.</p>
+
+<p>As a first step, we will obtain a comparison of a model to itself, this will compare all 20 topics among them and will give us an answer to <code class="language-plaintext highlighter-rouge">How different are the topics obtained from this document?</code>. This way we can know if a document is mono-thematic or if it covers a wide variety of topics.</p>
+
+<p>For example, in the following graphic we can see that the diagonal is red (indicating a distance of 0; this is, each topic is identical to itself) and for the most part, the cells are light blue without many deep blue cells (which would mean a distance of 1; indicating different topics). So we might conclude that in this document the topics are not much distant from each other</p>
+
+<p><img src="assets/metrics_mono.png" alt="" /></p>
+
+<p>In this other document, we can see a lot of deep blue cells, which we can see as an indication that there are several topics not related at all among them; thus we can say that this document covers a wide variety of “distant” topics</p>
+
+<p><img src="assets/metrics_multi.png" alt="" /></p>
+
+<p>And this last graphic shows the comparison between two models.</p>
+
+<p><img src="assets/metrics_two.png" alt="" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Previous</th>
+      <th style="text-align: left">Home</th>
+      <th style="text-align: left">Next</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="A-Topics-Sefaria">Topics from Sefaria</a></td>
+      <td style="text-align: left"><a href="A-θεόφιλος-Journey">θεόφιλος Journey</a></td>
+      <td style="text-align: left"><a href="B-LibGraph">Library Graphic Representation</a></td>
+    </tr>
+  </tbody>
+</table>
+
+</article>
+      </section>
+    </div>
+  </div>
+
+   <footer>
+    <a href="http://murillocjr.github.io/">
+    <span>
+        <b>Jorge Murillo</b>
+    </span>
+    
+    <span>© 2020</span>
+    </a>
+</footer>
+
+
+  
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-49256786-5', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+</body>
+
+</html>

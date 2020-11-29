@@ -3,13 +3,352 @@
   <channel>
     <title>θεόφιλος Journey</title>
     <description>NLP Books semantic mapping project</description>
-    <link>http://0.0.0.0:4000</link>
-    <atom:link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://0.0.0.0:7000</link>
+    <atom:link href="http://0.0.0.0:7000/feed.xml" rel="self" type="application/rss+xml" />
     <author>
       <name>Jorge Murillo</name>
       <email>murillo.cjr@gmail.com</email>
       <uri>https://murillocjr.github.io/theophilusnlp</uri>
     </author>
+    
+      <item>
+        <title>Digital Library Visualization</title>
+        <description>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;B-LibGraph&quot;&gt;Library Graphic Representation&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;html&gt;
+&lt;meta charset=&quot;utf-8&quot; /&gt;
+&lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://murillocjr.github.io/murillocjr/css/dependency.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://murillocjr.github.io/murillocjr/components/sidr/stylesheets/jquery.sidr.dark.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://murillocjr.github.io/murillocjr/components/editor/editor.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;!-- A lot of Javascript here :) --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://murillocjr.github.io/murillocjr/components/jquery/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://murillocjr.github.io/murillocjr/components/underscore/underscore-min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://murillocjr.github.io/murillocjr/components/d3/d3.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- ================================================= --&gt;
+&lt;!-- ===========ACTUAL HTML           ================ --&gt;
+&lt;!-- ================================================= --&gt;
+
+&lt;form id=&quot;form&quot;&gt;
+    &lt;!-- &lt;label&gt;&lt;input type=&quot;range&quot; name=&quot;circle_size&quot; min=&quot;1&quot; max=&quot;50&quot; value=&quot;15&quot;/&gt; Circle size&lt;/label&gt;&lt;br&gt; --&gt;
+  
+    &lt;label&gt;&lt;input type=&quot;range&quot; name=&quot;link_limit&quot; min=&quot;1&quot; max=&quot;100&quot; value=&quot;100&quot; /&gt; Link Limit&lt;/label&gt;&lt;br /&gt;&lt;label&gt;&lt;input type=&quot;range&quot; name=&quot;link_pow&quot; min=&quot;1&quot; max=&quot;20&quot; value=&quot;3&quot; /&gt; Link Power&lt;/label&gt;&lt;br /&gt;
+    &lt;!-- &lt;label&gt;&lt;input type=&quot;range&quot; name=&quot;charge_multiplier&quot; min=&quot;1&quot; max=&quot;500&quot; value=&quot;1&quot;/&gt; Charge multiplier&lt;/label&gt;&lt;br&gt; --&gt;
+    &lt;!-- &lt;label&gt;&lt;input type=&quot;range&quot; name=&quot;link_strength&quot; min=&quot;0.1&quot; max=&quot;100&quot; value=&quot;0&quot;/&gt; Link strength&lt;/label&gt;&lt;br&gt; --&gt;
+    &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;show_texts_near_circles&quot; id=&quot;show_texts_near_circles&quot; checked=&quot;&quot; /&gt; Show names&lt;/label&gt;&lt;br /&gt;
+    &lt;input id=&quot;search_input&quot; placeholder=&quot;Type regexp to filter nodes&quot; style=&quot;width:100%;&quot; /&gt;&lt;br /&gt;
+&lt;/form&gt;
+
+&lt;!-- Add editor logic with button and everything else --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://murillocjr.github.io/murillocjr/components/sidr/jquery.sidr.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://murillocjr.github.io/murillocjr/components/ace/ace.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://murillocjr.github.io/murillocjr/components/editor/editor.js&quot;&gt;&lt;/script&gt;
+&lt;a id=&quot;simple-menu&quot; class=&quot;editor-button&quot; href=&quot;#sidr&quot;&gt;Live editor&lt;/a&gt;
+
+&lt;div id=&quot;chart&quot; style=&quot;background-color:powderblue;height: 600px;&quot;&gt;
+    &lt;!-- Here the SVG will be placed--&gt;
+
+&lt;/div&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://murillocjr.github.io/murillocjr/origin.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://murillocjr.github.io/murillocjr/components/depvis/depvis-graph-actions-select.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://murillocjr.github.io/murillocjr/components/depvis/depvis-parse.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://murillocjr.github.io/murillocjr/components/depvis/depvis-config.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://murillocjr.github.io/murillocjr/components/depvis/depvis-visualizer.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+
+    //  ===================================================
+    //  =============== CONFIGURABLE PARAMS  ==============
+    //  ===================================================
+
+    let config = dvconfig.create();
+
+    const dvgraph = objcdv.parse_dependencies_graph(dependencies);
+    const d3graph = dvgraph.d3jsGraph();
+
+    var w = window,
+        d = document,
+        e = d.documentElement,
+        g = d.getElementsByTagName('body')[0],
+        x = w.innerWidth || e.clientWidth || g.clientWidth,
+        y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+    //  ===================================================
+    //  =============== http://d3js.org/ Magic ===========
+    //  ===================================================
+
+    const container = d3.select(&quot;#chart&quot;).append(&quot;svg&quot;)
+        .attr(&quot;width&quot;, x)
+        .attr(&quot;height&quot;, y)
+        .style(&quot;overflow&quot;, &quot;hidden&quot;);
+
+    const svg = container.append('g');
+    const actions = graph_actions.create(svg, dvgraph);
+    let visualizer = dvvisualizer.create(svg, config, d3graph);
+    visualizer.initialize();
+    visualizer.setupZoom(container);
+
+
+    //  ===================================================
+    //  ===============  NODES SETUP     ==================
+    //  ===================================================
+
+
+    // Handling pressing
+    visualizer.objectNodes
+        .on(&quot;click&quot;, d =&gt; {
+            if (d3.event.defaultPrevented) { return }
+            actions.selectNodesStartingFromNode(d, config.max_distance);
+            visualizer.reapply_charge_and_links()
+        })
+        .on(&quot;contextmenu&quot;, d =&gt; {
+            if (d3.event.defaultPrevented) { return }
+            // Don't actually show context menu
+            d3.event.preventDefault();
+
+            actions.selectNodesStartingFromNode(d, config.max_distance);
+            visualizer.reapply_charge_and_links()
+        });
+
+
+    /*
+     Window resize update
+     */
+    w.onresize = () =&gt; {
+        x = w.innerWidth || e.clientWidth || g.clientWidth;
+        y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+        container.attr(&quot;width&quot;, Math.ceil(x)).attr(&quot;height&quot;, Math.ceil(y));
+        visualizer.updateCenter(x / 2, y / 2);
+    };
+
+
+&lt;/script&gt;
+
+&lt;script&gt;
+    //  ===================================================
+    //  =============== INPUTS HANDLING      ==============
+    //  ===================================================
+    d3.selectAll(&quot;input&quot;).on(&quot;change&quot;, function change() {
+
+        if (this.name === &quot;circle_size&quot;) {
+            config.default_circle_radius = parseInt(this.value);
+            visualizer.updateRadiuses(parseInt(this.value));
+        }
+        if (this.name === &quot;link_limit&quot;) {
+            config.max_distance = parseInt(this.value) / 100;
+            actions.selectNodesStartingFromSelectedNode(parseInt(this.value) / 100);
+            visualizer.reapply_links_settings();
+        }
+        if (this.name === &quot;link_pow&quot;) {
+            config.link_pow = parseInt(this.value);
+            visualizer.reapply_links_settings();
+        }
+
+        if (this.name === &quot;charge_multiplier&quot;) {
+            let chargeMultiplier = parseInt(this.value);
+            visualizer.reapply_charge(chargeMultiplier)
+        }
+
+        if (this.name === &quot;link_strength&quot;) {
+            let linkStrength = parseInt(this.value) / 10;
+            visualizer.reapply_links_strength(linkStrength)
+        }
+
+        if (this.name === &quot;show_texts_near_circles&quot;) {
+            visualizer.updateTextVisibility(this.checked)
+        }
+
+    });
+&lt;/script&gt;
+
+
+&lt;script&gt;
+    //  ===================================================
+    //  =============== LIVE FILTERING      ==============
+    //  ===================================================
+
+    function live_filter_graph(regexp, classname, invert) {
+        classname = setDefaultValue(classname, &quot;filtered&quot;);
+        invert = setDefaultValue(invert, false);
+
+        const re = new RegExp(regexp, &quot;i&quot;);
+
+        actions.svg.selectAll('.node, .structNode')
+                    .each(function (node) {
+                         let filtered = !node.title.match(re);
+                         if (!filtered) {
+                            actions.selectNodesStartingFromNode(node, config.max_distance);
+                            node.filtered = filtered;
+                         };
+                        // filtered = invert ? !filtered : filtered;
+                        // node.filtered = filtered;
+                        // node.filtered = false;
+                    }).transition();
+
+
+        // svg.selectAll('.node')
+        //     .classed(classname, l =&gt; {
+        //         let filtered = !node.name.match(re);
+        //         filtered = invert ? !filtered : filtered;
+        //         return filtered;
+        //     })
+        //     .attr(&quot;filtered&quot;, l =&gt; {
+        //         let filtered = !(l.sourceNode.name.match(re) &amp;&amp; l.targetNode.name.match(re));
+        //         filtered = invert ? !filtered : filtered;
+        //         return filtered ? &quot;&quot; : &quot;url(#default)&quot;
+        //     })
+        //     .transition()
+
+        svg.selectAll('.link')
+            .classed(classname, l =&gt; {
+                let filtered = !(l.sourceNode.filtered &amp;&amp; l.targetNode.filtered);
+                filtered = invert ? !filtered : filtered;
+                return filtered;
+            })
+            .attr(&quot;marker-end&quot;, l =&gt; {
+                let filtered = !(l.sourceNode.filtered &amp;&amp; l.targetNode.filtered);
+                filtered = invert ? !filtered : filtered;
+                return filtered ? &quot;&quot; : &quot;url(#default)&quot;
+            })
+            .transition()
+    }
+
+
+    d3.select(&quot;#search_input&quot;).on(&quot;input&quot;, function () {
+        console.log(&quot;Input changed to&quot; + this.value);
+        actions.deselect_selected_node();
+
+        if (this.value &amp;&amp; this.value.length) {
+            live_filter_graph(this.value, &quot;filtered&quot;);
+        }
+        visualizer.reapply_charge_and_links();
+    });
+
+    d.addEventListener(&quot;DOMContentLoaded&quot;, function(){
+       
+        setTimeout(() =&gt; {  visualizer.reapply_links_strength(0.1) }, 2000);
+        visualizer.updateTextVisibility(d.getElementById(&quot;show_texts_near_circles&quot;).checked);
+
+    });
+        
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</description>
+        <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:7000//C-library-visualization</link>
+        <link href="http://0.0.0.0:7000/C-library-visualization"/>
+        <guid isPermaLink="true">http://0.0.0.0:7000/C-library-visualization</guid>
+      </item>
+    
+      <item>
+        <title>Library Graphic Representation</title>
+        <description>&lt;p&gt;With the metrics information gathered in the previous section and with the help of D3Js, we can make a graphical representation of the books in my digital library (well, just part of it for this project, but eventually I do plan to include all of them).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/d3js_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The size of the circle representing a book shows how diverse are the topics found: a smaller circle means a mono-thematic book, while a big circle is a book covering a wide variety of topics.&lt;/li&gt;
+  &lt;li&gt;The distance between books represents the distance between the topics contained (the closest pair to be more precise).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There are some controls available to play a little with the parameters used for the graphical representation.&lt;/p&gt;
+
+&lt;p&gt;The “Link Power” slider allows to “accentuate” the diff-value found, the initial default is 3, increasing it produces a graphic where is easier to pick up thematic groups:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/d3js_2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The “Link Limit” control requires to select one book first, then we can regulate how close the other books need to be to the selected one to become visible. This way one can see only the books that are closer to a particular item.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/d3js_3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-Metrics&quot;&gt;Metrics&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;C-library-visualization&quot;&gt;Interactive Visualization&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:7000//B-LibGraph</link>
+        <link href="http://0.0.0.0:7000/B-LibGraph"/>
+        <guid isPermaLink="true">http://0.0.0.0:7000/B-LibGraph</guid>
+      </item>
+    
+      <item>
+        <title>Metrics</title>
+        <description>&lt;p&gt;The next question to solve would be: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;How similar are two documents?&lt;/code&gt;, ideally this would be a numeric value based on the gensim-topics we can now obtain from each document.&lt;/p&gt;
+
+&lt;p&gt;Fortunately, gensim models do provide a neat function to obtain just that; this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;diff&lt;/code&gt; function compares topics between two models and returns a value from 0 to 1 that represents how similar is a topic to another topic.&lt;/p&gt;
+
+&lt;p&gt;Since our current code obtains 20 topics from each document we can obtain a 20x20 matrix of values comparing all topics between two models, a jupyter notebook is included in the source code that computes this matrix for any required model and even builds a graphic representation of it.&lt;/p&gt;
+
+&lt;p&gt;As a first step, we will obtain a comparison of a model to itself, this will compare all 20 topics among them and will give us an answer to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;How different are the topics obtained from this document?&lt;/code&gt;. This way we can know if a document is mono-thematic or if it covers a wide variety of topics.&lt;/p&gt;
+
+&lt;p&gt;For example, in the following graphic we can see that the diagonal is red (indicating a distance of 0; this is, each topic is identical to itself) and for the most part, the cells are light blue without many deep blue cells (which would mean a distance of 1; indicating different topics). So we might conclude that in this document the topics are not much distant from each other&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/metrics_mono.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this other document, we can see a lot of deep blue cells, which we can see as an indication that there are several topics not related at all among them; thus we can say that this document covers a wide variety of “distant” topics&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/metrics_multi.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And this last graphic shows the comparison between two models.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/metrics_two.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-Topics-Sefaria&quot;&gt;Topics from Sefaria&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;B-LibGraph&quot;&gt;Library Graphic Representation&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:7000//A-Metrics</link>
+        <link href="http://0.0.0.0:7000/A-Metrics"/>
+        <guid isPermaLink="true">http://0.0.0.0:7000/A-Metrics</guid>
+      </item>
     
       <item>
         <title>Extracting Topics from Sefaria</title>
@@ -630,15 +969,15 @@
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;C-English-Titles&quot;&gt;English Titles&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-Metrics&quot;&gt;Metrics&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 </description>
         <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:4000//A-Topics-Sefaria</link>
-        <link href="http://0.0.0.0:4000/A-Topics-Sefaria"/>
-        <guid isPermaLink="true">http://0.0.0.0:4000/A-Topics-Sefaria</guid>
+        <link>http://0.0.0.0:7000//A-Topics-Sefaria</link>
+        <link href="http://0.0.0.0:7000/A-Topics-Sefaria"/>
+        <guid isPermaLink="true">http://0.0.0.0:7000/A-Topics-Sefaria</guid>
       </item>
     
       <item>
@@ -3032,9 +3371,9 @@
 &lt;/table&gt;
 </description>
         <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:4000//C-English-Titles</link>
-        <link href="http://0.0.0.0:4000/C-English-Titles"/>
-        <guid isPermaLink="true">http://0.0.0.0:4000/C-English-Titles</guid>
+        <link>http://0.0.0.0:7000//C-English-Titles</link>
+        <link href="http://0.0.0.0:7000/C-English-Titles"/>
+        <guid isPermaLink="true">http://0.0.0.0:7000/C-English-Titles</guid>
       </item>
     
       <item>
@@ -3179,9 +3518,9 @@ switched to db sefaria
 &lt;/table&gt;
 </description>
         <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:4000//B-Sefaria</link>
-        <link href="http://0.0.0.0:4000/B-Sefaria"/>
-        <guid isPermaLink="true">http://0.0.0.0:4000/B-Sefaria</guid>
+        <link>http://0.0.0.0:7000//B-Sefaria</link>
+        <link href="http://0.0.0.0:7000/B-Sefaria"/>
+        <guid isPermaLink="true">http://0.0.0.0:7000/B-Sefaria</guid>
       </item>
     
       <item>
@@ -3285,9 +3624,9 @@ Bruce K. Waltke&lt;/p&gt;
 &lt;/table&gt;
 </description>
         <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:4000//A-Processing-PDF</link>
-        <link href="http://0.0.0.0:4000/A-Processing-PDF"/>
-        <guid isPermaLink="true">http://0.0.0.0:4000/A-Processing-PDF</guid>
+        <link>http://0.0.0.0:7000//A-Processing-PDF</link>
+        <link href="http://0.0.0.0:7000/A-Processing-PDF"/>
+        <guid isPermaLink="true">http://0.0.0.0:7000/A-Processing-PDF</guid>
       </item>
     
       <item>
@@ -17851,9 +18190,9 @@ if(typeof(LDAvis) !== &quot;undefined&quot;){
 &lt;/table&gt;
 </description>
         <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:4000//A-topic-visualization</link>
-        <link href="http://0.0.0.0:4000/A-topic-visualization"/>
-        <guid isPermaLink="true">http://0.0.0.0:4000/A-topic-visualization</guid>
+        <link>http://0.0.0.0:7000//A-topic-visualization</link>
+        <link href="http://0.0.0.0:7000/A-topic-visualization"/>
+        <guid isPermaLink="true">http://0.0.0.0:7000/A-topic-visualization</guid>
       </item>
     
       <item>
@@ -17932,9 +18271,9 @@ And the results are :&lt;/p&gt;
 &lt;/table&gt;
 </description>
         <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:4000//A-topic-modeling</link>
-        <link href="http://0.0.0.0:4000/A-topic-modeling"/>
-        <guid isPermaLink="true">http://0.0.0.0:4000/A-topic-modeling</guid>
+        <link>http://0.0.0.0:7000//A-topic-modeling</link>
+        <link href="http://0.0.0.0:7000/A-topic-modeling"/>
+        <guid isPermaLink="true">http://0.0.0.0:7000/A-topic-modeling</guid>
       </item>
     
       <item>
@@ -18605,316 +18944,9 @@ Ezra 11
 &lt;/table&gt;
 </description>
         <pubDate>Thu, 10 Sep 2020 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:4000//A-hebrew</link>
-        <link href="http://0.0.0.0:4000/A-hebrew"/>
-        <guid isPermaLink="true">http://0.0.0.0:4000/A-hebrew</guid>
-      </item>
-    
-      <item>
-        <title>One result ...several questions</title>
-        <description>&lt;p&gt;At this point we have tokenized the whole text of the “World Messianic Bible” and we have the first report of the most used words that are also semantically valuable:” LORD”, “shall” and “said” are the first of 2362 unique token-words found.&lt;/p&gt;
-
-&lt;p&gt;The API service that provided us with the text has listed 23 English available versions of the bible, and it claims to provide 2500 versions in over 1600 languages.&lt;/p&gt;
-
-&lt;p&gt;I wonder how the token list will vary depending on the version we use and even other languages, I’m particularly interested in checking whether NLTK provides support for Hebrew or not.&lt;/p&gt;
-
-&lt;p&gt;Another thing we can get is the most used words by each book, which could give us some insight into the main topic of each one.&lt;/p&gt;
-
-&lt;p&gt;For the word-token frequency by book, we can run:&lt;/p&gt;
-
-&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'count'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wordtokens&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;desc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Which give us the following results (&lt;strong&gt;f_e_print_word_frequency_by_book.py&lt;/strong&gt;):&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1CH	sons(303)		David(181)		LORD(172)		
-1CO	things(76)		Messiah(66)		Lord(66)		
-1JN	know(36)		us(35)		love(35)		
-1KI	LORD(252)		said(207)		Israel(194)		
-1PE	Messiah(19)		may(14)		also(13)		
-1SA	LORD(309)		Saul(288)		David(281)		
-1TH	Lord(25)		Yeshua(17)		us(16)		
-1TI	good(22)		faith(17)		Messiah(16)		
-2CH	king(248)		house(194)		God(181)		
-2CO	Messiah(47)		also(45)		us(43)		
-2JN	Father(4)		us(3)		teaching(3)		
-2KI	LORD(276)		said(221)		Israel(149)		
-2PE	things(12)		day(10)		Yeshua(9)		
-2SA	David(274)		said(230)		LORD(142)		
-2TH	God(19)		Yeshua(12)		us(9)		
-2TI	Yeshua(14)		Messiah(14)		God(13)		
-3JN	brothers(3)		God(3)		write(2)		
-ACT	said(149)		Paul(126)		Lord(98)		
-AMO	says(46)		Israel(26)		house(25)		
-COL	God(22)		things(20)		also(15)		
-DAN	Daniel(72)		God(48)		kingdom(47)		
-DEU	LORD(545)		God(341)		land(179)		
-ECC	God(39)		time(38)		heart(36)		
-EPH	God(31)		one(24)		Lord(24)		
-EST	Mordecai(56)		Esther(53)		Haman(51)		
-EXO	LORD(385)		Moses(283)		said(199)		
-EZK	Lord(221)		says(209)		LORD(191)		
-EZR	God(95)		king(63)		hundred(60)		
-GAL	law(30)		God(30)		faith(19)		
-GEN	father(260)		God(214)		land(190)		
-HAB	nations(7)		like(7)		violence(5)		
-HAG	says(20)		Hosts(13)		son(10)		
-HEB	things(38)		made(30)		faith(30)		
-HOS	LORD(37)		Israel(37)		Ephraim(24)		
-ISA	shall(192)		like(162)		says(109)		
-JAS	God(17)		faith(16)		brothers(14)		
-JDG	Israel(172)		LORD(169)		children(128)		
-JER	says(337)		king(226)		land(190)		
-JHN	Yeshua(238)		therefore(100)		answered(77)		
-JOB	man(77)		Job(54)		know(53)		
-JOL	children(11)		great(10)		God(10)		
-JON	said(18)		Jonah(18)		God(14)		
-JOS	children(190)		Joshua(155)		Israel(153)		
-JUD	ungodly(5)		Yeshua(5)		God(5)		
-LAM	daughter(20)		like(14)		day(14)		
-LEV	LORD(284)		offering(268)		priest(183)		
-LUK	Yeshua(96)		son(89)		saying(72)		
-MAL	says(27)		Hosts(18)		say(13)		
-MAT	Yeshua(158)		saying(94)		came(93)		
-MIC	like(19)		come(15)		people(12)		
-MRK	Yeshua(84)		came(75)		went(47)		
-NAM	like(12)		away(7)		make(5)		
-NEH	son(112)		God(71)		hundred(49)		
-NUM	LORD(385)		children(258)		offering(242)		
-OBA	possess(6)		LORD(6)		Esau(6)		
-PHM	Messiah(6)		fellow(4)		Paul(4)		
-PHP	things(25)		God(22)		Yeshua(19)		
-PRO	wicked(75)		LORD(74)		shall(61)		
-PSA	God(321)		shall(183)		like(146)		
-REV	earth(76)		great(61)		like(60)		
-ROM	law(73)		Messiah(63)		also(60)		
-RUT	Naomi(22)		Boaz(20)		LORD(18)		
-SNG	beloved(32)		love(20)		beautiful(13)		
-TIT	things(10)		good(10)		may(9)		
-ZEC	Hosts(51)		says(42)		Jerusalem(35)	
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Next, lets try with other English translation, for that we just need to change the BIBLE_ID parameter and run all our scripts again:&lt;/p&gt;
-
-&lt;p&gt;In &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;c_a_parameters_bible.py&lt;/code&gt;&lt;/strong&gt; we put the id for : &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bf8f1c7f3f9045a5-01'JPS TaNaKH 1917&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;And we run the next scripts:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python c_b_retrieve_bible_books.py 
-python d_b_retrieve_books_chapters.py 
-python e_b_retrieve_chapters_text.py
-python f_b_tokenize_documents.py
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Which result in the following list of tokens by frequency:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;('shall', 7404)
-('unto', 6820)
-('LORD', 6535)
-('thou', 3356)
-('thy', 3317)
-('said', 2899)
-('thee', 2879)
-('God', 2654)
-('Israel', 2505)
-('upon', 2451)
-('king', 2410)
-('ye', 2314)
-('son', 1897)
-('land', 1838)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Which shows that NLTK does not have words like “thou” or “thy” in its list of stop-words. It does allow for editing that list though, so is a solvable issue.&lt;/p&gt;
-
-&lt;p&gt;Next, a tougher test: Hebrew&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-tokenizing-all-documents&quot;&gt;Tokenizing all Documents&lt;/a&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-hebrew&quot;&gt;Hebrew&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-</description>
-        <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:4000//A-one-result-several-questions</link>
-        <link href="http://0.0.0.0:4000/A-one-result-several-questions"/>
-        <guid isPermaLink="true">http://0.0.0.0:4000/A-one-result-several-questions</guid>
-      </item>
-    
-      <item>
-        <title>Tokenizing all documents</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/murillocjr/theophilusnlp&quot;&gt;Scripts Source Code&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;The purpose is to go chapter by chapter and run the “tokenizing by words” process, then store the results in a database so we can start getting statistics on the words used.&lt;/p&gt;
-
-&lt;p&gt;All our JSON documents are stored in TinyDB structures, from there we will extract information like token words; since we will need to run SELECT commands with COUNT and GROUP BY options; which is not that straight forward in TinyDB, we will make use of an SQLite auxiliary database for analysis.&lt;/p&gt;
-
-&lt;p&gt;The first tokenization attempt (run over Genesis only, to speed the process) returns the following results (scripts &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f_b_tokenize_documents.py&lt;/code&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f_d_print_word_tokens.py&lt;/code&gt;&lt;/strong&gt;) :&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(',', 3802)
-('the', 2226)
-('and', 1712)
-('.', 1460)
-('of', 1315)
-('to', 1076)
-('his', 580)
-(''', 567)
-('you', 559)
-('in', 542)
-('&quot;', 537)
-('&quot;', 524)
-('said', 466)
-('I', 439)
-('will', 412)
-('that', 392)
-('him', 386)
-('your', 357)
-('a', 355)
-('he', 348)
-('my', 334)
-('s', 330)
-('was', 316)
-('with', 310)
-('for', 303)
-('is', 278)
-('He', 273)
-('me', 271)
-('father', 260)
-('The', 254)
-('be', 217)
-('God', 214)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The total count of unique tokens/words is 43518, from which we can see some issues :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;3802 instances of “,” (comma)&lt;/li&gt;
-  &lt;li&gt;2226 instances of “the”, etc&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;which won’t be useful at this stage of Topic Modeling, so we need to prevent these “stop words” and punctuation symbols to get into the database; NLTK provides help for this task with:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;stop_words&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stopwords&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'english'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;tokens&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chapter_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;non_punctuation_tokens&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tokens&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isalnum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()]&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;removed_stop_words&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;non_punctuation_tokens&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stop_words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Which reduces the count to 2362 (~ 5.43% of the first list) remaining token words:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;('said', 466)
-('father', 260)
-('God', 214)
-('land', 190)
-('Jacob', 175)
-('LORD', 162)
-('Joseph', 152)
-('son', 146)
-('sons', 136)
-('Abraham', 132)
-...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;So….: there’s a lot “said” in Genesis    :)&lt;/p&gt;
-
-&lt;p&gt;Releasing the tokenization for all the chapters in the bible we get:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;('LORD', 6189)
-('shall', 4318)
-('said', 3819)
-('God', 3540)
-('Israel', 2352)
-('king', 2346)
-('one', 2129)
-('man', 2035)
-('son', 2031)
-('people', 1793)
-('house', 1746)
-('children', 1722)
-('came', 1648)
-('land', 1632)
-('men', 1444)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This first result could be interpreted as a very, very rough answer to “What the bible talks about?” and it has a very deep meaning for me personally.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-milestone-1&quot;&gt;Milestone 1&lt;/a&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-one-result-several-questions&quot;&gt;One Result, Several Questions&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-</description>
-        <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:4000//A-tokenizing-all-documents</link>
-        <link href="http://0.0.0.0:4000/A-tokenizing-all-documents"/>
-        <guid isPermaLink="true">http://0.0.0.0:4000/A-tokenizing-all-documents</guid>
-      </item>
-    
-      <item>
-        <title>Milestone 1</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/murillocjr/theophilusnlp&quot;&gt;Scripts Source Code&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;This is what we have so far:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Data: A whole bible text inside TinyDB documents database entities.&lt;/li&gt;
-  &lt;li&gt;Code: A function that returns the raw text of a whole chapter on receiving the ChapterID&lt;/li&gt;
-  &lt;li&gt;NLTK environment up and running.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The code used to retrieve this information is inside small python scripts available on the GitHub repo associated with this project. Since the data is stored in a database we can query it any way we want; also the chapter data is in a JSON format that also can give us paragraphs and verses individually&lt;/p&gt;
-
-&lt;p&gt;Here’s where the fun begins; we can start playing with query and code to start gaining insights in the data we have:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python d_d_print_books_chapters.py &lt;span class=&quot;s1&quot;&gt;' wc -l
-1255
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;We can see that there are 1255 chapters that we will treat as separate documents, so in the end, we could get what is the main topic(s) in any particular chapter/document.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Previous&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Home&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Next&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-database-support&quot;&gt;Database Support&lt;/a&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-θεόφιλος-Journey&quot;&gt;θεόφιλος Journey&lt;/a&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;A-tokenizing-all-documents&quot;&gt;Tokenizing all Documents&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-</description>
-        <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:4000//A-milestone-1</link>
-        <link href="http://0.0.0.0:4000/A-milestone-1"/>
-        <guid isPermaLink="true">http://0.0.0.0:4000/A-milestone-1</guid>
+        <link>http://0.0.0.0:7000//A-hebrew</link>
+        <link href="http://0.0.0.0:7000/A-hebrew"/>
+        <guid isPermaLink="true">http://0.0.0.0:7000/A-hebrew</guid>
       </item>
     
   </channel>

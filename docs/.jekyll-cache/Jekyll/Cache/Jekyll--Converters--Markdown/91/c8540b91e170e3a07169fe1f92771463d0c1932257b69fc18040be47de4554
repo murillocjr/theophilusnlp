@@ -1,4 +1,4 @@
-I"><p>With over 2000 articles available from sefaria, even just reading the titles it takes a while to go through the list; at first glace these titles look interesting:</p>
+I")><p>With over 2000 articles available from sefaria, even just reading the titles it takes a while to go through the list; at first glace these titles look interesting:</p>
 
 <ul>
   <li>5785647ed6e4a925d823d80f	Jewish Approach to Abortion	Sanhedrin</li>
@@ -527,7 +527,7 @@
 
 <p>So it was necessary to use a recursive exploration of the document looking for string data to gather the text to process (<code class="language-plaintext highlighter-rouge">b_get_documents_topics.py</code>).</p>
 
-<p>Also the use of a custom collection of stop words was necessarysince the default list from NLTK was’t catching “thou” for example and also some words like “footnote” needed to be discarded.</p>
+<p>Also the use of a custom collection of stop words was necessary since the default list from NLTK was’t catching “thou” for example and also some words like “footnote” needed to be discarded.</p>
 
 <p>With all this adjustments we could get our first topic models:</p>
 
@@ -615,7 +615,7 @@
     <tr>
       <td style="text-align: left"><a href="C-English-Titles">English Titles</a></td>
       <td style="text-align: left"><a href="A-θεόφιλος-Journey">θεόφιλος Journey</a></td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left"><a href="A-Metrics">Metrics</a></td>
     </tr>
   </tbody>
 </table>

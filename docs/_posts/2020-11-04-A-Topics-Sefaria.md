@@ -616,4 +616,4 @@ With all this adjustments we could get our first topic models:
 
 | Previous        | Home          | Next |
 |:-------------|:------------------|:------|
-|  [English Titles](C-English-Titles) | [θεόφιλος Journey](A-θεόφιλος-Journey) |  |
+|  [English Titles](C-English-Titles) | [θεόφιλος Journey](A-θεόφιλος-Journey) | [Metrics](A-Metrics) |
