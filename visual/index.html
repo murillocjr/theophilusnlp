@@ -18,8 +18,8 @@
 
 <form id="form">
     <!-- <label><input type="range" name="circle_size" min="1" max="50" value="15"/> Circle size</label><br> -->
-    <label><input type="range" name="link_pow" min="1" max="10" value="3"/> Link Power</label><br>
-    <label><input type="range" name="link_limit" min="1" max="100" value="100"/> Link Limit</label><br><label><input type="range" name="link_pow" min="1" max="10" value="3"/> Link Power</label><br>
+  
+    <label><input type="range" name="link_limit" min="1" max="100" value="100"/> Link Limit</label><br><label><input type="range" name="link_pow" min="1" max="20" value="3"/> Link Power</label><br>
     <!-- <label><input type="range" name="charge_multiplier" min="1" max="500" value="1"/> Charge multiplier</label><br> -->
     <!-- <label><input type="range" name="link_strength" min="0.1" max="100" value="0"/> Link strength</label><br> -->
     <label><input type="checkbox" name="show_texts_near_circles" id="show_texts_near_circles" checked /> Show names</label><br>
@@ -124,6 +124,7 @@
         if (this.name === "link_limit") {
             config.max_distance = parseInt(this.value) / 100;
             actions.selectNodesStartingFromSelectedNode(parseInt(this.value) / 100);
+            visualizer.reapply_links_settings();
         }
         if (this.name === "link_pow") {
             config.link_pow = parseInt(this.value);
