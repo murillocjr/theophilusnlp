@@ -1,3 +1,6 @@
+import sys
+sys.path.append('../commons/')
+from model_utils import getTopicsFromModel
 from os import listdir
 from os.path import isfile, join
 import os
@@ -7,6 +10,7 @@ from gensim import corpora, models
 import pickle
 import json
 
+keepExisting = True
 folderName = '../models'
 
 def filesList():
@@ -15,6 +19,14 @@ def filesList():
 
 for file in filesList():
     if file.endswith("_model5.gensim"):
+        metaFile = folderName + '/' + file[0: -14]+'.metadata'
+        if keepExisting:
+            with open(metaFile) as json_file: 
+                data = json.load(json_file)
+                if data['size'] and data['topics']:
+                    print('Already Processed: '+file[0: -14]+'::'+data['title'])
+                    continue
+    
         ldamodel =  models.LdaModel.load(folderName +'/'+ file)
         mdiff, annotation = ldamodel.diff(ldamodel, distance='jaccard', num_words=50)
 
@@ -30,10 +42,20 @@ for file in filesList():
         else:
             size = round(40*(1-minimum))
         #
-        metaFile = folderName + '/' + file[0: -14]+'.metadata'
+        ##
+        topics = getTopicsFromModel(ldamodel)
+        stringTopics = ''
+        for topic in topics:
+            for word in topic:
+                stringTopics = stringTopics + word + ','
+            stringTopics = stringTopics + '|'
+        ##
+        
         with open(metaFile) as json_file: 
             data = json.load(json_file)
             data['size'] = size
+            data['topics'] = stringTopics
+        
 
         mf = open(metaFile, 'w')
         json.dump(data, mf)
