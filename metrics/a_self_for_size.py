@@ -23,7 +23,7 @@ for file in filesList():
         if keepExisting:
             with open(metaFile) as json_file: 
                 data = json.load(json_file)
-                if data['size'] and data['topics']:
+                if ('size' in data) and ('topics' in data):
                     print('Already Processed: '+file[0: -14]+'::'+data['title'])
                     continue
     
