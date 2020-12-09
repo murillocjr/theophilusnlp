@@ -53,6 +53,7 @@ let dvvisualizer = {
                     .attr("class", "marker")
                     .attr("size", d => d.size)
                     .attr("title", d => d.title)
+                    .attr("topics", d => d.topics)
                     .append("path");
 
                 this.updateMarkers(size);

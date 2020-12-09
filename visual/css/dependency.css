@@ -127,6 +127,27 @@ form {
     top: 60px;
 }
 
+#topicsContainer {
+    position: absolute;
+    right: 10px;
+    top: 150px;
+    width: 50;
+    overflow:scroll; 
+    height:200px;
+    color: white;
+    stroke-width: 0.5px;
+    text-anchor: middle;
+    font: 10px sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    background-color: black;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    opacity: .7;
+}
+
 #simple-menu {
     position: absolute;
     right: 10px;

@@ -47,8 +47,8 @@ for file in filesList():
         stringTopics = ''
         for topic in topics:
             for word in topic:
-                stringTopics = stringTopics + word + ','
-            stringTopics = stringTopics + '|'
+                stringTopics = stringTopics + word + '<br>'
+            stringTopics = stringTopics + '-::-<br>'
         ##
         
         with open(metaFile) as json_file: 

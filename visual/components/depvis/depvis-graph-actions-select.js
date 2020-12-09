@@ -2,6 +2,7 @@
 //  ===============  SELECTING_NODE       =============
 //  ===================================================
 
+
 let graph_actions = {
     create: function (svg, dvgraph) {
 
@@ -11,6 +12,7 @@ let graph_actions = {
             svg: svg,
             selectedObject: {},
             dvgraph: dvgraph,
+            toolTipElement: "-",
 
             deselect_node: function (d) {
                 this._unlockNode(d);
@@ -143,6 +145,13 @@ let graph_actions = {
                 this._fadeOutAllNodesAndLinks();
                 this._highlightNodesWithIndexes(neighborIndexes);
                 // this._highlightLinksFromRootWithNodesIndexes(node, neighborIndexes);
+            },
+
+            displayTopics: function (node) {
+
+                div = this.toolTipElement;
+                div.innerHTML = node.topics;
+
             }
 
         };

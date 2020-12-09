@@ -20,7 +20,12 @@ for file in filesList():
     if file.endswith(".metadata"):
         with open(folderName + '/' + file) as json_file: 
             data = json.load(json_file)
-            dependencies['objects'][data['md5']]={'type': 'unknown', 'size': data['size'], 'title': data['title']}
+            dependencies['objects'][data['md5']]={
+                'type': 'unknown', 
+                'size': data['size'], 
+                'title': data['title'],
+                'topics': data['topics']
+                }
 
 visualFilePath = '../visual/origin.js'
 if os.path.exists(visualFilePath):
