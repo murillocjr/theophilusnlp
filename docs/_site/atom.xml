@@ -49,24 +49,22 @@
 &lt;!-- ================================================= --&gt;
 
 &lt;form id=&quot;form&quot;&gt;
-    &lt;!-- &lt;label&gt;&lt;input type=&quot;range&quot; name=&quot;circle_size&quot; min=&quot;1&quot; max=&quot;50&quot; value=&quot;15&quot;/&gt; Circle size&lt;/label&gt;&lt;br&gt; --&gt;
-  
+
     &lt;label&gt;&lt;input type=&quot;range&quot; name=&quot;link_limit&quot; min=&quot;1&quot; max=&quot;100&quot; value=&quot;100&quot; /&gt; Link Limit&lt;/label&gt;&lt;br /&gt;&lt;label&gt;&lt;input type=&quot;range&quot; name=&quot;link_pow&quot; min=&quot;1&quot; max=&quot;20&quot; value=&quot;3&quot; /&gt; Link Power&lt;/label&gt;&lt;br /&gt;
-    &lt;!-- &lt;label&gt;&lt;input type=&quot;range&quot; name=&quot;charge_multiplier&quot; min=&quot;1&quot; max=&quot;500&quot; value=&quot;1&quot;/&gt; Charge multiplier&lt;/label&gt;&lt;br&gt; --&gt;
-    &lt;!-- &lt;label&gt;&lt;input type=&quot;range&quot; name=&quot;link_strength&quot; min=&quot;0.1&quot; max=&quot;100&quot; value=&quot;0&quot;/&gt; Link strength&lt;/label&gt;&lt;br&gt; --&gt;
+
     &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;show_texts_near_circles&quot; id=&quot;show_texts_near_circles&quot; checked=&quot;&quot; /&gt; Show names&lt;/label&gt;&lt;br /&gt;
     &lt;input id=&quot;search_input&quot; placeholder=&quot;Type regexp to filter nodes&quot; style=&quot;width:100%;&quot; /&gt;&lt;br /&gt;
 &lt;/form&gt;
+&lt;div id=&quot;topicsContainer&quot;&gt;&lt;/div&gt;
+
 
 &lt;!-- Add editor logic with button and everything else --&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://murillocjr.github.io/murillocjr/components/sidr/jquery.sidr.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://murillocjr.github.io/murillocjr/components/ace/ace.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://murillocjr.github.io/murillocjr/components/editor/editor.js&quot;&gt;&lt;/script&gt;
-&lt;a id=&quot;simple-menu&quot; class=&quot;editor-button&quot; href=&quot;#sidr&quot;&gt;Live editor&lt;/a&gt;
 
 &lt;div id=&quot;chart&quot; style=&quot;background-color:powderblue;height: 600px;&quot;&gt;
     &lt;!-- Here the SVG will be placed--&gt;
-
 &lt;/div&gt;
 
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://murillocjr.github.io/murillocjr/origin.js&quot;&gt;&lt;/script&gt;
@@ -127,7 +125,11 @@
 
             actions.selectNodesStartingFromNode(d, config.max_distance);
             visualizer.reapply_charge_and_links()
-        });
+        })
+        .on(&quot;mouseover&quot;, d =&gt; {
+            actions.displayTopics(d);
+        })
+        ;
 
 
     /*
@@ -249,11 +251,13 @@
         setTimeout(() =&gt; {  visualizer.reapply_links_strength(0.1) }, 2000);
         visualizer.updateTextVisibility(d.getElementById(&quot;show_texts_near_circles&quot;).checked);
 
-    });
-        
+        actions.toolTipElement = document.getElementById(&quot;topicsContainer&quot;);
+
+        });
 &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
+
 </description>
         <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
         <link>http://0.0.0.0:7000//C-library-visualization</link>

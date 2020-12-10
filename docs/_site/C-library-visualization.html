@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-11-28T00:00:00+00:00" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:7000/C-library-visualization"},"@type":"BlogPosting","url":"http://0.0.0.0:7000/C-library-visualization","headline":"Digital Library Visualization","dateModified":"2020-11-28T00:00:00+00:00","datePublished":"2020-11-28T00:00:00+00:00","author":{"@type":"Person","name":"Jorge Murillo"},"description":"Previous Home   Library Graphic Representation θεόφιλος Journey  ","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:7000/C-library-visualization"},"author":{"@type":"Person","name":"Jorge Murillo"},"@type":"BlogPosting","url":"http://0.0.0.0:7000/C-library-visualization","headline":"Digital Library Visualization","dateModified":"2020-11-28T00:00:00+00:00","datePublished":"2020-11-28T00:00:00+00:00","description":"Previous Home   Library Graphic Representation θεόφιλος Journey  ","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -85,24 +85,22 @@
 <!-- ================================================= -->
 
 <form id="form">
-    <!-- <label><input type="range" name="circle_size" min="1" max="50" value="15"/> Circle size</label><br> -->
-  
+
     <label><input type="range" name="link_limit" min="1" max="100" value="100" /> Link Limit</label><br /><label><input type="range" name="link_pow" min="1" max="20" value="3" /> Link Power</label><br />
-    <!-- <label><input type="range" name="charge_multiplier" min="1" max="500" value="1"/> Charge multiplier</label><br> -->
-    <!-- <label><input type="range" name="link_strength" min="0.1" max="100" value="0"/> Link strength</label><br> -->
+
     <label><input type="checkbox" name="show_texts_near_circles" id="show_texts_near_circles" checked="" /> Show names</label><br />
     <input id="search_input" placeholder="Type regexp to filter nodes" style="width:100%;" /><br />
 </form>
+<div id="topicsContainer"></div>
+
 
 <!-- Add editor logic with button and everything else -->
 <script type="text/javascript" src="https://murillocjr.github.io/murillocjr/components/sidr/jquery.sidr.js"></script>
 <script type="text/javascript" src="https://murillocjr.github.io/murillocjr/components/ace/ace.js"></script>
 <script type="text/javascript" src="https://murillocjr.github.io/murillocjr/components/editor/editor.js"></script>
-<a id="simple-menu" class="editor-button" href="#sidr">Live editor</a>
 
 <div id="chart" style="background-color:powderblue;height: 600px;">
     <!-- Here the SVG will be placed-->
-
 </div>
 
 <script type="text/javascript" src="https://murillocjr.github.io/murillocjr/origin.js"></script>
@@ -163,7 +161,11 @@
 
             actions.selectNodesStartingFromNode(d, config.max_distance);
             visualizer.reapply_charge_and_links()
-        });
+        })
+        .on("mouseover", d => {
+            actions.displayTopics(d);
+        })
+        ;
 
 
     /*
@@ -285,11 +287,13 @@
         setTimeout(() => {  visualizer.reapply_links_strength(0.1) }, 2000);
         visualizer.updateTextVisibility(d.getElementById("show_texts_near_circles").checked);
 
-    });
-        
+        actions.toolTipElement = document.getElementById("topicsContainer");
+
+        });
 </script>
 </body>
 </html>
+
 
 </article>
       </section>
