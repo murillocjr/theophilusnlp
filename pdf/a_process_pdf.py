@@ -16,7 +16,7 @@ import json
 
 
 def processPDF(pdfFilePath, stopWords, englishWords, numTopics, numWords, modelPasses, outputPath, isScanned):
-    allText = parser.from_file(pdfFilePath)
+    allText = parser.from_file(str(pdfFilePath))
     paragList = allText['content'].split('\n\n')
 
     count = 0
@@ -27,8 +27,8 @@ def processPDF(pdfFilePath, stopWords, englishWords, numTopics, numWords, modelP
         count +=1    
         tokens = word_tokenize(text)
     
-        non_punctuation_tokens = [token for token in tokens if token.isalnum()]
-        removed_stop_words = [w for w in non_punctuation_tokens if not w.lower() in stopWords]
+        # non_punctuation_tokens = [token for token in tokens if token.isalnum()]
+        removed_stop_words = [w for w in tokens if not w.lower() in stopWords]
 
         english_words_page = [w for w in removed_stop_words if     w.lower() in englishWords]
         non_english_page   = [w for w in removed_stop_words if not w.lower() in englishWords]
@@ -58,7 +58,7 @@ def processPDF(pdfFilePath, stopWords, englishWords, numTopics, numWords, modelP
     title = os.path.splitext(base)[0]
     metadata = {}
     metadata['title'] = title
-    metadata['isScanned'] = isScanned
+    # metadata['isScanned'] = isScanned
     metadata['md5'] = filename
     metaFile = open(outputPath+'/'+filename+'.metadata', "w")
     metaFile.write(json.dumps(metadata))
