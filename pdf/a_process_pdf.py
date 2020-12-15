@@ -30,12 +30,12 @@ def processPDF(pdfFilePath, stopWords, englishWords, numTopics, numWords, modelP
         non_punctuation_tokens = [token for token in tokens if token.isalnum()]
         removed_stop_words = [w for w in non_punctuation_tokens if not w.lower() in stopWords]
 
-        english_words = [w for w in removed_stop_words if w.lower() in englishWords]
-        non_english_page = [w for w in removed_stop_words if not w.lower() in englishWords]
+        english_words_page = [w for w in removed_stop_words if     w.lower() in englishWords]
+        non_english_page   = [w for w in removed_stop_words if not w.lower() in englishWords]
         non_english.extend(non_english_page)
     
         ch_tokens = []
-        for word in english_words:
+        for word in english_words_page:
             ch_tokens.append(getLemma(word))
     
         text_data.append(ch_tokens)

@@ -6,11 +6,10 @@ import gensim
 from gensim import corpora, models
 import pickle
 import json
-
-folderName = '../models'
+import process_parameters as pp
 
 def filesList():
-    return [f for f in listdir(folderName) if isfile(join(folderName, f))]
+    return [f for f in listdir(pp.MODEL_FILE_PATH) if isfile(join(pp.MODEL_FILE_PATH, f))]
 
 dependencies = {}
 dependencies['objects']={}
@@ -18,7 +17,7 @@ dependencies['links']=[]
 dependencies['links_count']=0
 for file in filesList():
     if file.endswith(".metadata"):
-        with open(folderName + '/' + file) as json_file: 
+        with open(pp.MODEL_FILE_PATH + '/' + file) as json_file: 
             data = json.load(json_file)
             dependencies['objects'][data['md5']]={
                 'type': 'unknown', 

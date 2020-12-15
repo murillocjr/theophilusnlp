@@ -6,11 +6,10 @@ import gensim
 from gensim import corpora, models
 import pickle
 import json
-
-folderName = '../models'
+import process_parameters as pp
 
 def filesList():
-    return [f for f in listdir(folderName) if isfile(join(folderName, f))]
+    return [f for f in listdir(pp.MODEL_FILE_PATH) if isfile(join(pp.MODEL_FILE_PATH, f))]
 
 list = []
 for file in filesList():
@@ -26,7 +25,7 @@ line = vf.readline().replace('var dependencies =','')
 obj = json.loads(line)
 
 for linkFile in list:
-    lf = open(folderName+'/'+linkFile, 'r')
+    lf = open(pp.MODEL_FILE_PATH+'/'+linkFile, 'r')
     lt = lf.readline()
     linkMin = json.loads(lt)
     obj['links'].append(linkMin)

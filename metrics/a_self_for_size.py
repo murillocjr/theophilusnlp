@@ -9,25 +9,23 @@ import gensim
 from gensim import corpora, models
 import pickle
 import json
-
-keepExisting = True
-folderName = '../models'
+import process_parameters as pp
 
 def filesList():
-    return [f for f in listdir(folderName) if isfile(join(folderName, f))]
+    return [f for f in listdir(pp.MODEL_FILE_PATH) if isfile(join(pp.MODEL_FILE_PATH, f))]
 
 
 for file in filesList():
     if file.endswith("_model5.gensim"):
-        metaFile = folderName + '/' + file[0: -14]+'.metadata'
-        if keepExisting:
+        metaFile = pp.MODEL_FILE_PATH + '/' + file[0: -14]+'.metadata'
+        if pp.KEEP_EXISTING_SIZE_TOPICS:
             with open(metaFile) as json_file: 
                 data = json.load(json_file)
                 if ('size' in data) and ('topics' in data):
                     print('Already Processed: '+file[0: -14]+'::'+data['title'])
                     continue
     
-        ldamodel =  models.LdaModel.load(folderName +'/'+ file)
+        ldamodel =  models.LdaModel.load(pp.MODEL_FILE_PATH +'/'+ file)
         mdiff, annotation = ldamodel.diff(ldamodel, distance='jaccard', num_words=50)
 
         minimum = 2
@@ -48,7 +46,7 @@ for file in filesList():
         for topic in topics:
             for word in topic:
                 stringTopics = stringTopics + word + '<br>'
-            stringTopics = stringTopics + '-::-<br>'
+            stringTopics = stringTopics + '<hr>'
         ##
         
         with open(metaFile) as json_file: 
